@@ -1,0 +1,91 @@
+﻿@model Product
+@{
+    ViewBag.Title = "Edit Product";
+
+}
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="ProductID" />
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <div><span asp-validation-for="Name" class="text-danger"></span></div>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <div><span asp-validation-for="Description" class="text-danger"></span></div>
+            <textarea asp-for="Description" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Guarantee"></label>
+            <div><span asp-validation-for="Guarantee" class="text-danger"></span></div>
+            <textarea asp-for="Guarantee" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Price"></label>
+            <div><span asp-validation-for="Price" class="text-danger"></span></div>
+            <input asp-for="Price" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="newvalue"></label>
+            <div><span asp-validation-for="newvalue" class="text-danger"></span></div>
+            <input asp-for="newvalue" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="discount"></label>
+            <div><span asp-validation-for="discount" class="text-danger"></span></div>
+            <input asp-for="discount" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="BrandID"></label>
+            <select id="selectbrand" class="select2" name="state"></select>
+            <input type="hidden" asp-for="BrandID" />
+        </div>
+        <div class="form-group">
+            <label asp-for="CategoryID"></label>
+            <select id="selectcategory" class="select2" name="state"></select>
+            <input type="hidden" asp-for="CategoryID" />
+        </div>
+        <div class="form-group">
+            <input type="hidden" asp-for="Image" />
+            <label asp-for="Image"></label>
+            <input type="file" name="files" />
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary" type="submit">ذخیره</button>
+            <a asp-action="Index" class="btn btn-default">انصراف</a>
+        </div>
+    </form>
+@section Scripts
+{
+    <script>
+
+        $(document).ready(function () {
+
+                $('#selectcategory').select2({
+                    ajax: {
+                        url: '@Url.Action("Find","category")',
+                        dataType: 'json'
+                    } });
+            $('#selectcategory').on('change', function () {
+                var data = $("#selectcategory option:selected").val();
+                $("#CategoryID").val(data);
+            });
+             $('#selectbrand').select2({
+                    ajax: {
+                        url: '@Url.Action("Find","Brand")',
+                        dataType: 'json'
+                    } });
+            $('#selectbrand').on('change', function () {
+                var data = $("#selectbrand option:selected").val();
+                $("#BrandID").val(data);});
+
+
+});
+
+
+    </script>
+
+}

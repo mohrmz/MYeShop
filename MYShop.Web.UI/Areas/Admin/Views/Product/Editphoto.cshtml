@@ -1,0 +1,19 @@
+﻿@model ProductImages
+@{
+    ViewBag.Title = "Edit Image";
+
+}
+<form asp-action="Editphoto"  method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="ID" />
+    <input type="hidden" asp-for="ProductId" />
+
+    <div class="form-group">
+        <input type="hidden" asp-for="Image" />
+        <label asp-for="Image"></label>
+        <input type="file" name="files" />
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit">ذخیره</button>
+        <a asp-action="Index" class="btn btn-default">انصراف</a>
+    </div>
+</form>

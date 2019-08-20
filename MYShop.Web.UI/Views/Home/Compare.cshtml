@@ -1,0 +1,98 @@
+﻿@model  CompareProduct
+@{
+    ViewData["Title"] = "Product";
+}
+    <div >
+        <div class="row navbar">
+
+            @{int b = 0;
+    foreach (var i in Model.Lines)
+    {
+        b = b != 0 ? b : i.CategoryID;
+        var base641 = Convert.ToBase64String(i.Image);
+        var imgSrc1 = String.Format("data:image/jpg;base64,{0}", base641);
+
+
+                    <div id="@i.ProductID" class="col-md-3 ">
+                        <div class="compimg font-y center-align">
+                            <div class="cart_delete">
+                                <a class="cart_quantity_delete" asp-action="RemoveCompare" asp-controller="Home" asp-route-ProductID="@i.ProductID"><i class="fa fa-times"></i></a>
+                            </div>
+                            <img src="@imgSrc1" class="img img-responsive" />
+                            <p>@i.Name</p>
+                            <p class=" orange-o">@i.Price ریال</p>
+
+                        </div>
+                    </div>
+
+
+    }
+    if (Model.Lines.Count() < 4)
+    {
+                    <div class="col-md-3">
+                        <form asp-action="Index" asp-controller="Home" asp-route-CategoryId="@b" method="post">
+                            <button type="submit"  class="c-compare__placement">برای افزودن کالا به لیست مقایسه کلیک کنید</button>
+
+                        </form>
+                       </div>
+    }
+    for (int a = 0; a <= 4 - Model.Lines.Count() + 1; a++)
+    {
+
+                    <div class="col-md-3">
+
+                    </div>
+    }
+
+            }
+
+
+
+
+
+        </div>
+        <div class="row ">
+            @{
+                foreach (var i in Model.Lines)
+                {
+                        <div class="col-md-3 pcompare">
+
+
+                            <ul class="right-align">
+                                @await Component.InvokeAsync("Property", new { propductid = i.ProductID ,CategoryId=i.CategoryID})
+                            </ul>
+                        </div>
+                }
+                for (int a = 0; a <= 4 - Model.Lines.Count() + 1; a++)
+                {
+
+                    <div class="col-md-3">
+
+                    </div>
+                }
+            }
+        </div>
+                </div>
+                <script>
+                    var target = $('.navbar')
+                    target.after('<div class="affix" id="affix"></div>')
+
+                    var affix = $('.affix')
+                    affix.append(target.clone(true))
+
+                    // Show affix on scroll.
+                    var element = document.getElementById('affix')
+                    if (element !== null) {
+                        var position = target.position()
+                        window.addEventListener('scroll', function () {
+                            var height = $(window).scrollTop()
+                            if (height > position.top) {
+                                target.css('visibility', 'hidden')
+                                affix.css('display', 'block')
+                            } else {
+                                affix.css('display', 'none')
+                                target.css('visibility', 'visible')
+                            }
+                        })
+                    }
+                </script>

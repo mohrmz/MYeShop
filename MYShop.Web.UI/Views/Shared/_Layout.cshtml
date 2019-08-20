@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>فروشگاه اینترنتی</title>
+
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <header id="header" >
+        <!--header-->
+        <div class="header_top" >
+            <!--header_top-->
+            <div class="container-fluid" >
+                <div id="top" class="contactinfo">
+                    <ul>
+                        <li><a href="tel:+989189660086"><i class="fa fa-phone"></i> +989189660086</a></li>
+                        <li><a href="mailto:mohammad0ramezani@gmail.com"><i class="fa fa-envelope"></i> mohammad0ramezani@gmail.com</a></li>
+                    </ul>
+                </div>
+               
+             <div class="clear"></div>
+            </div>
+        </div><!--/header_top-->
+
+        <div class="header-middle">
+            <!--header-middle-->
+            <div class="container-fluid">
+                <div class="row">
+                    
+                    <div class="col-mid">
+                        <div class="logo">
+                            <a href="/">
+                                <img src="../images/logo.png" alt="logo">
+                                <b> فروشگاه اینترنتی</b>
+                            </a>
+                        </div>
+                   </div>
+                    <div>
+                        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                        {
+                            <div class="col-mid search_box search">
+                                <input name="value" type="text" placeholder="نام کالا،برندو یا دسته مورد نظر خود را جستجو کنید ...">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        }
+                        </div>
+                 
+                        <div class="col-mid shop-menu">
+                            <ul>
+ 
+                                <li><a asp-action="Index" asp-controller="Cart">
+    @await Component.InvokeAsync("Cart")
+    سبد&zwnj;خرید
+
+</a>  </li>
+                                
+                            </ul>
+
+                        </div>
+                   
+                 </div>
+
+              
+            </div>
+        </div><!--/header-middle-->
+
+        <div class="header-bottom">
+            <!--header-bottom-->
+            <div class="container">
+                <div class="mainmenu">
+                    <ul>
+                        <li><a href="/" class="active">خانه</a></li>
+                        <li>
+                            <a href="#">فروشگاه<i class="fa fa-angle-down"></i></a>
+                            <ul>
+                                <li><a href="/">محصولات</a></li>
+                                <li><a asp-action="Checkout" asp-controller="Order">پرداخت</a></li>
+                                <li><a asp-action="index" asp-controller="Cart">سبدخرید</a></li>
+                              
+                                @*<li><a href="#">ورود</a></li>*@
+                            </ul>
+                        </li>
+                       
+                        <li><a href="#">تماس&zwnj;باما</a></li>
+                    </ul>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+        </div><!--/header-bottom-->
+    </header>
+    @RenderBody()
+
+
+<footer id="footer">
+    <hr />
+    <div  class="c-footer__jumpup">
+        <a href="#top">
+            <span id="js-jump-to-top" class="c-footer__jumpup-container">
+                <span  class="fa fa-angle-up c-footer__jumpup-angle" ></span>
+                برگشت به بالا
+            </span>
+        </a>
+    </div>
+
+    <nav>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-mid footer-feature-item c-footer-feature-item-1">
+                    تحویل اکسپرس
+                </div>
+                <div class="col-mid footer-feature-item c-footer-feature-item-2">
+                    پشتیبانی ۲۴ ساعته
+                </div>
+                <div class="col-mid footer-feature-item c-footer-feature-item-3">
+                    پرداخت در محل
+                </div>
+                <div class="col-mid footer-feature-item c-footer-feature-item-4">۷ روز ضمانت بازگشت</div>
+                <div class="col-mid footer-feature-item c-footer-feature-item-5">ضمانت اصل‌بودن کالا</div>
+            </div>
+        </div>
+    </nav>
+    <hr />
+    <div class="footer-widget">
+
+
+
+        <div class="container-fluid">
+
+
+            <div class="row">
+                <div class="col-md single-widget">
+                    <h2>خدمات</h2>
+                    <ul>
+                        <li><a href="#">کمک آنلاین</a></li>
+                        <li><a href="#">تماس باماus</a></li>
+                        <li><a href="#">پرسش&zwnj;های متداول</a></li>
+                    </ul>
+                </div>
+                <div class="col-md single-widget">
+                    <h2>فروشگاه</h2>
+                    @await Component.InvokeAsync("Category")
+                </div>
+                <div class="col-md single-widget">
+                    <h2>قوانین</h2>
+                    <ul>
+                        <li><a href="#">حریم شخصی</a></li>
+                        <li><a href="#">قوانین حقوقی</a></li>
+                        <li><a href="#">قوانین حقیقی</a></li>
+                        <li><a href="#">ثبت سفارش</a></li>
+                        <li><a href="#">پشتیبانی</a></li>
+                    </ul>
+                </div>
+                <div class="col-md single-widget">
+                    <h2>درباره @ViewData["Title"]</h2>
+                    <ul>
+                        <li><a href="#">درباره شرکت</a></li>
+                        <li><a href="#">آدرس ما</a></li>
+                    </ul>
+                </div>
+                <div class="col-md single-widget">
+                    <h2>خبرنامه @ViewData["Title"]</h2>
+                    <P>از تخفیف‌ها و جدیدترین‌های @ViewData["Title"] باخبر شوید:</P>
+                    <form asp-action="newsuser" asp-controller="Home" class="news">
+                        <input name="email" type="text" placeholder="آدرس ایمیل شما">
+                        <button type="submit"><i>ارسال</i></button>
+                    </form>
+                    <div class="clear">
+                        <P> @ViewData["Title"] را در شبکه های اجتماعی دنبال کنید:</P>
+                    </div>
+                    <div class="col-md-3 social-icons">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <hr />
+        <nav class="phonenav">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div>
+                        <h2>هفت روز هفته ، ۲۴ ساعت شبانه‌روز پاسخگوی شما هستیم</h2>
+                    </div>
+                    <div>
+                        <h2> | شماره تماس : <a href="tel:+989189660086">+989189660086</a> </h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <h2>آدرس ایمیل : <a href="mailto:mohammad0ramezani@gmail.com">mohammad0ramezani@gmail.com</a></h2>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+    </div>
+
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p>کلیه حقوق این سایت متعلق به <a href="https://farjadpooyeshfarham.com" class="farjad"> شرکت فرجادپویش فرهام </a>  می باشد.</p>
+        </div>
+    </div>
+
+</footer>
+
+        @RenderSection("Scripts", required: false)
+</body>
+</html>

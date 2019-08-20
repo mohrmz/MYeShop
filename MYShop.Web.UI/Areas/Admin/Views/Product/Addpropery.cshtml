@@ -1,0 +1,45 @@
+﻿@model ProductProperties
+@{
+    ViewBag.Title = "Edit Product";
+
+}
+
+    <form asp-action="Addpropery" asp-route-ProductId="@ViewBag.ProductId" method="post" enctype="multipart/form-data">
+       
+        <div class="container-fluid">
+            @foreach (var item in ViewBag.Addpropery as IList<Property>)
+            {
+
+                if (item.ParentId == 0)
+                {
+
+                    <div class="form-group row fontbold">
+                        <div class=" col-lg-2">
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </div>
+
+                    </div>
+                }
+                else
+                {
+                   
+                        <div class="form-group row">
+                            <div class=" col-lg-2">
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </div>
+                            <div class="col-lg-2">
+                                @Html.TextBox(item.PropertyID.ToString())
+                            </div>
+                        </div>
+                     
+                }
+             }
+
+            </div>
+        <div class="text-center">
+            <button class="btn btn-primary" type="submit">ذخیره</button>
+            <a asp-action="Index" class="btn btn-default">انصراف</a>
+        </div>
+    </form>
+
+

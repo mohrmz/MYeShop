@@ -1,0 +1,238 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Product";
+}
+
+    <div class="container-fluid">
+        <div class="row">
+           
+            <div class="col-md-5">
+                <div class="row">
+                    <a asp-action="Compare" asp-controller="Home" asp-route-ProductID="@Model.ProductID" class="btn-add-to-compare"><span class="fa fa-compress"> </span>افزودن به مقایسه کالا</a>
+                </div>
+                @{
+                    var base641 = Convert.ToBase64String(Model.Image);
+                    var imgSrc1 = String.Format("data:image/jpg;base64,{0}", base641);
+                }
+                <div class="slider">
+                    <input type="radio" name="slide_switch" id="'id1" checked="checked" />
+
+                    <label for="'id1">
+                        <img src="@imgSrc1" width="100" />
+                    </label>
+                    <img src="@imgSrc1" />
+
+
+
+                    @{ foreach (var o in Model.ProductImages)
+                        {
+                            var base64 = Convert.ToBase64String(o.Image);
+                            var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+
+
+                            <input type="radio" name="slide_switch" id="'id'@o.ID" />
+
+                            <label for="'id'@o.ID">
+                                <img src="@imgSrc" width="100" />
+                            </label>
+                            <img src="@imgSrc" />
+
+
+
+                        }
+                    }
+                </div>
+
+
+            </div>
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-7 right-align bottom-border-hr">
+                        <h4>@Model.Name</h4>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="row right-align">
+                            <span class="fa fa-star product-garantee orange-i"></span>
+                            <div class="col-md-10"><P>بیش از @Model.Comments.Count() نفر از خریداران این محصول را پیشنهاد داده‌اند</P></div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-5 right-align">
+                                <p>برند :<a class="btn-link-spoiler" asp-action="index" asp-controller="home" name="value"> @Model.Brand.Name</a></p>
+                            </div>
+                            <div class="col-md-7 right-align">
+                                <p>دسته بندی :<a class="btn-link-spoiler" asp-action="index" asp-controller="home" name="value"> @Model.Category.Name</a> </p>
+                            </div>
+                        </div>
+                        <div class="right-align font-y">
+                            <h6>ویژگی های محصول</h6>
+                            <ul class="pdetail right-align">
+                                @await Component.InvokeAsync("Property", new { propductid = Model.ProductID,CategoryId=Model.CategoryID })
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box right-align">
+                            <div class="padding-top-5">
+                                <p><span class="fa fa-paperclip product-garantee orange-o"></span>فروشنده : سایت</p>
+                                @{
+                                    var a = 0;
+                                    foreach (var l in Model.Comments)
+                                    {
+                                        a += l.Vote;
+                                    }
+                                    decimal b = a / Model.Comments.Count;
+                                }
+                                <p class="pvote">امتیاز :  @b از 5</p>
+
+                            </div>
+                            <hr />
+                            <div>
+                                <p><span class="fa fa-certificate product-garantee orange-o"></span>گارانتی @Model.Guarantee</p>
+                            </div>
+                            <hr />
+                            <div>
+                                <p><span class="fa fa-cloud-upload product-garantee orange-o"></span>ارسال ۲۴ ساعته</p>
+                            </div>
+                            <hr />
+                            <div class="left-align orange-o left-padding">
+                                <h2 class="font-y">@Model.Price.ToString("#,###") ریال</h2>
+                            </div>
+
+                            <div class="c-product__seller-row">
+                                <a class="btn-add-to-cart" asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@Model.ProductID"> <span class="fa fa-shopping-cart"></span> افزودن به سبد خرید</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box desc">
+            <ul class="nav nav-pills" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="pill" href="#home"><span class="fa fa-book"></span>نقد و بررسی</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#menu1"><span class="fa fa-building-o"></span>مشخصات</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#menu2"><span class="fa fa-eye"></span>نظرات کاربران</a>
+                </li>
+
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content right-align">
+                <div id="home" class="tab-pane active">
+                    <br>
+                    <h3>نقد و بررسی اجمالی</h3>
+                    <p>@Model.Name</p>
+                    <div class="margin-box c-content-expert__summary">
+                        @Model.Description
+                    </div>
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                    <br>
+                    <h3>مشخصات فنی :</h3>
+                    <p>@Model.Name</p>
+
+                    <hr />
+                    <ul class="pbase">
+                        @await Component.InvokeAsync("Property", new { propductid = Model.ProductID,CategoryId=Model.CategoryID })
+                    </ul>
+                </div>
+                <div id="menu2" class="tab-pane fade">
+                    <br>
+                    <h3>نظرات کاربران به:</h3>
+                    <p>@Model.Name</p>
+                    <div class="c-comments__summary-note">
+                        <div>شما هم می‌توانید در مورد این کالا نظر بدهید.</div>
+                        <div class="add-comment">
+                            <form asp-action="AddComment" asp-controller="Home" asp-route-ProductID="@Model.ProductID">
+                                <div class="form-group">
+
+                                    <label>نام :</label>
+
+                                    <input name="Name" class="form-control" />
+                                    <label>نام خانوادگی :</label>
+
+                                    <input name="Lastname" class="form-control" />
+                                    <label>شماره تماس :</label>
+
+                                    <input name="Phone" class="form-control" />
+
+                                    <label>نظر :</label>
+
+                                    <textarea name="Text" class="form-control"></textarea>
+                                    <input id="vote" type="hidden" name="Vote" />
+                                    <fieldset class="rating">
+                                        <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5" title="5 stars"></label>
+                                        <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4" title="4 stars"></label>
+                                        <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3" title="3 stars"></label>
+                                        <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2" title=" 2 stars"></label>
+                                        <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1" title="1 star"></label>
+                                    </fieldset>
+                                </div>
+
+
+                                <button class="btn-add-comment" title="افزودن نظر جدید" id="add-comment-button" type="submit">
+                                    <span class="btn-add-comment__txt">افزودن نظر جدید</span>
+                                </button>
+
+                            </form>
+
+                        </div>
+
+
+                    </div>
+                    <hr />
+
+                    <div>
+                        @foreach (var l in @Model.Comments)
+                        {
+                            <ul class="c-faq__list">
+                                <li class="is-question">
+                                    <div class="section">
+                                        <div class="c-faq__header c-faq__header--question header">
+                                            <p class="h5">
+
+                                                <span>@l.Name+&zwnj;+@l.Name</span>
+                                            </p>
+                                        </div>
+                                        <p>@l.Text</p>
+                                        <div class="footer">
+                                            <em>@l.Date</em>
+                                            <p>تعداد ستاره : @l.Vote</p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script>
+
+            $('input:radio').change(
+                function () {
+                    var userRating = this.value;
+                    $('#vote').val(userRating);
+                });
+
+        </script>
+
+        <script src="http://thecodeplayer.com/uploads/js/prefixfree.js" type="text/javascript"></script>
+
+    </div>
+

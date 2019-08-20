@@ -1,0 +1,97 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190802065003_init.cs" />
+    <Compile Remove="Migrations\20190802065003_init.Designer.cs" />
+    <Compile Remove="Migrations\20190803115220_addorder.cs" />
+    <Compile Remove="Migrations\20190803115220_addorder.Designer.cs" />
+    <Compile Remove="Migrations\20190803115349_addorder.cs" />
+    <Compile Remove="Migrations\20190803115349_addorder.Designer.cs" />
+    <Compile Remove="Migrations\20190805151819_editproduct.cs" />
+    <Compile Remove="Migrations\20190805151819_editproduct.Designer.cs" />
+    <Compile Remove="Migrations\20190805161931_addcategory.cs" />
+    <Compile Remove="Migrations\20190805161931_addcategory.Designer.cs" />
+    <Compile Remove="Migrations\20190805171108_addbrand.cs" />
+    <Compile Remove="Migrations\20190805171108_addbrand.Designer.cs" />
+    <Compile Remove="Migrations\20190805194023_addproperty.cs" />
+    <Compile Remove="Migrations\20190805194023_addproperty.Designer.cs" />
+    <Compile Remove="Migrations\20190808144642_addpropertyproduct.cs" />
+    <Compile Remove="Migrations\20190808144642_addpropertyproduct.Designer.cs" />
+    <Compile Remove="Migrations\20190808145534_addpropertyproduct1.cs" />
+    <Compile Remove="Migrations\20190808145534_addpropertyproduct1.Designer.cs" />
+    <Compile Remove="Migrations\20190808192034_addpropertyproduct2.cs" />
+    <Compile Remove="Migrations\20190808192034_addpropertyproduct2.Designer.cs" />
+    <Compile Remove="Migrations\20190808192756_addpropertyproduct3.cs" />
+    <Compile Remove="Migrations\20190808192756_addpropertyproduct3.Designer.cs" />
+    <Compile Remove="Migrations\20190808194822_addpropertyproduct4.cs" />
+    <Compile Remove="Migrations\20190808194822_addpropertyproduct4.Designer.cs" />
+    <Compile Remove="Migrations\20190808195425_addpropertyproduct5.cs" />
+    <Compile Remove="Migrations\20190808195425_addpropertyproduct5.Designer.cs" />
+    <Compile Remove="Migrations\20190808195657_addpropertyproduct6.cs" />
+    <Compile Remove="Migrations\20190808195657_addpropertyproduct6.Designer.cs" />
+    <Compile Remove="Migrations\20190808200348_addpropertyproduct7.cs" />
+    <Compile Remove="Migrations\20190808200348_addpropertyproduct7.Designer.cs" />
+    <Compile Remove="Migrations\20190808200810_addpropertyproduct8.cs" />
+    <Compile Remove="Migrations\20190808200810_addpropertyproduct8.Designer.cs" />
+    <Compile Remove="Migrations\20190808202342_addpropertyproduct9.cs" />
+    <Compile Remove="Migrations\20190808202342_addpropertyproduct9.Designer.cs" />
+    <Compile Remove="Migrations\20190808203753_init.cs" />
+    <Compile Remove="Migrations\20190808203753_init.Designer.cs" />
+    <Compile Remove="Migrations\20190808204442_init.cs" />
+    <Compile Remove="Migrations\20190808204442_init.Designer.cs" />
+    <Compile Remove="Migrations\20190808204716_init.cs" />
+    <Compile Remove="Migrations\20190808204716_init.Designer.cs" />
+    <Compile Remove="Migrations\20190808205801_init.cs" />
+    <Compile Remove="Migrations\20190808205801_init.Designer.cs" />
+    <Compile Remove="Migrations\20190808205956_init.cs" />
+    <Compile Remove="Migrations\20190808205956_init.Designer.cs" />
+    <Compile Remove="Migrations\20190808210138_init.cs" />
+    <Compile Remove="Migrations\20190808210138_init.Designer.cs" />
+    <Compile Remove="Migrations\20190808210956_init1.cs" />
+    <Compile Remove="Migrations\20190808210956_init1.Designer.cs" />
+    <Compile Remove="Migrations\20190810195630_produtpropery.cs" />
+    <Compile Remove="Migrations\20190810195630_produtpropery.Designer.cs" />
+    <Compile Remove="Migrations\20190810195926_produtpropery.cs" />
+    <Compile Remove="Migrations\20190810195926_produtpropery.Designer.cs" />
+    <Compile Remove="Migrations\20190810200256_init.cs" />
+    <Compile Remove="Migrations\20190810200256_init.Designer.cs" />
+    <Compile Remove="Migrations\20190810201536_init.cs" />
+    <Compile Remove="Migrations\20190810201536_init.Designer.cs" />
+    <Compile Remove="Migrations\20190810201750_init.cs" />
+    <Compile Remove="Migrations\20190810201750_init.Designer.cs" />
+    <Compile Remove="Migrations\20190810201916_init.cs" />
+    <Compile Remove="Migrations\20190810201916_init.Designer.cs" />
+    <Compile Remove="Migrations\20190810204000_init.cs" />
+    <Compile Remove="Migrations\20190810204000_init.Designer.cs" />
+    <Compile Remove="Migrations\20190811032423_init.cs" />
+    <Compile Remove="Migrations\20190811032423_init.Designer.cs" />
+    <Compile Remove="Migrations\20190811032837_init.cs" />
+    <Compile Remove="Migrations\20190811032837_init.Designer.cs" />
+    <Compile Remove="Migrations\20190811071505_changeProductProperties.cs" />
+    <Compile Remove="Migrations\20190811071505_changeProductProperties.Designer.cs" />
+    <Compile Remove="Migrations\20190811071917_init.cs" />
+    <Compile Remove="Migrations\20190811071917_init.Designer.cs" />
+    <Compile Remove="Migrations\20190811072400_init.cs" />
+    <Compile Remove="Migrations\20190811072400_init.Designer.cs" />
+    <Compile Remove="Migrations\20190811072754_init.cs" />
+    <Compile Remove="Migrations\20190811072754_init.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MYShop.Domain.Contract\MYShop.Domain.Contract.csproj" />
+    <ProjectReference Include="..\MYShop.Domain.Entities\MYShop.Domain.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

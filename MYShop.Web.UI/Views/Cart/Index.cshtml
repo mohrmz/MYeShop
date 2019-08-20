@@ -1,0 +1,73 @@
+﻿@model Cart
+@{
+    ViewData["Title"] = "سبد خرید";
+}
+
+<section id="cart_items">
+    <div class="container">
+        <div class="cart_info">
+            <table class="table">
+                <thead>
+                    <tr class="cart_menu">
+                        <td>محصول</td>
+                        <td>توضیحات</td>
+                        <td>قیمت</td>
+                        <td>تعداد</td>
+                        <td>جمع</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var line in Model.Lines)
+                    {
+                        <tr>
+                            <td class="cart_product">
+                                <a href="#">
+                                    @{
+
+                                        var base64 = Convert.ToBase64String(line.Product.Image);
+                                        var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+                                    }
+                                    <img src="@imgSrc" class="product-image-wrapper" />
+                                </a>
+                            </td>
+                            <td class="cart_description">
+                                <h4><a href="">@line.Product.Name </a></h4>
+                                <p>کد کالا: @line.Product.ProductID</p>
+                            </td>
+                            <td class="cart_price">
+                                <p>@string.Format("{0} ریال", line.Product.Price.ToString("#,###"))</p>
+                            </td>
+                            <td class="cart_quantity">
+                                <div class="cart_quantity_button">
+                                    <a class="cart_quantity_up" asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@line.Product.ProductID" > + </a>
+                                    <input class="cart_quantity_input" type="text" name="quantity" value="@line.Quantity" autocomplete="off" size="2">
+                                    <a class="cart_quantity_down" asp-action="misfromCart" asp-controller="Cart" asp-route-productId="@line.Product.ProductID" > - </a>
+                                </div>
+                            </td>
+                            <td class="cart_total">
+                                <p class="cart_total_price">@string.Format("{0} ریال", (line.Quantity * line.Product.Price).ToString("#,###"))</p>
+                            </td>
+                            <td class="cart_delete">
+                                <a class="cart_quantity_delete" asp-action="RemoveFromCart" asp-controller="Cart" asp-route-ProductID="@line.Product.ProductID" ><i class="fa fa-times"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">
+                            <a class="btn-c btn-p" href="/">ادامه خرید</a>
+                        </td>
+                        <td colspan="3">
+                            <a class="btn-c btn-p" asp-action="Checkout" asp-controller="Order">
+                                تکمیل فرایند خرید
+                            </a>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</section>
+

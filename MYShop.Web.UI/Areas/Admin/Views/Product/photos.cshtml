@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MYShop.Domain.Entities.ProductImages>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a asp-action="Createphoto" asp-route-productid="@ViewData["productid"]" class="btn btn-success">ثبت عکس جدید</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+            @{
+
+                var base64 = Convert.ToBase64String(item.Image);
+                var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+            }
+
+            <img src="@imgSrc" class="img img-responsive" />
+            </td>
+            <td>
+                |
+                <a asp-action="Deletephoto" asp-route-Id="@item.ID" asp-route-productid="@ViewData["productid"]" class="btn btn-danger" onclick="return confirm('از حذف مطمئن هستید؟')">حذف</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,16 @@
+﻿@model Cart
+
+@{
+    int a = 0;
+
+    foreach (var line in Model.Lines)
+    {
+        a += line.Quantity;
+    }
+    <span class="fa-stack fa-2x has-badge" data-count="@a">
+        <i class="fa fa-shopping-cart"></i>
+        <i class="fa fa-stack-2x fa-inverse"></i>
+
+    </span>
+
+}
