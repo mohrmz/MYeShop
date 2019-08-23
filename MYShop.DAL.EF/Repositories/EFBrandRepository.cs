@@ -1,4 +1,5 @@
-﻿using MYShop.Domain.Contract.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using MYShop.Domain.Contract.Repositories;
 using MYShop.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -63,6 +64,11 @@ namespace MYShop.DAL.EF.Repositories
         {
             return _context.Brands.
                 Where(c => c.Name.StartsWith(query)).OrderBy(c => c.Name).Take(10).ToList();
+        }
+
+        public List<Brand> GetBrands()
+        {
+            return _context.Brands.Include(g=>g.Products).Where(c=>c.Products!=null).ToList();
         }
     }
 }

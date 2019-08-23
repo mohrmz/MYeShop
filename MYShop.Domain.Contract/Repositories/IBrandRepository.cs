@@ -12,5 +12,6 @@ namespace MYShop.Domain.Contract.Repositories
         Brand DeleteBrand(int BrandID);
         Brand GetById(int BrandId);
         List<Brand> Find(string query);
+        List<Brand> GetBrands();
     }
 }

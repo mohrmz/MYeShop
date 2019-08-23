@@ -1,0 +1,47 @@
+﻿@model List<Brand>
+
+
+<div class="right-align carousel-container">
+    <div class="carousel-container-header">
+
+        <h4 class="carousel-header-f">برند ها</h4>
+
+
+
+
+       
+        <div class="carousel" data-flickity='{ "groupCells": true }'>
+
+
+
+            @foreach (var item in Model)
+            {
+                <div class="product-image-wrapper product-image-wrapper-brand">
+                    <div class="">
+                       
+                            <a asp-action="index" asp-controller="Home" asp-route-CategoryId="0" asp-route-value="@item.Name">
+
+                                <div>
+                                 
+                                </div>
+
+
+
+                                @{
+
+                                    var base64 = Convert.ToBase64String(@item.BrandIco);
+                                    var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+                                }
+
+                                <img src="@imgSrc" class="img img-responsive" width="150" height="150" />
+                                </a>
+                        </div>
+
+                
+                </div>
+            }
+        </div>
+
+
+    </div>
+</div>

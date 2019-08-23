@@ -106,10 +106,12 @@
 
         @await Component.InvokeAsync("Product", new { category = cat, type = 1 })
     }
-    @*Category category = new Category();
+    Category category = new Category();
     @await Component.InvokeAsync("Product", new { category, type = 2 })
 
-    @await Component.InvokeAsync("Product", new { category, type = 3 })*@
+    @await Component.InvokeAsync("Product", new { category, type = 3 })
+
+    @await Component.InvokeAsync("Brand")
 }
 
 

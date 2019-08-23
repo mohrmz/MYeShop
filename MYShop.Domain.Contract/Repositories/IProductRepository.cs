@@ -10,7 +10,6 @@ namespace MYShop.Domain.Contract.Repositories
         List<Product> GetNews();
         List<Product> GetDiscount();
        
-        List<Brand> GetBrands();
         List<Product> GetImages(int productid);
         List<Property> Getproperties(int CategoryId);
         List<Product> Getbycategory(int CategoryId);

@@ -109,7 +109,7 @@ namespace MYShop.DAL.EF.Repositories
 
         public List<Product> GetDiscount()
         {
-            return _context.Products.OrderByDescending(c => c.discount!=0).Take(15).ToList();
+            return _context.Products.Where(c => c.discount!=0).Take(15).ToList();
         }
 
         public List<Brand> GetBrands()
