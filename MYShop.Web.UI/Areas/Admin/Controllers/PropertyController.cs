@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Http;
 namespace MYShop.Web.UI.Areas.Admin.Controllers
 {
     [Area("admin")]
-    [Authorize]
+    //[Authorize]
     public class PropertyController : Controller
     {
         

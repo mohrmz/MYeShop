@@ -131,11 +131,13 @@ a#scrollUp {
     }
 
 .container {
-    width: 1140px;
+    
     margin: auto;
     text-align:right;
 }
-
+.fixed {
+    width: 1349px !important;
+}
 
 .clear {
     clear: both;
@@ -236,7 +238,7 @@ a#scrollUp {
 .logo {
     float: right;
     font-size: 20px;
-    line-height: 1;
+    
 }
 
     .logo img {
@@ -329,15 +331,16 @@ a#scrollUp {
 
 .search_box {
     float: right;
+    
 }
 
 .search_box {
     position: relative;
     background: #F0F0E9;
     padding: 10px 6px 10px 35px;
-    margin-right: 50px;
+    
     border-radius: 25px;
-    width:420px;
+    width:100%;
 }
 
     .search_box input {
@@ -378,7 +381,7 @@ a#scrollUp {
     background: white;
     padding: 10px 6px 10px 35px;
     border-radius: 25px;
-    width: 300px;
+    width: 100%;
 }
 
     .news input {
@@ -739,26 +742,17 @@ h2.title {
     float: right;
     width: 267px;
     text-align: center;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: 20px;
+
     cursor: pointer;
     box-shadow: 0 1px 2px rgba(0,0,0,0.15);
     transition: all 0.3s ease-in-out;
 }
-    .product-image-wrapper::after {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        border-radius: 5px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        transition: opacity 0.3s ease-in-out;
-    }
     .product-image-wrapper:hover {
-        transform: scale(1.1, 1.1);
+        transform: scale(1.0.5, 1.0.5);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        border-radius: 5px;
+        transition: opacity 6s ease-in-out;
     }
 
     /* Fade in the pseudo-element with the bigger shadow */
@@ -790,6 +784,7 @@ h2.title {
 
 .productinfo h2 {
     color: #FE980F;
+    text-align:center;
 
 }
 
@@ -799,16 +794,17 @@ h2.title {
     font-size: 14px;
     font-weight: 400;
     color: #696763;
+    text-align: center;
 }
 
 .productinfo img {
-    width: 100%;
+  margin:auto;
 }
 
 .productinfo {
 
-    padding:20px;
-    margin-right:20px;
+    padding:40px 20px 40px 20px;
+    height:300px;
 }
 
 
@@ -1290,6 +1286,27 @@ h2.title {
         float:right;
         width:100%;
     }
+    
+}
+@media screen and (max-width: 767px) {
+    #cssmenu {
+        display:block!important;
+    }
+    #megamenu
+    {
+        display:none;
+    }
+    
+}
+#cssmenu
+{
+    display:none;
+}
+@media screen and (max-width: 1340px) {
+    
+    .btn-add-to-compare {
+        display:none;
+    }
 }
 .btn-link-spoiler {
     color: #1ca2bd;
@@ -1385,22 +1402,19 @@ h2.title {
 .tab-pane {
     width: 100% !important;
     background-color: white !important;
-    padding: 35px 53px 35px 61px!important;
+    padding: 10px 10px 10px 10px!important;
     margin: 0px !important;
 }
 .tab-pane h3,p
 {
     padding-right:20px!important;
 }
-.c-content-expert__summary:after {
+.c-content-expert__summary-ico {
     width: 165px;
     height: 165px;
-    position: absolute;
-    content: "";
-    top: 30px;
-    right: 81px;
     background: url(../images/7.svg) no-repeat 50% 50%;
-    background-size: 100%;
+    border-image:none;
+    border:none;
 }
 .c-comments__summary-note {
     position: relative;
@@ -1422,10 +1436,7 @@ h2.title {
     cursor:pointer;
     color:white;
 }
-.add-comment 
-{
-    padding:40px;
-}
+
 .c-faq__list {
     list-style: none;
     padding: 0;
@@ -1477,11 +1488,12 @@ h2.title {
     left: 100%;
     top: 50px;
 }
-.c-faq__list > li.is-question .section .header {
+.c-faq__list  .header {
     font-size: 62px;
-    padding-top: 75px;
+
     color: #35ccde;
 }
+
 
 .c-faq__list > li .section .header {
     width: 122px;
@@ -1493,13 +1505,13 @@ h2.title {
     text-align: center;
 }
 .slider {
-    width: 500px; /*Same as width of the large image*/
+    width: 100%; /*Same as width of the large image*/
     position: relative;
     /*Instead of height we will use padding*/
-    padding-top: 320px; /*That helps bring the labels down*/
+    padding-top: 250px; /*That helps bring the labels down*/
     margin: 5px auto;
     /*Lets add a shadow*/
-    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.75);
+  
 }
 
 
@@ -1600,7 +1612,7 @@ On click the images will be displayed at normal size to complete the effect
     display: none;
 }
 .navbar {
-    height: 250px;
+    height: 270px;
     background-color: white;
     box-shadow: 0 1px 2px rgba(0,0,0,0.15);
     width: 1360px;
@@ -1622,6 +1634,7 @@ On click the images will be displayed at normal size to complete the effect
     margin: 30px 60px 30px 30px;
     cursor: pointer;
 }
+
     .btn-add-to-compare:hover {
         color: #00bfd6!important;
         background-color: #fff;
@@ -1691,4 +1704,788 @@ On click the images will be displayed at normal size to complete the effect
         display:inline-block;
         
     }
+
+.img-responsive-s {
+    width: 80%;
+    height: auto;
+    background-size: 100% 100%;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.75);
+    max-height:250px;
+}
+.checked {
+    color: orange;
+}
+.rating {
+    float: left;
+}
+
+
+    .rating:not(:checked) > input {
+        position: absolute;
+        
+        clip: rect(0,0,0,0);
+    }
+
+    .rating:not(:checked) > label {
+        float: right;
+        width: 1em;
+        padding: 0 .1em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 200%;
+        line-height: 1.2;
+        color: #ddd;
+        text-shadow: 1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+    }
+
+        .rating:not(:checked) > label:before {
+            content: '★ ';
+        }
+
+    .rating > input:checked ~ label {
+        color: #f70;
+        text-shadow: 1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+    }
+
+    .rating:not(:checked) > label:hover,
+    .rating:not(:checked) > label:hover ~ label {
+        color: gold;
+        text-shadow: 1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+    }
+
+    .rating > input:checked + label:hover,
+    .rating > input:checked + label:hover ~ label,
+    .rating > input:checked ~ label:hover,
+    .rating > input:checked ~ label:hover ~ label,
+    .rating > label:hover ~ input:checked ~ label {
+        color: #ea0;
+        text-shadow: 1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+    }
+
+    .rating > label:active {
+        position: relative;
+        top: 2px;
+        left: 2px;
+    }
+.margin-right
+{
+    margin-right:20px;
+}
+
+
+.carousel {
+  
+}
+.carousel-container-header
+{
+    background:white;
+}
+.carousel-container {
+    background: #f5f5f5;
+    padding: 15px 15px 30px 15px;
+}
+.carousel {
+    padding: 10px;
+}
+.carousel-cell {
+    width: 200px;
+    height: 200px;
+    margin-right: 10px;
+    background: #8C8;
+    border-radius: 5px;
+    counter-increment: carousel-cell;
+}
+
+.carousel-cell.is-selected {
+  
+}
+
+/* cell number */
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(carousel-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+
+.carousel-header-f {
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 20px;
+    border-bottom: 1px solid #FE980F;
+    width: 40%;
+}
+
+.menubar {
+    margin-bottom: 0px;
+    background-color:  #616161;
+   
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:40px;
+    height: 44px;
+}
+
+.menu-wrapper {
+   
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Reset */
+#megamenu .nav,
+#megamenu .nav a,
+#megamenu .nav ul,
+#megamenu .nav li,
+#megamenu .nav div {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+
+
+    #megamenu .nav li {
+        list-style: none;
+    }
+
+/* Menu Container */
+
+.nav {
+    display: inline-block;
+    position: relative;
+    cursor: default;
+    z-index: 500;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+    /* Menu List */
+#megamenu .nav > li {
+    display: block;
+    float: right;
+    position: static; /*very important do not remove*/
+}
+
+        /* Menu Links */
+#megamenu .nav > li > a {
+    position: relative;
+    display: block;
+    z-index: 510;
+    height: 44px;
+    padding: 0px;
+    line-height: 44px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: yj, nyj;
+    font-size: 16px;
+    color: white;
+    background-image: linear-gradient(#FE980F, #FE980F);
+    background-size: 0 2px, auto;
+    background-repeat: no-repeat;
+    background-position: center top;
+    transition: all .2s ease-out;
+}
+
+    #megamenu .nav > li > a:after {
+        content: url(../images/arrow-down.png);
+        margin-right: 5px;
+        margin-top: 5px;
+        height: 18px;
+        float: left;
+    }
+
+#megamenu .nav > li:hover > a {
+    background-size: 100% 2px, auto;
+}
+
+    #megamenu .nav > li:hover > a:after {
+        content: ' ';
+        width: 7px;
+        height: 18px;
+        background: url(../images/arrow-up.png) no-repeat 0px 5px;
+    }
+
+    #megamenu .nav > li:first-child > a {
+        border-right: none;
+    }
+
+        /* Menu Dropdown */
+    #megamenu .nav > li > div {
+        position: absolute;
+        display: block;
+        width: 100%;
+        top: 42px;
+        left: -2px;
+        right: 0px;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        background-color: #F5F5F5 !important;
+        -webkit-transition: all .3s ease .15s;
+        -moz-transition: all .3s ease .15s;
+        -o-transition: all .3s ease .15s;
+        transition: all .3s ease .15s;
+        border-bottom: 1px solid #e1e1e1;
+        border-left: 1px solid #e1e1e1;
+    }
+
+    #megamenu .nav > li:hover > div {
+        opacity: 1;
+        visibility: visible;
+        overflow: visible;
+    }
+
+    /* Menu Content Styles */
+#megamenu .nav .nav-column {
+    float: right;
+    width: 19%;
+    padding: 2.5%;
+    text-align: right;
+    height: 300px;
+}
+
+    #megamenu .nav .nav-column .head {
+        margin: -15px -10px 10px 0;
+        line-height: 18px;
+        font-family: yj, nyj;
+        font-size: 18px;
+        color: #16c1f3;
+    }
+
+
+
+    #megamenu .nav .nav-column li a {
+        display: block;
+        line-height: 26px;
+        font-family: yj, nyj;
+        font-size: 15px;
+        color: #4d4d4d !important;
+    }
+
+        #megamenu .nav .nav-column li a:hover {
+            color: #666666;
+        }
+
+
+.border {
+    border-right: 1px solid #e2e2e2 !important;
+    /*border-left:1px solid #e2e2e2 !important;*/
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+    .topnav .icon {
+        display: none;
+    }
+
+@media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .topnav.responsive {
+        position: relative;
+    }
+
+        .topnav.responsive .icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .topnav.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+}
+
+#cssmenu {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    line-height: 1;
+    
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a,
+#cssmenu #menu-button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    line-height: 1;
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+    #cssmenu:after,
+    #cssmenu > ul:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+
+    #cssmenu #menu-button {
+        display: none;
+
+    }
+
+#cssmenu {
+    font-family: Montserrat, sans-serif;
+    background: #333333;
+    
+}
+
+    #cssmenu > ul > li {
+        float: left;
+    }
+
+    #cssmenu.align-center > ul {
+        font-size: 0;
+        text-align: center;
+    }
+
+        #cssmenu.align-center > ul > li {
+            display: inline-block;
+            float: none;
+        }
+
+    #cssmenu.align-center ul ul {
+        text-align: left;
+    }
+
+    #cssmenu.align-right > ul > li {
+        float: right;
+    }
+
+    #cssmenu > ul > li > a {
+        padding: 17px;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        color: #dddddd;
+        font-weight: 700;
+        text-transform: uppercase;
+         background: black !important;
+         cursor:initial !important;
+    }
+
+    #cssmenu > ul > li:hover > a {
+        background: black !important;
+    }
+
+    #cssmenu > ul > li.has-sub > a {
+        padding-right: 30px;
+    }
+
+        #cssmenu > ul > li.has-sub > a:after {
+            position: absolute;
+            top: 22px;
+            right: 11px;
+            width: 8px;
+            height: 2px;
+            display: block;
+            background: black!important;
+            content: '';
+        }
+
+        #cssmenu > ul > li.has-sub > a:before {
+            position: absolute;
+            top: 19px;
+            right: 14px;
+            display: block;
+            width: 2px;
+            height: 8px;
+            background: black!important;
+            content: '';
+            -webkit-transition: all .25s ease;
+            -moz-transition: all .25s ease;
+            
+            -o-transition: all .25s ease;
+            transition: all .25s ease;
+        }
+
+    #cssmenu > ul > li.has-sub:hover > a:before {
+        top: 23px;
+        height: 0;
+    }
+
+    #cssmenu ul ul {
+        position: absolute;
+        left: -9999px;
+    }
+
+    #cssmenu.align-right ul ul {
+        text-align: right;
+    }
+
+    #cssmenu ul ul li {
+        height: 0;
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        
+        -o-transition: all .25s ease;
+        transition: all .25s ease;
+    }
+
+    #cssmenu li:hover > ul {
+        left: auto;
+    }
+
+    #cssmenu.align-right li:hover > ul {
+        left: auto;
+        right: 0;
+    }
+
+    #cssmenu li:hover > ul > li {
+        height: 35px;
+    }
+
+    #cssmenu ul ul ul {
+        margin-left: 100%;
+        top: 0;
+    }
+
+    #cssmenu.align-right ul ul ul {
+        margin-left: 0;
+        margin-right: 100%;
+    }
+
+    #cssmenu ul ul li a {
+        border-bottom: 1px solid rgba(150, 150, 150, 0.15);
+        padding: 11px 15px;
+        width: 170px;
+        font-size: 12px;
+        text-decoration: none;
+        color: #dddddd;
+        font-weight: 400;
+        background: black !important;
+        cursor: initial !important;
+    }
+
+
+    #cssmenu ul ul li:last-child > a,
+    #cssmenu ul ul li.last-item > a {
+        border-bottom: 0;
+    }
+
+    #cssmenu ul ul li:hover > a,
+    #cssmenu ul ul li a:hover {
+        color: #ffffff;
+       
+    }
+
+    #cssmenu ul ul li.has-sub > a:after {
+        position: absolute;
+        top: 16px;
+        right: 11px;
+        width: 8px;
+        height: 2px;
+        display: block;
+        background: black !important;
+        content: '';
+    }
+
+    #cssmenu.align-right ul ul li.has-sub > a:after {
+        right: auto;
+        left: 11px;
+    }
+
+    #cssmenu ul ul li.has-sub > a:before {
+        position: absolute;
+        top: 13px;
+        right: 14px;
+        display: block;
+        width: 2px;
+        height: 8px;
+        background: black !important;
+        content: '';
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        transition: all .25s ease;
+    }
+
+    #cssmenu.align-right ul ul li.has-sub > a:before {
+        right: auto;
+        left: 14px;
+    }
+
+    #cssmenu ul ul > li.has-sub:hover > a:before {
+        top: 17px;
+        height: 0;
+    }
+
+@media all and (max-width: 768px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+    #cssmenu {
+        width: 100%;
+    }
+
+        #cssmenu ul {
+            width: 100%;
+            display: none;
+        }
+
+        #cssmenu.align-center > ul {
+            text-align: left;
+        }
+
+        #cssmenu ul li {
+            width: 100%;
+            border-top: 1px solid rgba(120, 120, 120, 0.2);
+        }
+
+        #cssmenu ul ul li,
+        #cssmenu li:hover > ul > li {
+            height: auto;
+        }
+
+            #cssmenu ul li a,
+            #cssmenu ul ul li a {
+                width: 100%;
+                border-bottom: 0;
+                text-align: right;
+                padding-right: 50px!important;
+            }
+
+        #cssmenu > ul > li {
+            float: none;
+        }
+
+        #cssmenu ul ul li a {
+            padding-left: 25px;
+            text-align: right;
+            padding-right:30px;
+        }
+
+        #cssmenu ul ul ul li a {
+            padding-left: 35px;
+            cursor:pointer!important;
+            text-align:right;
+        }
+
+        #cssmenu ul ul li a {
+            color: #dddddd;
+            background: none;
+        }
+
+        #cssmenu ul ul li:hover > a,
+        #cssmenu ul ul li.active > a {
+            color: #ffffff;
+        }
+
+        #cssmenu ul ul,
+        #cssmenu ul ul ul,
+        #cssmenu.align-right ul ul {
+            position: relative;
+            left: 0;
+            width: 100%;
+            margin: 0;
+            text-align: left;
+        }
+
+            #cssmenu > ul > li.has-sub > a:after,
+            #cssmenu > ul > li.has-sub > a:before,
+            #cssmenu ul ul > li.has-sub > a:after,
+            #cssmenu ul ul > li.has-sub > a:before {
+                display: none;
+            }
+
+        #cssmenu #menu-button {
+            display: block;
+            padding: 17px;
+            color: #dddddd;
+            cursor: pointer;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+            #cssmenu #menu-button:after {
+                position: absolute;
+                top: 22px;
+                right: 17px;
+                display: block;
+                height: 4px;
+                width: 20px;
+                border-top: 2px solid #dddddd;
+                border-bottom: 2px solid #dddddd;
+                content: '';
+            }
+
+            #cssmenu #menu-button:before {
+                position: absolute;
+                top: 16px;
+                right: 17px;
+                display: block;
+                height: 2px;
+                width: 20px;
+                background: #dddddd;
+                content: '';
+            }
+
+            #cssmenu #menu-button.menu-opened:after {
+                top: 23px;
+                border: 0;
+                height: 2px;
+                width: 15px;
+                background: #ffffff;
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+
+            #cssmenu #menu-button.menu-opened:before {
+                top: 23px;
+                background: #ffffff;
+                width: 15px;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+
+        #cssmenu .submenu-button {
+            position: absolute;
+            z-index: 99;
+            right: 0;
+            top: 0;
+            display: block;
+            border-left: 1px solid rgba(120, 120, 120, 0.2);
+            height: 46px;
+            width: 46px;
+            cursor: pointer;
+        }
+
+            #cssmenu .submenu-button.submenu-opened {
+                background: #262626;
+            }
+
+        #cssmenu ul ul .submenu-button {
+            height: 34px;
+            width: 34px;
+        }
+
+        #cssmenu .submenu-button:after {
+            position: absolute;
+            top: 22px;
+            right: 19px;
+            width: 8px;
+            height: 2px;
+            display: block;
+            background: #dddddd;
+            content: '';
+        }
+
+        #cssmenu ul ul .submenu-button:after {
+            top: 15px;
+            right: 13px;
+        }
+
+        #cssmenu .submenu-button.submenu-opened:after {
+            background: #ffffff;
+        }
+
+        #cssmenu .submenu-button:before {
+            position: absolute;
+            top: 19px;
+            right: 22px;
+            display: block;
+            width: 2px;
+            height: 8px;
+            background: #dddddd;
+            content: '';
+        }
+
+        #cssmenu ul ul .submenu-button:before {
+            top: 12px;
+            right: 16px;
+        }
+
+        #cssmenu .submenu-button.submenu-opened:before {
+            display: none;
+        }
+}
+.c-product-box__discount-badge {
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 12px;
+
+    font-size: 1rem;
+    line-height: 1.222;
+    letter-spacing: .5px;
+    border-radius: 15px;
+    position: absolute;
+    top: 12px;
+    left: 30px;
+    background-color: #FE980F;
+    z-index: 2;
+}
+.del {
+    color: #cccccc;
+}
+.pbrand {
+    padding: 5px 10px;
+    color: #cccccc;
+    line-height: 1.222;
+    letter-spacing: .5px;
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    position: absolute;
+    top: 12px;
+    right: 30px;
+    z-index: 2;
+}
 

@@ -12,7 +12,7 @@ using MYShop.Domain.Entities;
 namespace MYShop.Web.UI.Areas.Admin.Controllers
 {
     [Area("admin")]
-    [Authorize]
+    //[Authorize]
     public class BrandController : Controller
     {
         private readonly IBrandRepository _brandRepository;

@@ -1,0 +1,152 @@
+﻿@model List<Category>
+
+
+<div id="megamenu" class="menubar">
+    <div class="menu-wrapper">
+
+    
+                
+        <ul class="nav">
+            @foreach (var hitem in Model.Where(c => c.Clevel == 0))
+            {
+
+
+                var base641 = Convert.ToBase64String(hitem.Image);
+                var imgSrc1 = String.Format("data:image/jpg;base64,{0}", base641);
+                <li>
+
+                    <a class="nav-h" href="#">@hitem.Name</a>
+                    <div class="menu-con" style="background-image:url(@imgSrc1);  background-repeat: no-repeat;background-size: 300px 300px;background-position:left bottom">
+                        <div class="nav-column border">
+                            @foreach (var item in Model.Where(d => d.Clevel == 1 && d.ParentId == hitem.CategoryID))
+                            {
+                                <span class="head"><span class="fa fa-angle-left "></span>  @item.Name</span>
+                                @foreach (var itemm in Model.Where(g => g.Clevel == 2 && g.ParentId == item.CategoryID))
+                                {
+                                    <ul>
+                                        <li>
+                                            <a href="@Url.Action("index", "Home", new { CategoryId = itemm.CategoryID })"> @itemm.Name</a>
+                                        </li>
+                                    </ul>
+
+
+                                }
+                            }
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+     
+
+    </div>
+</div>
+
+
+
+<div id='cssmenu'>
+    <ul>
+        <li><a href='#'></a></li>
+        @foreach (var hitem in Model.Where(c => c.Clevel == 0))
+        {
+    <li>
+        <a href='#'>@hitem.Name</a>
+        @foreach (var item in Model.Where(d => d.Clevel == 1 && d.ParentId == hitem.CategoryID))
+        {
+            <ul>
+                <li>
+                    <a href='#'>@item.Name</a>
+                    <ul>
+                        @foreach (var itemm in Model.Where(g => g.Clevel == 2 && g.ParentId == item.CategoryID))
+                        {
+                            <li><a href='#'>@itemm.Name</a></li>
+                        }
+
+                    </ul>
+                </li>
+                
+            </ul>
+        }
+    </li>
+        }
+       
+    </ul>
+</div>
+
+
+
+<script>
+    (function ($) {
+
+        $.fn.menumaker = function (options) {
+
+            var cssmenu = $(this), settings = $.extend({
+                title: "",
+                format: "dropdown",
+                sticky: false
+            }, options);
+
+            return this.each(function () {
+                cssmenu.prepend('<div id="menu-button">' + settings.title + '</div>');
+                $(this).find("#menu-button").on('click', function () {
+                    $(this).toggleClass('menu-opened');
+                    var mainmenu = $(this).next('ul');
+                    if (mainmenu.hasClass('open')) {
+                        mainmenu.hide().removeClass('open');
+                    }
+                    else {
+                        mainmenu.show().addClass('open');
+                        if (settings.format === "dropdown") {
+                            mainmenu.find('ul').show();
+                        }
+                    }
+                });
+
+                cssmenu.find('li ul').parent().addClass('has-sub');
+
+                multiTg = function () {
+                    cssmenu.find(".has-sub").prepend('<span class="submenu-button"></span>');
+                    cssmenu.find('.submenu-button').on('click', function () {
+                        $(this).toggleClass('submenu-opened');
+                        if ($(this).siblings('ul').hasClass('open')) {
+                            $(this).siblings('ul').removeClass('open').hide();
+                        }
+                        else {
+                            $(this).siblings('ul').addClass('open').show();
+                        }
+                    });
+                };
+
+                if (settings.format === 'multitoggle') multiTg();
+                else cssmenu.addClass('dropdown');
+
+                if (settings.sticky === true) cssmenu.css('position', 'fixed');
+
+                resizeFix = function () {
+                    if ($(window).width() > 768) {
+                        cssmenu.find('ul').show();
+                    }
+
+                    if ($(window).width() <= 768) {
+                        cssmenu.find('ul').hide().removeClass('open');
+                    }
+                };
+                resizeFix();
+                return $(window).on('resize', resizeFix);
+
+            });
+        };
+    })(jQuery);
+
+    (function ($) {
+        $(document).ready(function () {
+
+            $("#cssmenu").menumaker({
+                title: "",
+                format: "multitoggle"
+            });
+
+        });
+    })(jQuery);
+
+</script>

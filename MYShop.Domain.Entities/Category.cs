@@ -8,6 +8,8 @@ namespace MYShop.Domain.Entities
         public int CategoryID { get; set; }
 
         public int ParentId { get; set; }
+
+        public int Clevel { get; set; }
         public string Name { get; set; }
         public byte[] Image { get; set; }
         public bool IsDeleted { get; set; }

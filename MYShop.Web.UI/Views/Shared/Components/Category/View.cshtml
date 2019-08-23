@@ -5,12 +5,18 @@
                 همه
             </a>
         </li>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Where(c => c.Clevel == 0))
         {
-            <li>
-                <a href="@Url.Action("index","Home",new { CategoryId=item.CategoryID})">
-                    @item.Name
-                </a>
-            </li>
-        }
-    </ul>
+            @foreach (var itemm in Model.Where(c => c.Clevel == 1 && c.ParentId == item.CategoryID))
+            {
+                @foreach (var itemmm in Model.Where(c => c.Clevel == 2 && c.ParentId == itemm.CategoryID))
+                {
+                    <li>
+                        <a href="@Url.Action("index", "Home", new { CategoryId = itemmm.CategoryID })">
+                            @item.Name>@itemm.Name>@itemmm.Name
+                        </a>
+                    </li>
+                    }
+                }
+            }
+        </ul>

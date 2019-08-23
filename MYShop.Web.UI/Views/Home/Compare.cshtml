@@ -18,9 +18,38 @@
                             <div class="cart_delete">
                                 <a class="cart_quantity_delete" asp-action="RemoveCompare" asp-controller="Home" asp-route-ProductID="@i.ProductID"><i class="fa fa-times"></i></a>
                             </div>
-                            <img src="@imgSrc1" class="img img-responsive" />
+                            <div>
+                                
+                                <span class="c-product-box__discount-badge">@i.discount%</span>
+                            </div>
+
+
+
+                            @{
+
+                                var base64 = Convert.ToBase64String(i.Image);
+                                var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+                            }
+
+                            <img src="@imgSrc1" class="img img-responsive" width="210" height="130" />
                             <p>@i.Name</p>
-                            <p class=" orange-o">@i.Price ریال</p>
+                            <div>
+                                @if (@i.newvalue > 0)
+                                {<del class="font-y del">@i.Price.ToString("#,###")</del>
+
+                                <h2 class="font-y">
+
+                                    @i.newvalue.ToString("#,###") <span>ریال</span>
+                                </h2>}
+                            else
+                            {
+                                <h2 class="font-y">
+
+                                    @i.Price.ToString("#,###") <span>ریال</span>
+                                </h2>
+                            }
+
+                            </div>
 
                         </div>
                     </div>

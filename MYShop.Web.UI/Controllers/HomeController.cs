@@ -2,6 +2,7 @@
 using MYShop.Domain.Contract.Repositories;
 using MYShop.Domain.Entities;
 using MYShop.Web.UI.Models;
+
 using System.Linq;
 
 namespace MYShop.Web.UI.Controllers
@@ -25,8 +26,8 @@ namespace MYShop.Web.UI.Controllers
 
         public IActionResult Index(int CategoryId, string value, int page =1)
         {
-            
-           
+
+            ViewBag.bb = _repo.GetAllCategories();
             HomeViewModel model = new HomeViewModel();
             model.Category = CategoryId;
             model.Result = _repo.GetPagedData(CategoryId, page, value, pagesize);

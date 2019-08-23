@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace MYShop.Web.UI.Components
 {
-    public class CategoryViewComponent:ViewComponent
+    public class MenuViewComponent : ViewComponent
     {
         private readonly ICategoryRepository _repo;
-        public CategoryViewComponent(ICategoryRepository repo)
+        public MenuViewComponent(ICategoryRepository repo)
         {
             _repo = repo;
         }
         public IViewComponentResult Invoke()
         {
-            
-            return View("View",_repo.GetAll());
+
+            return View("View", _repo.GetAll());
         }
     }
 }

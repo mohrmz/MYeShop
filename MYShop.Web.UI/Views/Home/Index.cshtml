@@ -2,27 +2,36 @@
 @{
     ViewData["Title"] = "Index";
 }
-<section>
+<div class="clear"></div>
+<section id="product">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 sidebar">
-                <h2 class="subject">دسته بندی محصولات</h2>
-                <div class="category-products">
-                    @await Component.InvokeAsync("Category")
-                </div>
-            </div>
-            <div class="col-md-9 content">
+            @*<div class="col-md-2 sidebar">
+                    <h2 class="subject">دسته بندی محصولات</h2>
+                    <div class="category-products">
+                        @await Component.InvokeAsync("Category")
+                    </div>
+                </div>*@
+            <div class="col-md-11 content">
                 <h2 class="subject">لیست محصولات</h2>
                 <div class="features_items">
                     @foreach (var item in Model.Result.Items)
                     {
-                    
+
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo">
-                                    <a asp-action="Product" asp-controller="Home" asp-route-productId="@item.ProductID" >
+                                    <a asp-action="Product" asp-controller="Home" asp-route-productId="@item.ProductID">
 
-                                        <p>@item.Name</p>
+                                        <div>
+                                            <span class="pbrand del">برند : @item.Brand.Name</span>
+                                            @if (item.discount > 0)
+                                            {
+                                                <span class="c-product-box__discount-badge">@item.discount%</span>
+                                            }
+                                        </div>
+
+
 
                                         @{
 
@@ -30,28 +39,45 @@
                                             var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
                                         }
 
-                                        <img src="@imgSrc" class="img img-responsive" />
+                                        <img src="@imgSrc" class="img img-responsive" width="210" height="130" />
+                                        <p>@item.Name</p>
+                                        <div>
+                                            @if (@item.newvalue > 0)
+                                            {<del class="font-y del">@item.Price.ToString("#,###")</del>
 
-                                        <h2 class="font-y">@item.Price.ToString("#,###") <span>ریال</span> </h2>
+                                            <h2 class="font-y">
+
+                                                @item.newvalue.ToString("#,###") <span>ریال</span>
+                                            </h2>}
+                                        else
+                                        {
+                                            <h2 class="font-y">
+
+                                                @item.Price.ToString("#,###") <span>ریال</span>
+                                            </h2>
+                                        }
+
+                                        </div>
+
 
 
                                     </a>
                                     <a asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@item.ProductID" class="btn  add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبد</a>
                                     @if (Model.Category != 0)
                                     {
-                                    <div class="choose">
-                                        <ul>
-                                           
-                                            <li><a asp-action="Compare" asp-controller="Home" asp-route-ProductID="@item.ProductID" ><i class="fa fa-plus-square"></i>مقایسه</a></li>
-                                        </ul>
-                                        
-                                    </div>
+                                        <div class="choose">
+                                            <ul>
+
+                                                <li><a asp-action="Compare" asp-controller="Home" asp-route-ProductID="@item.ProductID"><i class="fa fa-plus-square"></i>مقایسه</a></li>
+                                            </ul>
+
+                                        </div>
                                     }
                                 </div>
 
                             </div>
                         </div>
-                   
+
                     }
 
 
@@ -64,8 +90,26 @@
 
             </div>
         </div>
-    
+
     </div>
 </section>
+
+
+
+@{
+
+
+
+    foreach (var cat in ViewBag.bb)
+    {
+
+
+        @await Component.InvokeAsync("Product", new { category = cat, type = 1 })
+    }
+    @*Category category = new Category();
+    @await Component.InvokeAsync("Product", new { category, type = 2 })
+
+    @await Component.InvokeAsync("Product", new { category, type = 3 })*@
+}
 
 

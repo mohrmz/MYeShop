@@ -15,12 +15,13 @@
                     var imgSrc1 = String.Format("data:image/jpg;base64,{0}", base641);
                 }
                 <div class="slider">
+
                     <input type="radio" name="slide_switch" id="'id1" checked="checked" />
 
-                    <label for="'id1">
+                    <label for="id1">
                         <img src="@imgSrc1" width="100" />
                     </label>
-                    <img src="@imgSrc1" />
+                    <img src="@imgSrc1"  class="img-responsive-s"/>
 
 
 
@@ -35,7 +36,7 @@
                             <label for="'id'@o.ID">
                                 <img src="@imgSrc" width="100" />
                             </label>
-                            <img src="@imgSrc" />
+                            <img src="@imgSrc" class="img-responsive-s"/>
 
 
 
@@ -80,14 +81,19 @@
                     <div class="col-md-6">
                         <div class="box right-align">
                             <div class="padding-top-5">
-                                <p><span class="fa fa-paperclip product-garantee orange-o"></span>فروشنده : سایت</p>
+                                <p><span class="fa fa-paperclip product-garantee orange-o"></span>فروشنده : سایت جور کده</p>
                                 @{
                                     var a = 0;
+                                    int c = 1;
                                     foreach (var l in Model.Comments)
                                     {
                                         a += l.Vote;
                                     }
-                                    decimal b = a / Model.Comments.Count;
+                                    if (Model.Comments.Count>0)
+                                    {
+                                        c = Model.Comments.Count;
+                                    }
+                                    decimal b = a / c;
                                 }
                                 <p class="pvote">امتیاز :  @b از 5</p>
 
@@ -98,11 +104,24 @@
                             </div>
                             <hr />
                             <div>
-                                <p><span class="fa fa-cloud-upload product-garantee orange-o"></span>ارسال ۲۴ ساعته</p>
+                                <p><span class="fa fa-paper-plane product-garantee orange-o"></span>ارسال ۲۴ ساعته</p>
                             </div>
                             <hr />
                             <div class="left-align orange-o left-padding">
-                                <h2 class="font-y">@Model.Price.ToString("#,###") ریال</h2>
+                                @if (Model.newvalue > 0)
+                                {<del class="font-y del">@Model.Price.ToString("#,###")</del>
+
+                                <h2 class="font-y">
+
+                                    @Model.newvalue.ToString("#,###") <span>ریال</span>
+                                </h2>}
+                            else
+                            {
+                                <h2 class="font-y">
+
+                                    @Model.Price.ToString("#,###") <span>ریال</span>
+                                </h2>
+                            }
                             </div>
 
                             <div class="c-product__seller-row">
@@ -134,8 +153,8 @@
                     <br>
                     <h3>نقد و بررسی اجمالی</h3>
                     <p>@Model.Name</p>
-                    <div class="margin-box c-content-expert__summary">
-                        @Model.Description
+                    <div class="c-content-expert__summary">
+                      <img class="c-content-expert__summary-ico"/>  @Model.Description
                     </div>
                 </div>
                 <div id="menu1" class="tab-pane fade">
@@ -197,24 +216,43 @@
                     <div>
                         @foreach (var l in @Model.Comments)
                         {
-                            <ul class="c-faq__list">
-                                <li class="is-question">
-                                    <div class="section">
-                                        <div class="c-faq__header c-faq__header--question header">
-                                            <p class="h5">
+                            <div class="c-faq__list row">
+                                
+                                    <div class="col-md-2 header">
+                                        <p class="h5">
 
-                                                <span>@l.Name+&zwnj;+@l.Name</span>
-                                            </p>
-                                        </div>
-                                        <p>@l.Text</p>
+                                            <span>@l.Name&zwnj;@l.Lastname</span>
+                                        </p>
+                                    </div>
+                                
+                                
+                                    <div class="section is-question col-md-6">
+
+
+
+
+
+
                                         <div class="footer">
                                             <em>@l.Date</em>
-                                            <p>تعداد ستاره : @l.Vote</p>
+                                            @for (int o = 0; o < l.Vote; o++)
+                                            {
+                                                <span class="fa fa-star checked"></span>
+                                            }
+                                            @for(int y=0;y<5-l.Vote;y++)
+                                            {
+                                        <span class="fa fa-star"></span>
+                                            }
+                                           
+                                            
                                         </div>
+                                        <p>@l.Text</p>
                                     </div>
-                                </li>
+                                        
+                                    </div>
+                             
 
-                            </ul>
+                            
                         }
                     </div>
                 </div>

@@ -2,12 +2,12 @@
 
 @{
     ViewData["Title"] = "Index";
-  
+    
 }
-<p>سطح 1</p>
+
 
 <p>
-    <a asp-action="Create" asp-route-parentid="@ViewData["parentid"]" asp-route-categoryid="@ViewData["categoryid"]" asp-route-Clevel="1" class="btn btn-success">ثبت مشخصه جدید</a>
+    <a asp-action="Create" asp-route-parentid="@ViewData["parentid"]" asp-route-categoryid="@ViewData["categoryid"]" asp-route-Clevel="2" class="btn btn-success">ثبت مشخصه جدید</a>
 </p>
 <table class="table table-striped">
     <thead>
@@ -24,8 +24,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Clevel)
             </th>
-
-
         </tr>
     </thead>
     <tbody>
@@ -53,8 +51,7 @@
                     @Html.DisplayFor(modelItem => item.Clevel)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-Id="@item.CategoryID" asp-route-parentid="@item.CategoryID" asp-route-Clevel="1" class="btn btn-info">ویرایش</a>
-                    |<a asp-action="Index3" asp-route-categoryid="@item.CategoryID" asp-route-parentid="@item.CategoryID" asp-route-Clevel="2" class="btn btn-info">اضافه کردن زیرگروه</a>
+                    <a asp-action="Edit" asp-route-Id="@item.CategoryID" asp-route-parentid="@item.CategoryID" asp-route-Clevel="2" class="btn btn-info">ویرایش</a>
                     <a asp-action="Delete" asp-route-Id="@item.CategoryID" class="btn btn-danger" onclick="return confirm('از حذف این کالا مطمئن هستید؟')">حذف</a>
                 </td>
             </tr>

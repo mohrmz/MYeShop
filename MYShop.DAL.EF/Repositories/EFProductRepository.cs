@@ -36,10 +36,13 @@ namespace MYShop.DAL.EF.Repositories
             return _context.Products.ToList();
         }
 
-        public List<string> GetAllCategories()
+        public List<Category> GetAllCategories()
         {
-            return _context.Products.
-                Select(c => c.Name).Distinct().ToList();
+            return _context.Products.Select(c=>c.Category).Distinct().ToList();
+        }
+        public List<Product> Getbycategory(int categoryid)
+        {
+            return _context.Products.Where(c=>c.CategoryID == categoryid).Include(c=>c.Brand).Include(g=>g.Category).Take(15).ToList();
         }
 
         public Product GetById(int ProductId)
@@ -55,7 +58,7 @@ namespace MYShop.DAL.EF.Repositories
 
         public PagedResult<Product> GetPagedData(int category, int pageNumber, string value, int PageSize)
         {
-            var query = _context.Products.Where(c => (category==0 || c.CategoryID == category) && (string.IsNullOrEmpty(value)||c.Name.StartsWith(value)||c.Brand.Name.StartsWith(value)||c.Category.Name.StartsWith(value)));
+            var query = _context.Products.Include(c => c.Brand).Where(c => (category==0 || c.CategoryID == category) && (string.IsNullOrEmpty(value)||c.Name.StartsWith(value)||c.Brand.Name.StartsWith(value)||c.Category.Name.StartsWith(value)));
             PagedResult<Product> result = new PagedResult<Product>();
             result.pagingData.CurrentPage = pageNumber;
             result.pagingData.ItemsPerPage = PageSize;
@@ -99,6 +102,19 @@ namespace MYShop.DAL.EF.Repositories
             _context.SaveChanges();
         }
 
-       
+        public List<Product> GetNews()
+        {
+            return _context.Products.OrderByDescending(c=>c.ProductID).Take(15).ToList();
+        }
+
+        public List<Product> GetDiscount()
+        {
+            return _context.Products.OrderByDescending(c => c.discount!=0).Take(15).ToList();
+        }
+
+        public List<Brand> GetBrands()
+        {
+            return _context.Brands.Include(c=>c.Products).Take(15).ToList();
+        }
     }
 }

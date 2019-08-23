@@ -47,7 +47,7 @@ namespace MYShop.DAL.EF.Repositories
                     dbEntry.Name = category.Name;
                     dbEntry.ParentId = category.ParentId;
                     dbEntry.Image = category.Image;
-
+                    dbEntry.Clevel = category.Clevel;
                 }
             }
             _context.SaveChanges();
@@ -72,6 +72,12 @@ namespace MYShop.DAL.EF.Repositories
         {
             return _context.Categories.Where(c => c.ParentId == 0).ToList();
         }
+
+        public List<Category> GetAllClevel(int clevel)
+        {
+            return _context.Categories.Where(c=>c.Clevel==clevel).ToList();
+        }
+
     }
 }
 

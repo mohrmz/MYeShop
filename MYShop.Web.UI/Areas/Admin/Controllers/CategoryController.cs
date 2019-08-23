@@ -12,7 +12,7 @@ using MYShop.Domain.Entities;
 namespace MYShop.Web.UI.Areas.Admin.Controllers
 {
     [Area("admin")]
-    [Authorize]
+    //[Authorize]
     public class CategoryController : Controller
     {
         private readonly ICategoryRepository _categoryRepository;
@@ -22,9 +22,12 @@ namespace MYShop.Web.UI.Areas.Admin.Controllers
             _categoryRepository = categoryRepository;
         }
 
-        public IActionResult Index()
-        {
-            return View(_categoryRepository.GetRoot());
+        public IActionResult Index(int parentid=0)
+        
+{
+            
+            ViewData["parentid"] = parentid;
+            return View(_categoryRepository.GetNode(parentid));
         }
         public IActionResult Delete(int id)
         {
@@ -37,11 +40,16 @@ namespace MYShop.Web.UI.Areas.Admin.Controllers
             ViewData["parentid"] = parentid;
             return View(_categoryRepository.GetNode(parentid));
         }
-        public IActionResult Create(int parentid)
+        public IActionResult Index3(int parentid)
+        {
+            ViewData["parentid"] = parentid;
+            return View(_categoryRepository.GetNode(parentid));
+        }
+        public IActionResult Create(int parentid,int Clevel)
         {
             Category p = new Category();
             p.ParentId = parentid;
-
+            p.Clevel = Clevel;
             return View("Edit", p);
         }
         public ViewResult Edit(int id)
