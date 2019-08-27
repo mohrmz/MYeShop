@@ -90,6 +90,37 @@ namespace MYShop.Web.UI.Areas.Admin.Controllers
 
             return Json(new { results = (result.Select(c => new { id = c.CategoryID, text = c.Name })) });
         }
+        public IActionResult Findcategoryprice(string term,int categoryId)
+        {
+            var result = _categoryRepository.FindCategoryPrice(term,categoryId);
 
+            return Json(new { results = (result.Select(c => new { id = c.CategoryPriceID, text = c.Value })) });
+        }
+        public IActionResult ListCategoryPrice(Category c)
+        {
+           var result = _categoryRepository.ListCategoryPrice(c);
+            ViewBag.CategoryId = c.CategoryID;
+            return View(result);
+        }
+        public IActionResult Createcategoryprice(int CategoryId)
+        {
+            CategoryPrice p = new CategoryPrice();
+            p.CategoryId = CategoryId;
+            return View("Editcategoryprice", p);
+        }
+        public ViewResult Editcategoryprice(int Editcategoryprice)
+        {
+            var result = _categoryRepository.GetCategoryPriceById(Editcategoryprice);
+            return View(result);
+        }
+        [HttpPost]
+        public IActionResult Editcategoryprice(CategoryPrice category)
+        {
+           
+                _categoryRepository.SaveCategoryPrice(category);
+                TempData["message"] = $"{category.Value} ذخیره شد";
+                return RedirectToAction("Index");
+           
+        }
     }
 }

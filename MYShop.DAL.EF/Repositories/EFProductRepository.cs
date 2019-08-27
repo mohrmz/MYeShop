@@ -116,5 +116,95 @@ namespace MYShop.DAL.EF.Repositories
         {
             return _context.Brands.Include(c=>c.Products).Take(15).ToList();
         }
+
+        public List<Price> GetPrices(Product p)
+        {
+            return _context.Price.Where(c=>c.ProductID==p.ProductID).ToList();
+        }
+        public Price GetPriceById(int ProductId)
+        {
+           return _context.Price.Find(ProductId);
+        }
+        public void SavePrice(Price product)
+        {
+            if (product.PriceID == 0)
+            {
+                _context.Price.Add(product);
+            }
+            else
+            {
+                Price dbEntry = _context.Price
+                .FirstOrDefault(p => p.PriceID == product.PriceID);
+                if (dbEntry != null)
+                {
+                    dbEntry.Value = product.Value;
+                    dbEntry.NewValue = product.NewValue;
+                    dbEntry.Discount = product.Discount;
+                    dbEntry.DateF = product.DateF;
+                    dbEntry.DateT = product.DateT;
+                    dbEntry.ProductColorID = product.ProductColorID;
+                    dbEntry.CategoryPriceID = product.CategoryPriceID;
+                }
+            }
+            _context.SaveChanges();
+        }
+
+        public Price DeletePrice(int priceid)
+        {
+            Price dbEntry = _context.Price.FirstOrDefault(p => p.PriceID == priceid);
+            if (dbEntry != null)
+            {
+                dbEntry.IsDeleted = true;
+                _context.SaveChanges();
+            }
+            return dbEntry;
+        }
+
+        public List<ProductColor> GetAllColor(Product p)
+        {
+            return _context.ProductColors.Where(c => c.ProductID == p.ProductID).ToList();
+        }
+
+        public ProductColor GetColorById(int ColorId)
+        {
+            return _context.ProductColors.Find(ColorId);
+        }
+
+        public void SaveColor(ProductColor ProductColor)
+        {
+            if (ProductColor.ProductColorID == 0)
+            {
+                _context.ProductColors.Add(ProductColor);
+            }
+            else
+            {
+                ProductColor dbEntry = _context.ProductColors
+                .FirstOrDefault(p => p.ProductColorID == ProductColor.ProductColorID);
+                if (dbEntry != null)
+                {
+                    dbEntry.Value = ProductColor.Value;
+                    dbEntry.Name = ProductColor.Name;
+                    
+                }
+            }
+            _context.SaveChanges();
+        }
+
+        public ProductColor DeleteColor(int Colorid)
+        {
+            ProductColor dbEntry = _context.ProductColors.FirstOrDefault(p => p.ProductColorID == Colorid);
+            if (dbEntry != null)
+            {
+                dbEntry.IsDeleted = true;
+                _context.SaveChanges();
+            }
+            return dbEntry;
+        }
+
+        public List<ProductColor> FindProductColor(string query, int ProductID)
+        {
+            return _context.ProductColors.
+                Where(c => c.Name.StartsWith(query)).Where(f=>f.ProductID== ProductID).OrderBy(c => c.Name).Take(10).ToList();
+        }
     }
 }

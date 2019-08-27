@@ -74,6 +74,10 @@
 
                 <a asp-action="photos" asp-route-ProductID="@item.ProductID" class="btn btn-info">افزودن عکس</a>
 
+                <a asp-action="ListPrice" asp-route-ProductID="@item.ProductID" asp-route-CategoryID="@item.CategoryID" class="btn btn-info">تغییر قیمت</a>
+
+                <a asp-action="ListColor" asp-route-ProductID="@item.ProductID"  class="btn btn-info">رنگ بندی</a>
+
                 <a asp-action="Edit" asp-route-Id="@item.ProductID" class="btn btn-info">ویرایش</a>
                 |
                 <a asp-action="Delete" asp-route-Id="@item.ProductID" class="btn btn-danger" onclick="return confirm('از حذف مطمئن هستید؟')">حذف</a>

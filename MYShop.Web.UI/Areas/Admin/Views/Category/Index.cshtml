@@ -52,6 +52,7 @@
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-Id="@item.CategoryID" asp-route-Clevel="0" class="btn btn-info">ویرایش</a>
+                    
                     |<a asp-action="Index2" asp-route-categoryid="@item.CategoryID" asp-route-parentid="@item.CategoryID" asp-route-Clevel="1" class="btn btn-info">اضافه کردن زیرگروه</a>
                     <a asp-action="Delete" asp-route-Id="@item.CategoryID" class="btn btn-danger" onclick="return confirm('از حذف این مطمئن هستید؟')">حذف</a>
                 </td>

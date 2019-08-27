@@ -4,14 +4,16 @@ using MYShop.DAL.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MYShop.DAL.EF.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("13980603053740_addcateegory")]
+    partial class addcateegory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -191,6 +193,8 @@ namespace MYShop.DAL.EF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CategoryID");
+
                     b.Property<int>("CategoryPriceID");
 
                     b.Property<string>("DateF");
@@ -202,8 +206,6 @@ namespace MYShop.DAL.EF.Migrations
                     b.Property<bool>("IsDeleted");
 
                     b.Property<int>("NewValue");
-
-                    b.Property<int>("ProductColorID");
 
                     b.Property<int>("ProductID");
 
@@ -255,27 +257,6 @@ namespace MYShop.DAL.EF.Migrations
                     b.HasIndex("CategoryID");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("MYShop.Domain.Entities.ProductColor", b =>
-                {
-                    b.Property<int>("ProductColorID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<string>("Name");
-
-                    b.Property<int>("ProductID");
-
-                    b.Property<string>("Value");
-
-                    b.HasKey("ProductColorID");
-
-                    b.HasIndex("ProductID");
-
-                    b.ToTable("ProductColors");
                 });
 
             modelBuilder.Entity("MYShop.Domain.Entities.ProductImages", b =>
@@ -360,7 +341,7 @@ namespace MYShop.DAL.EF.Migrations
 
             modelBuilder.Entity("MYShop.Domain.Entities.Price", b =>
                 {
-                    b.HasOne("MYShop.Domain.Entities.CategoryPrice")
+                    b.HasOne("MYShop.Domain.Entities.CategoryPrice", "CategoryPrice")
                         .WithMany("listPrice")
                         .HasForeignKey("CategoryPriceID")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -381,14 +362,6 @@ namespace MYShop.DAL.EF.Migrations
                     b.HasOne("MYShop.Domain.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("MYShop.Domain.Entities.ProductColor", b =>
-                {
-                    b.HasOne("MYShop.Domain.Entities.Product", "Product")
-                        .WithMany("ProductColor")
-                        .HasForeignKey("ProductID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

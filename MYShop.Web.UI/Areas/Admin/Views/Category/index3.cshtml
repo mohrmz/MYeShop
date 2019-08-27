@@ -52,6 +52,7 @@
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-Id="@item.CategoryID" asp-route-parentid="@item.CategoryID" asp-route-Clevel="2" class="btn btn-info">ویرایش</a>
+                    <a asp-action="ListCategoryPrice" asp-route-CategoryID="@item.CategoryID" class="btn btn-info">اضافه کردن گروه قیمتی</a>
                     <a asp-action="Delete" asp-route-Id="@item.CategoryID" class="btn btn-danger" onclick="return confirm('از حذف این کالا مطمئن هستید؟')">حذف</a>
                 </td>
             </tr>

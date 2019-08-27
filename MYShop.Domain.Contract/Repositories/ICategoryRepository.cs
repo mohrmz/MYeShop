@@ -15,7 +15,12 @@ namespace MYShop.Domain.Contract.Repositories
         void SaveCategory(Category category);
         Category DeleteCategory(int CategoryID);
         Category GetById(int CategoryId);
+
+        CategoryPrice GetCategoryPriceById(int CategoryPriceID);
         List<Category> Find(string query);
+        List<CategoryPrice> FindCategoryPrice(string query,int categoryid);
+        List<CategoryPrice> ListCategoryPrice(Category Category);
+        void SaveCategoryPrice(CategoryPrice category);
 
     }
 }

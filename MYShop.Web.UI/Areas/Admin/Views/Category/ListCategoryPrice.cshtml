@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MYShop.Domain.Entities.CategoryPrice>
+@{
+    ViewData["Title"] = "addcategoryprice";
+}
+
+
+<p>
+    <a asp-action="Createcategoryprice" asp-route-CategoryId="@ViewBag.CategoryId" class="btn btn-success">ثبت گروه قیمتی جدید</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Value)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+
+                <td>
+                    <a asp-action="Editcategoryprice" asp-route-Id="@item.CategoryPriceID" asp-route-CategoryId="@item.CategoryId" class="btn btn-info">ویرایش</a>
+
+                    <a asp-action="Delete" asp-route-Id="@item.CategoryPriceID" class="btn btn-danger" onclick="return confirm('از حذف این مطمئن هستید؟')">حذف</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

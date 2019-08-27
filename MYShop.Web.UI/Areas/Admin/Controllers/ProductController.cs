@@ -155,6 +155,90 @@ namespace MYShop.Web.UI.Areas.Admin.Controllers
             TempData["message"] = $"حذف با موفقیت انجام شد";
             return RedirectToAction("Index");
         }
+        public IActionResult ListPrice(Product p)
+        {
+            ViewBag.ProductID = p.ProductID;
+            ViewBag.CategoryID = p.CategoryID;
+            return View(_productRepository.GetPrices(p));
+        }
+        public IActionResult CreatePrice(int ProductID,int CategoryID)
+        {
+            Price price = new Price();
+            price.ProductID = ProductID;
+            price.CategoryID = CategoryID;
+            return View("EditPrice", price);
+        }
+        public ViewResult EditPrice(int id)
+        {
+            var result = _productRepository.GetPriceById(id);
+            return View(result);
+        }
+        [HttpPost]
+        public IActionResult EditPrice(Price product)
+        {
+            
+            if (ModelState.IsValid)
+            {
+                _productRepository.SavePrice(product);
+                TempData["message"] = $" ذخیره شد";
+                return RedirectToAction("index");
+            }
 
+            else
+            {
+                return View(product);
+            }
+        }
+        public IActionResult DeletePrice(int id)
+        {
+            _productRepository.DeletePrice(id);
+            TempData["message"] = $"حذف با موفقیت انجام شد";
+            return RedirectToAction("Index");
+        }
+        public IActionResult ListColor(Product p)
+        {
+            ViewBag.ProductID = p.ProductID;
+            return View(_productRepository.GetAllColor(p));
+        }
+        public IActionResult CreateColor(int ProductID)
+        {
+            ProductColor Color = new ProductColor();
+            Color.ProductID = ProductID;
+           
+            return View("EditColor", Color);
+        }
+        public ViewResult EditColor(int id)
+        {
+            var result = _productRepository.GetColorById(id);
+            return View(result);
+        }
+        [HttpPost]
+        public IActionResult EditColor(ProductColor product)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _productRepository.SaveColor(product);
+                TempData["message"] = $" ذخیره شد";
+                return RedirectToAction("index");
+            }
+
+            else
+            {
+                return View(product);
+            }
+        }
+        public IActionResult DeleteColor(int id)
+        {
+            _productRepository.DeleteColor(id);
+            TempData["message"] = $"حذف با موفقیت انجام شد";
+            return RedirectToAction("Index");
+        }
+        public IActionResult FindProductColor(string term, int ProductID)
+        {
+            var result = _productRepository.FindProductColor(term, ProductID);
+
+            return Json(new { results = (result.Select(c => new { id = c.ProductColorID, text = c.Name })) });
+        }
     }
 }

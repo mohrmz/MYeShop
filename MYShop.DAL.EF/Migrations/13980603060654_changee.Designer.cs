@@ -4,14 +4,16 @@ using MYShop.DAL.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MYShop.DAL.EF.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("13980603060654_changee")]
+    partial class changee
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -263,10 +265,6 @@ namespace MYShop.DAL.EF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("IsDeleted");
-
-                    b.Property<string>("Name");
-
                     b.Property<int>("ProductID");
 
                     b.Property<string>("Value");
@@ -275,7 +273,7 @@ namespace MYShop.DAL.EF.Migrations
 
                     b.HasIndex("ProductID");
 
-                    b.ToTable("ProductColors");
+                    b.ToTable("ProductColor");
                 });
 
             modelBuilder.Entity("MYShop.Domain.Entities.ProductImages", b =>

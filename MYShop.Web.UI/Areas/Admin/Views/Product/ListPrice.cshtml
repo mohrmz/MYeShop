@@ -1,0 +1,81 @@
+﻿@model IEnumerable<MYShop.Domain.Entities.Price>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a asp-action="CreatePrice" asp-route-ProductID="@ViewBag.ProductID" asp-route-CategoryID="@ViewBag.CategoryID" class="btn btn-success">ثبت قیمت جدید</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryPriceID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductColorID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NewValue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateT)
+            </th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryPriceID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductColorID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewValue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateT)
+            </td>
+            <td>
+
+
+                <a asp-action="EditPrice" asp-route-Id="@item.PriceID" asp-route-ProductID="@item.ProductID" class="btn btn-info">ویرایش</a>
+                |
+                <a asp-action="Delete" asp-route-Id="@item.ProductID" class="btn btn-danger" onclick="return confirm('از حذف مطمئن هستید؟')">حذف</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -21,6 +21,10 @@ namespace MYShop.DAL.EF
         public DbSet<ProductProperties> ProductProperties { get; set; }
         public DbSet<NewsUsers> NewsUsers { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<CategoryPrice> CategoryPrice { get; set; }
+        public DbSet<Price> Price { get; set; }
+        public DbSet<ProductColor> ProductColors { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
           

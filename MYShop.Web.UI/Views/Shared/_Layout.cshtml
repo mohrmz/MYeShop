@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <!-- JavaScript -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <script type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "b9352d81-5194-4467-b9b2-49231821855b"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
+
 </head>
 <body>
     <header id="header">
@@ -34,6 +37,8 @@
                 <div id="top" class="contactinfo">
                     <ul>
                         <li><a href="tel:+989189660086"><i class="fa fa-phone"></i> +989189660086</a></li>
+                        <li><a href="tel:+982537185340"><i class="fa fa-phone"></i> +982537185340</a></li>
+
                         <li><a href="mailto:mohammad0ramezani@gmail.com"><i class="fa fa-envelope"></i> mohammad0ramezani@gmail.com</a></li>
                     </ul>
                 </div>
@@ -139,25 +144,17 @@
                     <div class="col-md-4 single-widget">
                         <div class="row">
                             <div class="">
-                                <h2>خدمات</h2>
+                                <h2>قوانین و خدمات</h2>
                                 <ul>
-                                    <li><a href="#">کمک آنلاین</a></li>
-                                    <li><a href="#">تماس باماus</a></li>
-                                    <li><a href="#">پرسش&zwnj;های متداول</a></li>
-                                    <li><a href="#">درباره شرکت</a></li>
-                                    <li><a href="#">آدرس ما</a></li>
+                                    <li><a asp-action="Harim" asp-controller="Other">حریم شخصی</a></li>
+                                    <li><a asp-action="Sefaresh" asp-controller="Other">ثبت سفارش</a></li>
+                                    <li><a asp-action="HelpPay" asp-controller="Other">نحوه پرداخت</a></li>
+                                    <li><a asp-action="US" asp-controller="Other">تماس باماus</a></li>
+                                    <li><a asp-action="About" asp-controller="Other">درباره شرکت</a></li>
+                                    <li><a asp-action="Address" asp-controller="Other">آدرس ما</a></li>
                                 </ul>
                             </div>
-                            <div class="margin-right">
-                                <h2>قوانین</h2>
-                                <ul>
-                                    <li><a href="#">حریم شخصی</a></li>
-                                    <li><a href="#">قوانین حقوقی</a></li>
-                                    <li><a href="#">قوانین حقیقی</a></li>
-                                    <li><a href="#">ثبت سفارش</a></li>
-                                    <li><a href="#">پشتیبانی</a></li>
-                                </ul>
-                            </div>
+                           
                         </div>
 
                     </div>
@@ -176,11 +173,10 @@
 
                         <div class="col-md-3 social-icons">
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                @*<li><a href="#"><i class="fa fa-facebook"></i></a></li>*@
+                                <li><a href="https://twitter.com/joorkadeh"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/joor-kadeh-756029192/"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://www.instagram.com/joorkadeh/"><i class="fa fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -197,6 +193,9 @@
                         </div>
                         <div>
                             <h2> | شماره تماس : <a href="tel:+989189660086">+989189660086</a> </h2>
+                        </div>
+                        <div>
+                            <h2> | شماره تماس : <a href="tel:+982537185340">+982537185340</a> </h2>
                         </div>
                     </div>
                     <div class="row">

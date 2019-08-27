@@ -78,6 +78,43 @@ namespace MYShop.DAL.EF.Repositories
             return _context.Categories.Where(c=>c.Clevel==clevel).ToList();
         }
 
+
+
+
+        public List<CategoryPrice> ListCategoryPrice(Category Category)
+        {
+            return _context.CategoryPrice.Where(c => c.CategoryId == Category.CategoryID).ToList();
+        }
+
+        public CategoryPrice GetCategoryPriceById(int CategoryPriceID)
+        {
+            return _context.CategoryPrice.Find(CategoryPriceID);
+        }
+
+        public void SaveCategoryPrice(CategoryPrice category)
+        {
+            if (category.CategoryPriceID == 0)
+            {
+                _context.CategoryPrice.Add(category);
+            }
+            else
+            {
+                CategoryPrice dbEntry = _context.CategoryPrice
+                .FirstOrDefault(p => p.CategoryPriceID == category.CategoryPriceID);
+                if (dbEntry != null)
+                {
+                    dbEntry.Value = category.Value;
+                   
+                }
+            }
+            _context.SaveChanges();
+        }
+
+        public List<CategoryPrice> FindCategoryPrice(string query, int categoryid)
+        {
+            return _context.CategoryPrice.
+             Where(c => c.Value.StartsWith(query)&&c.CategoryId== categoryid).OrderBy(c => c.Value).Take(10).ToList();
+        }
     }
 }
 

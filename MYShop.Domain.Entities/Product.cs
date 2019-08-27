@@ -21,6 +21,8 @@ namespace MYShop.Domain.Entities
         public ICollection<Comment> Comments { get; set; }
         public ICollection<ProductImages> ProductImages { get; set; } 
         public ICollection<ProductProperties> ProductProperties { get; set; }
+        public ICollection<Price> Prices { get; set; }
+        public ICollection<ProductColor> ProductColor { get; set; }
     }
     
 }

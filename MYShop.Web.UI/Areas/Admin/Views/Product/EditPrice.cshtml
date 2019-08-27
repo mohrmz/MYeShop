@@ -1,0 +1,86 @@
+﻿@model Price
+
+
+    <form asp-action="EditPrice" asp- method="post" enctype="multipart/form-data">
+
+        <input type="hidden" asp-for="PriceID" />
+
+        <input type="hidden" asp-for="ProductID" />
+
+
+        <div class="form-group">
+            <label asp-for="Value"></label>
+            <div><span asp-validation-for="Value" class="text-danger"></span></div>
+            <input asp-for="Value" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="NewValue"></label>
+            <div><span asp-validation-for="NewValue" class="text-danger"></span></div>
+            <input asp-for="NewValue" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Discount"></label>
+            <div><span asp-validation-for="Discount" class="text-danger"></span></div>
+            <input asp-for="Discount" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DateF"></label>
+            <div><span asp-validation-for="DateF" class="text-danger"></span></div>
+            <input asp-for="DateF" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DateT"></label>
+            <div><span asp-validation-for="DateT" class="text-danger"></span></div>
+            <input asp-for="DateT" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CategoryPriceID"></label>
+            <select id="selectcategory" class="select2" name="state"></select>
+            <input type="hidden" asp-for="CategoryPriceID" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ProductColorID"></label>
+            <select id="selectProductColor" class="select2" name="state"></select>
+            <input type="hidden" asp-for="ProductColorID" />
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-primary" type="submit">ذخیره</button>
+            <a asp-action="Index" class="btn btn-default">انصراف</a>
+        </div>
+    </form>
+@section Scripts
+{
+    <script>
+
+        $(document).ready(function () {
+
+                $('#selectcategory').select2({
+                    ajax: {
+                        url: '@Url.Action("Findcategoryprice","category",new { categoryId=Model.CategoryID})',
+                        dataType: 'json'
+                    } });
+            $('#selectcategory').on('change', function () {
+                var data = $("#selectcategory option:selected").val();
+                $("#CategoryPriceID").val(data);
+            });
+              $('#selectProductColor').select2({
+                    ajax: {
+                        url: '@Url.Action("FindProductColor","product",new { ProductID=Model.ProductID})',
+                        dataType: 'json'
+                    } });
+            $('#selectProductColor').on('change', function () {
+                var data = $("#selectProductColor option:selected").val();
+                $("#ProductColorID").val(data);
+            });
+            
+
+});
+    </script>
+
+}

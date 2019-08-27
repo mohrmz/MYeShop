@@ -11,11 +11,14 @@ namespace MYShop.Domain.Entities
 
         public int Clevel { get; set; }
         public string Name { get; set; }
+
         public byte[] Image { get; set; }
         public bool IsDeleted { get; set; }
         public List<Product> Products { get; set; } = new List<Product>();
 
         public List<Property> Properties { get; set; } = new List<Property>();
+
+        public List<CategoryPrice> CategoryPrice { get; set; } = new List<CategoryPrice>();
 
     }
 }

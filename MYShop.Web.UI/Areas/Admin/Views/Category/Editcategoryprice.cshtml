@@ -1,0 +1,20 @@
+﻿@model CategoryPrice
+@{
+    ViewBag.Title = "Edit CategoryPrice";
+
+}
+<form asp-action="Editcategoryprice" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="CategoryId" />
+    <input type="hidden" asp-for="CategoryPriceID" />
+
+    <div class="form-group">
+        <label asp-for="Value"></label>
+        <div><span asp-validation-for="Value" class="text-danger"></span></div>
+        <input asp-for="Value" class="form-control" />
+    </div>
+   
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit">ذخیره</button>
+        <a asp-action="Index" class="btn btn-default">انصراف</a>
+    </div>
+</form>
