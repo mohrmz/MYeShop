@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MYShop.Domain.Entities
 {
@@ -8,8 +10,15 @@ namespace MYShop.Domain.Entities
         public int ProductID { get; set; }
         public int BrandID { get; set; }
         public int CategoryID { get; set; }
+        [Column(TypeName = "nvarchar(MAX)")]
         public string Name { get; set; }
+        [Column(TypeName = "nvarchar(MAX)")]
+        public string ShortDescription { get; set; }
+        [Column(TypeName = "nvarchar(MAX)")]
         public string Description { get; set; }
+        [Column(TypeName = "nvarchar(MAX)")]
+        public string Keywords { get; set; }
+        
         public string Guarantee { get; set; }
         public byte[] Image { get; set; }
         public Int64 Price { get; set; }

@@ -79,6 +79,10 @@
     <Compile Remove="Migrations\20190811072400_init.Designer.cs" />
     <Compile Remove="Migrations\20190811072754_init.cs" />
     <Compile Remove="Migrations\20190811072754_init.Designer.cs" />
+    <Compile Remove="Migrations\20190905072812_addkewords.cs" />
+    <Compile Remove="Migrations\20190905072812_addkewords.Designer.cs" />
+    <Compile Remove="Migrations\20190905072906_addkewords.cs" />
+    <Compile Remove="Migrations\20190905072906_addkewords.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
