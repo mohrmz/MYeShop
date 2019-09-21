@@ -49,13 +49,13 @@
 
                                                 @item.newvalue.ToString("#,###") <span>ریال</span>
                                             </h2>}
-                                        else
-                                        {
-                                            <h2 class="font-y">
+                                        else if (@item.Price > 0)
+                                     {
+                                        <h2 class="font-y">
 
-                                                @item.Price.ToString("#,###") <span>ریال</span>
-                                            </h2>
-                                        }
+                                            @item.Price.ToString("#,###") <span>ریال</span>
+                                        </h2>
+                                    }
 
                                         </div>
 

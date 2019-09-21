@@ -23,7 +23,7 @@ namespace MYShop.Web.UI.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-         return View(_propertyRepository.GetRoot(0));
+         return View(_propertyRepository.GetNode(0));
         }
         public IActionResult Index2(int parentid,int categoryid)
         {

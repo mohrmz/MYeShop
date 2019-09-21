@@ -13,6 +13,8 @@ namespace MYShop.Domain.Entities
         [Column(TypeName = "nvarchar(MAX)")]
         public string Name { get; set; }
         [Column(TypeName = "nvarchar(MAX)")]
+        public string Title { get; set; }
+        [Column(TypeName = "nvarchar(MAX)")]
         public string ShortDescription { get; set; }
         [Column(TypeName = "nvarchar(MAX)")]
         public string Description { get; set; }

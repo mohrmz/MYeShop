@@ -73,7 +73,7 @@
                         <div class="right-align font-y">
                             <h6>ویژگی های محصول</h6>
                             <ul class="pdetail right-align">
-                                @await Component.InvokeAsync("Property", new { propductid = Model.ProductID,CategoryId=Model.CategoryID })
+                                @await Component.InvokeAsync("Property", new { propductid = Model.ProductID,CategoryId=Model.CategoryID,isshort=true })
                             </ul>
                         </div>
 
@@ -153,8 +153,10 @@
                     <br>
                     <h3>نقد و بررسی اجمالی</h3>
                     <p>@Model.Name</p>
-                    <div class="c-content-expert__summary">
-                      <img class="c-content-expert__summary-ico"/>  @Model.Description
+                    <div class="c-content-expert__summary row">
+                        <div class="col-md-2"><img class="c-content-expert__summary-ico" /> </div>
+               
+                        <div class="col-md-10"></div>  
                     </div>
                 </div>
                 <div id="menu1" class="tab-pane fade">
@@ -164,7 +166,7 @@
 
                     <hr />
                     <ul class="pbase">
-                        @await Component.InvokeAsync("Property", new { propductid = Model.ProductID,CategoryId=Model.CategoryID })
+                        @await Component.InvokeAsync("Property", new { propductid = Model.ProductID,CategoryId=Model.CategoryID,isshort=false })
                     </ul>
                 </div>
                 <div id="menu2" class="tab-pane fade">

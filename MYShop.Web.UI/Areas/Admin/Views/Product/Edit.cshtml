@@ -12,6 +12,11 @@
             <input asp-for="Name" class="form-control" />
         </div>
         <div class="form-group">
+            <label asp-for="Title"></label>
+            <div><span asp-validation-for="Title" class="text-danger"></span></div>
+            <input asp-for="Title" class="form-control" />
+        </div>
+        <div class="form-group">
             <label asp-for="ShortDescription"></label>
             <div><span asp-validation-for="ShortDescription" class="text-danger"></span></div>
             <textarea asp-for="ShortDescription" class="form-control"></textarea>

@@ -97,6 +97,14 @@ namespace MYShop.DAL.EF.Repositories
                     dbEntry.Price = product.Price;
                     dbEntry.Name = product.Name;
                     dbEntry.Image= product.Image;
+                    dbEntry.Title = product.Title;
+                    dbEntry.ShortDescription = product.ShortDescription;
+                    dbEntry.Keywords = product.Keywords;
+                    dbEntry.newvalue = product.newvalue;
+                    dbEntry.discount = product.discount;
+                    dbEntry.Guarantee = product.Guarantee;
+                    dbEntry.BrandID = product.BrandID;
+                    dbEntry.CategoryID = product.CategoryID;
                 }
             }
             _context.SaveChanges();

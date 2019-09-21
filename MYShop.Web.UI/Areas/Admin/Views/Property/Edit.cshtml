@@ -3,27 +3,37 @@
     ViewBag.Title = "Edit category";
 
 }
-<form asp-action="Edit"  method="post" enctype="multipart/form-data">
-    <input type="hidden" asp-for="PropertyID" />
-    <div class="form-group">
-        <label asp-for="Name"></label>
-        <div><span asp-validation-for="Name" class="text-danger"></span></div>
-        <input asp-for="Name" class="form-control" />
-    </div>
-    <input type="hidden" asp-for="ParentId" />
-
-    <div id="select" class="form-group">
-        <select id="select2" class="select2" name="state"></select>
-        <input type="hidden" asp-for="CategoryId"  />
-    </div>
-
-    <div class="form-group">
-        <div class="text-center">
-            <button class="btn btn-primary"  type="submit">ذخیره</button>
-            <a asp-action="Index" class="btn btn-default">انصراف</a>
+    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="PropertyID" />
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <div><span asp-validation-for="Name" class="text-danger"></span></div>
+            <input asp-for="Name" class="form-control" />
         </div>
-    </div>
-</form>
+        <div class="form-group">
+            <label asp-for="IsShort"></label>
+            <div><span asp-validation-for="IsShort" class="text-danger"></span></div>
+            <input type="checkbox" asp-for="IsShort" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="orderby"></label>
+            <div><span asp-validation-for="orderby" class="text-danger"></span></div>
+            <input asp-for="orderby" class="form-control" />
+        </div>
+        <input type="hidden" asp-for="ParentId" />
+
+        <div id="select" class="form-group">
+            <select id="select2" class="select2" name="state"></select>
+            <input type="hidden" asp-for="CategoryId" />
+        </div>
+
+        <div class="form-group">
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">ذخیره</button>
+                <a asp-action="Index" class="btn btn-default">انصراف</a>
+            </div>
+        </div>
+    </form>
 @section Scripts
 {
     <script>

@@ -8,7 +8,7 @@ namespace MYShop.Domain.Contract.Repositories
     public interface IPropertyRepository
     {
         List<Property> GetAll();
-        List<Property> GetRoot(int CategoryId);
+        List<Property> GetRoot(int CategoryId,bool isshort);
         List<Property> GetNode(int ParentID);
         void SaveProperty(Property Property);
         void DeleteProperty(int PropertyID);

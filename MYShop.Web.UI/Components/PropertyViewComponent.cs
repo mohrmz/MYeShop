@@ -16,9 +16,9 @@ namespace MYShop.Web.UI.Components
             _repo = repo;
             _repo1 = repo1;
         }
-        public IViewComponentResult Invoke(int propductid,int CategoryId)
+        public IViewComponentResult Invoke(int propductid,int CategoryId,bool isshort)
         {
-            ViewBag.Property = _repo1.GetRoot(CategoryId);
+            ViewBag.Property = _repo1.GetRoot(CategoryId, isshort);
             return View("View", _repo.FindById(propductid));
         }
     }

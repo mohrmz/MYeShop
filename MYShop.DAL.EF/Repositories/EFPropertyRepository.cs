@@ -40,12 +40,12 @@ namespace MYShop.DAL.EF.Repositories
 
         public List<Property> GetNode(int ParentID)
         {
-            return _context.Properties.Where(c => c.ParentId == ParentID).ToList();
+            return _context.Properties.Where(c => c.ParentId == ParentID).OrderBy(d => d.orderby).ToList();
         }
 
-        public List<Property> GetRoot(int CategoryId)
+        public List<Property> GetRoot(int CategoryId,bool isshort)
         {
-            return _context.Properties.Where(c=>c.ParentId==0 && (c.CategoryId==CategoryId||CategoryId==0)).ToList();
+            return _context.Properties.Where(c=>c.ParentId==0 && (c.CategoryId==CategoryId||CategoryId==0) && c.IsShort==isshort).OrderBy(d => d.orderby).ToList();
         }
 
         public void SaveProperty(Property Property)
@@ -63,6 +63,8 @@ namespace MYShop.DAL.EF.Repositories
                     dbEntry.CategoryId = Property.CategoryId;
                     dbEntry.Name = Property.Name;
                     dbEntry.ParentId = Property.ParentId;
+                    dbEntry.orderby = Property.orderby;
+                    
 
                 }
             }

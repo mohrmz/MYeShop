@@ -1,23 +1,26 @@
 ﻿@model Product
 
 
-    @{
+@{
+    
         foreach (var g in ViewBag.Property)
         {
-            <li class="pheader"><span class="fa fa-angle-left "></span>@g.Name</li>
-            foreach (var i in Model.ProductProperties.Where(c => c.Property.ParentId == g.PropertyID))
-            {
 
-                <li class="row">
-                    <ul class="pul">
-                        <li class="pli"><p class="pff right-align">@i.Property.Name</p></li>
-                        
-                        
-                        <li class="pli"><p class="pfl right-align">@i.Value</p></li>
-                    </ul>
-                </li>
+        <div class="pheader"><span class="fa fa-angle-left "></span>@g.Name</div>
+        foreach (var i in Model.ProductProperties.Where(c => c.Property.ParentId == g.PropertyID))
+        {
+
+        <div class="row dul">
+
+            <div class="col-md-6 dli" ><p class="dff right-align" style="list-style:disc inside none;display:list-item;">@i.Property.Name</p></div>
 
 
-            }
+            <div class="col-md-6 dli" ><p class="dfl left-align">@i.Value</p></div>
+
+        </div>
+
+
         }
+
+}
     }

@@ -1604,23 +1604,23 @@ On click the images will be displayed at normal size to complete the effect
         .pheader span {
            color: #00bfd6;
         }
-.pbase .pul {
+.pbase .dul {
     width: 100%;
  
 }
-.pbase .pff {
+.pbase .dff {
     background-color: #F5F5F5;
     padding: 10px;
 }
-.pbase .pfl {
+.pbase .dfl {
     padding: 10px;
     background-color: #F5F5F5;
     margin-right: 20px;
 }
 
-.pbase .pli {
+.pbase .dli {
   display:block;
-  width:50%;
+  width:100%;
 }
 .affix {
     position: fixed;
@@ -1723,7 +1723,10 @@ On click the images will be displayed at normal size to complete the effect
         display:inline-block;
         
     }
-
+.pll
+{
+    float:left;
+}
 .img-responsive-s {
     width: 80%;
     height: auto;
