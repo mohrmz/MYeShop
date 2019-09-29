@@ -85,6 +85,8 @@
     <Compile Remove="Migrations\20190905072906_addkewords.Designer.cs" />
     <Compile Remove="Migrations\20190920162302_addorderby.cs" />
     <Compile Remove="Migrations\20190920162302_addorderby.Designer.cs" />
+    <Compile Remove="Migrations\20190929045840_addcategorypriceproduct.cs" />
+    <Compile Remove="Migrations\20190929045840_addcategorypriceproduct.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

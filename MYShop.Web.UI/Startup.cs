@@ -63,6 +63,7 @@ namespace MYShop.Web.UI
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
+            app.UseHttpsRedirection();
             //app.UseAuthentication();
             app.UseMvc(routes => {
                 routes.MapRoute(

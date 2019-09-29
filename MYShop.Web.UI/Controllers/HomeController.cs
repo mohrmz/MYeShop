@@ -36,7 +36,7 @@ namespace MYShop.Web.UI.Controllers
         public IActionResult Product(Product product)
         {
             var result = _repo.FindById(product.ProductID);
-            
+            ViewBag.categoryprice = _repo.GetCategoryPrice(result.CategoryID);
             return View(result);
         }
         public IActionResult Find(string term)

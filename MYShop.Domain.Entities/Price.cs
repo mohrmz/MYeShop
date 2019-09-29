@@ -27,6 +27,6 @@ namespace MYShop.Domain.Entities
 
         public Product Product { get; set; }
 
-
+        
     }
 }

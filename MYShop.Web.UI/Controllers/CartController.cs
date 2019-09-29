@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using MYShop.Domain.Contract.Repositories;
 using MYShop.Domain.Entities;
 
@@ -19,8 +20,9 @@ namespace MYShop.Web.UI.Controllers
            
             return View(_cart);
         }
-        public IActionResult AddToCart(int productId)
+        public IActionResult AddToCart(int productId,int price)
         {
+            
             Product product = repository.GetById(productId);
             if (product != null)
             {

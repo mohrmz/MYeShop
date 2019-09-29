@@ -15,6 +15,7 @@ namespace MYShop.Domain.Contract.Repositories
         List<Product> GetImages(int productid);
         List<Property> Getproperties(int CategoryId);
         List<Product> Getbycategory(int CategoryId);
+        List<CategoryPrice> GetCategoryPrice(int CategoryId);
         List<Category> GetAllCategories();
         Product GetById(int ProductId);
         Price GetPriceById(int ProductId);

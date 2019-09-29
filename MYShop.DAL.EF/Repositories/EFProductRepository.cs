@@ -52,7 +52,7 @@ namespace MYShop.DAL.EF.Repositories
         }
         public Product FindById(int ProductId)
         {
-            return _context.Products.Include(c => c.Brand).Include(f => f.Category).Include(k => k.Comments).Include(g => g.ProductProperties).ThenInclude(s=>s.Property).Include(h => h.ProductImages).Where(d => d.ProductID == ProductId).FirstOrDefault();
+            return _context.Products.Include(c => c.Brand).Include(f => f.Category).Include(k => k.Comments).Include(g => g.ProductProperties).ThenInclude(s=>s.Property).Include(h => h.ProductImages).Include(t=>t.Prices).Where(d => d.ProductID == ProductId).FirstOrDefault();
             //return _context.Products.Find(ProductId);
         }
 
@@ -213,6 +213,11 @@ namespace MYShop.DAL.EF.Repositories
         {
             return _context.ProductColors.
                 Where(c => c.Name.StartsWith(query)).Where(f=>f.ProductID== ProductID).OrderBy(c => c.Name).Take(10).ToList();
+        }
+
+        public List<CategoryPrice> GetCategoryPrice(int categoryId)
+        {
+            return _context.CategoryPrice.Where(c => c.CategoryId == categoryId).ToList();
         }
     }
 }

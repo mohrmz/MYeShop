@@ -1,6 +1,8 @@
 ﻿@model Product
 @{
-    ViewData["Title"] = "Product";
+    ViewData["Title"] = @Model.Title;
+    ViewData["ShorDescription"] = @Model.ShortDescription;
+    ViewData["KeyWords"] = Model.Keywords;
 }
 
     <div class="container-fluid">
@@ -89,7 +91,7 @@
                                     {
                                         a += l.Vote;
                                     }
-                                    if (Model.Comments.Count>0)
+                                    if (Model.Comments.Count > 0)
                                     {
                                         c = Model.Comments.Count;
                                     }
@@ -108,26 +110,65 @@
                             </div>
                             <hr />
                             <div class="left-align orange-o left-padding">
-                                @if (Model.newvalue > 0)
-                                {<del class="font-y del">@Model.Price.ToString("#,###")</del>
+                                <form asp-action="AddToCart" asp-controller="Cart" asp-route-ProductID="@Model.ProductID">
+                                    <div class="form-group">
 
-                                <h2 class="font-y">
+                                        <span class="choose right-align">سایز مورد نظر را انتخاب کنید</span>
 
-                                    @Model.newvalue.ToString("#,###") <span>ریال</span>
-                                </h2>}
-                            else
-                            {
-                                <h2 class="font-y">
+                                        <div class="dropdown">
+                                            <div class="select">
+                                                <span>سایز</span>
+                                                <i class="fa fa-chevron-left"></i>
+                                            </div>
+                                            <input type="hidden" name="price">
+                                            <ul class="dropdown-menu">
+                                                @foreach (var catt in ViewBag.categoryprice)
+                                                {
+                                                    @foreach (var rr in Model.Prices.Where(r => r.CategoryPriceID == catt.CategoryPriceID))
+                                                    {
+                                                        <li id="@rr.Value">@catt.Value</li>
+                                                    }
 
-                                    @Model.Price.ToString("#,###") <span>ریال</span>
-                                </h2>
-                            }
-                            </div>
+                                                }
 
-                            <div class="c-product__seller-row">
-                                <a class="btn-add-to-cart" asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@Model.ProductID"> <span class="fa fa-shopping-cart"></span> افزودن به سبد خرید</a>
+                                            </ul>
 
-                            </div>
+                                        </div>
+
+                                        <h2 class="font-y">
+
+                                            <span class="msg">  </span>
+                                        </h2>
+
+                                    </div>
+
+                                  
+
+
+
+                                    <button class="c-product__seller-row btn-add-to-cart" title="افزودن به سبد خرید" id="add-basket-button" type="submit">
+                                        <span class="fa fa-shopping-cart"></span> افزودن به سبد خرید
+                                    </button>
+
+                                </form>
+                                @*@if (Model.newvalue > 0)
+            {<del class="font-y del">@Model.Price.ToString("#,###")</del>
+
+            <h2 class="font-y">
+
+                @Model.newvalue.ToString("#,###") <span>ریال</span>
+            </h2>}
+        else if (Model.Price > 0)
+        {
+            <h2 class="font-y">
+
+                @Model.Price.ToString("#,###") <span>ریال</span>
+            </h2>
+        }
+        else if (Model.Prices.Count > 0)
+        {*@
+                              
+
                         </div>
                     </div>
                 </div>
@@ -156,7 +197,7 @@
                     <div class="c-content-expert__summary row">
                         <div class="col-md-2"><img class="c-content-expert__summary-ico" /> </div>
                
-                        <div class="col-md-10"></div>  
+                        <div class="col-md-10">@Model.Description</div>  
                     </div>
                 </div>
                 <div id="menu1" class="tab-pane fade">
@@ -270,6 +311,30 @@
                     $('#vote').val(userRating);
                 });
 
+
+            /*Dropdown Menu*/
+$('.dropdown').click(function () {
+    $(this).attr('tabindex', 1).focus();
+    $(this).toggleClass('active');
+    $(this).find('.dropdown-menu').slideToggle(300);
+});
+$('.dropdown').focusout(function () {
+    $(this).removeClass('active');
+    $(this).find('.dropdown-menu').slideUp(300);
+});
+$('.dropdown .dropdown-menu li').click(function () {
+    $(this).parents('.dropdown').find('span').text($(this).text());
+    $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+});
+/*End Dropdown Menu*/
+
+
+$('.dropdown-menu li').click(function () {
+    var input = '<strong>' + $(this).parents('.dropdown').find('input').val() + '</strong>',
+        msg = '<span class="msg"> ';
+    $('.msg').html(msg + input + '<span>ریال</span></span>');
+    
+});
         </script>
 
         <script src="http://thecodeplayer.com/uploads/js/prefixfree.js" type="text/javascript"></script>
