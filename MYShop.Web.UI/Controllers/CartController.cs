@@ -20,13 +20,13 @@ namespace MYShop.Web.UI.Controllers
            
             return View(_cart);
         }
-        public IActionResult AddToCart(int productId,int price)
+        public IActionResult AddToCart(int productId,int priceid ,int price)
         {
             
             Product product = repository.GetById(productId);
             if (product != null)
             {
-                _cart.AddItem(product, 1);
+                _cart.AddItem(product, priceid, price, 1);
             }
   
             return RedirectToAction("Index", "Cart");

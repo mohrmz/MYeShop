@@ -110,7 +110,7 @@
                             </div>
                             <hr />
                             <div class="left-align orange-o left-padding">
-                                <form asp-action="AddToCart" asp-controller="Cart" asp-route-ProductID="@Model.ProductID">
+                                <form asp-action="AddToCart" asp-controller="Cart" asp-route-ProductID="@Model.ProductID" >
                                     <div class="form-group">
 
                                         <span class="choose right-align">سایز مورد نظر را انتخاب کنید</span>
@@ -120,13 +120,15 @@
                                                 <span>سایز</span>
                                                 <i class="fa fa-chevron-left"></i>
                                             </div>
-                                            <input type="hidden" name="price">
+                                            <input type="hidden" id="price" name="price">
+                                            <input type="hidden" id="priceid" name="priceid">
+                                            
                                             <ul class="dropdown-menu">
                                                 @foreach (var catt in ViewBag.categoryprice)
                                                 {
                                                     @foreach (var rr in Model.Prices.Where(r => r.CategoryPriceID == catt.CategoryPriceID))
                                                     {
-                                                        <li id="@rr.Value">@catt.Value</li>
+                                                        <li  priceid="@rr.PriceID" value="@rr.Value">@catt.Value</li>
                                                     }
 
                                                 }
@@ -324,7 +326,8 @@ $('.dropdown').focusout(function () {
 });
 $('.dropdown .dropdown-menu li').click(function () {
     $(this).parents('.dropdown').find('span').text($(this).text());
-    $(this).parents('.dropdown').find('input').attr('value', $(this).attr('id'));
+    $(this).parents('.dropdown').find('#price').attr('value', $(this).attr('value'));
+     $(this).parents('.dropdown').find('#priceid').attr('value', $(this).attr('priceid'));
 });
 /*End Dropdown Menu*/
 
@@ -333,6 +336,7 @@ $('.dropdown-menu li').click(function () {
     var input = '<strong>' + $(this).parents('.dropdown').find('input').val() + '</strong>',
         msg = '<span class="msg"> ';
     $('.msg').html(msg + input + '<span>ریال</span></span>');
+
     
 });
         </script>

@@ -23,9 +23,9 @@ namespace MYShop.Web.UI.Models
         }
         [JsonIgnore]
         public ISession Session { get; set; }
-        public override void AddItem(Product product, int quantity)
+        public override void AddItem(Product product, int priceid, int price, int quantity)
         {
-            base.AddItem(product, quantity);
+            base.AddItem(product, priceid,  price, quantity);
             Session.SetJson("Cart", this);
         }
         public override void minfromItem(Product product, int quantity)

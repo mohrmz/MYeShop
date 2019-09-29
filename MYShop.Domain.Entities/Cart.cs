@@ -10,7 +10,7 @@ namespace MYShop.Domain.Entities
 
         private List<CartLine> lineCollection = new List<CartLine>();
         
-        public virtual void AddItem(Product product, int quantity)
+        public virtual void AddItem(Product product, int priceid, int price, int quantity)
         {
             CartLine line = lineCollection
           .Where(p => p.Product.ProductID == product.ProductID)
@@ -21,8 +21,9 @@ namespace MYShop.Domain.Entities
                 {
                     Product = product,
                     Quantity = quantity,
-                    Price=product.Price
-    });
+                    Price= price,
+                    Priceid= priceid
+                });
             }
             else
             {
@@ -57,6 +58,8 @@ public virtual IEnumerable<CartLine> Lines => lineCollection;
         public Product Product { get; set; }
 
         public int Quantity { get; set; }
+
+        public int Priceid { get; set; }
 
         public Int64 Price { get; set; }
     }

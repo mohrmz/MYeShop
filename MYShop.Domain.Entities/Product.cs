@@ -10,10 +10,6 @@ namespace MYShop.Domain.Entities
         public int ProductID { get; set; }
         public int BrandID { get; set; }
 
-        public int CategoryPriceID { get; set; }
-
-        public int ProductColorID { get; set; }
-
         public int CategoryID { get; set; }
         [Column(TypeName = "nvarchar(MAX)")]
         public string Name { get; set; }
