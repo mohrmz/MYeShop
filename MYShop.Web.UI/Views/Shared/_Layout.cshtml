@@ -45,14 +45,12 @@
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <script type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "b9352d81-5194-4467-b9b2-49231821855b"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
-    <meta name="google-site-verification" content="G7UXAUm1CAatxSeltAwsZzcrMbKbdI5LHzOK8Q5bdHM" />
-    <link rel="canonical" href="https://joorkadeh.com/" />
 
 </head>
 <body>
     <header id="header">
         <!--header-->
-        <div class="header_top" style="margin-top:160px;">
+        <div class="header_top">
             <!--header_top-->
             <div class="container-fluid">
                 <div id="top" class="contactinfo">
@@ -71,16 +69,55 @@
         <div class="header-middle">
             <!--header-middle-->
             <div class="container-fluid">
-               
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <div class="logo">
+                            <a href="/">
+                                <img src="../images/JOOR.gif" width="200" height="80" alt="logo">
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="col-xs-6">
+                            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                            {
+                                <div class=" search_box search">
+                                    <input name="value" type="text" placeholder="نام کالا،برندو یا دسته مورد نظر خود را جستجو کنید ...">
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                </div>
+                            }
+                        </div>
+                        <div class="col-xs-6 shop-menu">
+                            <ul>
+
+                                <li>
+                                    <a asp-action="Index" asp-controller="Cart">
+                                        @await Component.InvokeAsync("Cart")
+                                        سبد&zwnj;خرید
+
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+                    </div>
+
+                  
+
+                </div>
+
 
             </div>
         </div><!--/header-middle-->
 
 
+     
 
-        @await Component.InvokeAsync("Menu")
     </header>
-    
+    @await Component.InvokeAsync("Menu")
 
     @RenderBody()
 

@@ -276,19 +276,19 @@ a#scrollUp {
 
     .shop-menu ul li {
         display: inline-block;
-       
+        padding: 15px;
     }
 
 
 
         .shop-menu ul li a {
-           
+            background: #FFFFFF;
             color: #696763;
             font-family: IRANSans;
             font-size: 14px;
             font-weight: 300;
             padding: 0;
-            
+            margin-top: 10px;
 
         }
 
@@ -300,7 +300,7 @@ a#scrollUp {
 
             .shop-menu ul li a:hover {
                 color: #fe980f;
-             
+                background: #fff;
             }
 
 .header-bottom {
@@ -336,17 +336,16 @@ a#scrollUp {
 
 .search_box {
     position: relative;
-    background: white;
+    background: #F0F0E9;
     padding: 10px 6px 10px 35px;
-    width: 100%;
-    height: 50px;
+    
     border-radius: 25px;
+    width:100%;
 }
 
     .search_box input {
-        border-radius: 25px;
-        position: absolute;
-        background-color: white;
+        position: relative;
+        background-color: transparent;
         border: medium none;
         color: #B2B2B2;
         font-family: IRANSans;
@@ -355,9 +354,6 @@ a#scrollUp {
         outline: medium none;
         width: 100%;
         padding: 0;
-        height: 50px;
-        top: 0px;
-        right: 0px;
     }
 
     .search_box button {
@@ -1295,37 +1291,35 @@ h2.title {
     }
   
 }
-
+/*@media screen and (max-width: 1200px) {
+    #checkorder {
+        display: none;
+    }
+    #check {
+        display:unset!important;
+    }
+  
+}*/
+/*#checkorder
+{
+    display:normal!important;
+}*/
+/*#check {
+    display: none;
+}*/
 @media screen and (max-width: 767px) {
-   
+    #cssmenu {
+        display:block!important;
+    }
     #megamenu
     {
         display:none;
     }
-    .sidenav {
-        padding-top: 9px;
-        display: initial!important;
-    }
-
-        .sidenav a {
-            font-size: 10px;
-        }
-    .opennavv {
-        height: 50px;
-        font-size: 30px;
-        cursor: pointer;
-        background-color: darkgrey;
-        width: 20px;
-        width: 100%;
-        text-align: right;
-        visibility: visible!important;
-    }
     
 }
-.opennavv {
-
-   visibility:hidden;
-  
+#cssmenu
+{
+    display:none;
 }
 @media screen and (max-width: 1340px) {
     
@@ -1850,14 +1844,17 @@ On click the images will be displayed at normal size to complete the effect
 .menubar {
     margin-bottom: 0px;
     background-color:  #616161;
-width:100%;
+   
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom:40px;
     height: 44px;
 }
 
 .menu-wrapper {
-    margin-right: 30px;
-    margin-left: 30px;
+   
+    margin-right: auto;
+    margin-left: auto;
 }
 
 /* Reset */
@@ -2060,7 +2057,429 @@ width:100%;
         }
 }
 
+#cssmenu {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    line-height: 1;
+    
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a,
+#cssmenu #menu-button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    line-height: 1;
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+    #cssmenu:after,
+    #cssmenu > ul:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+
+    #cssmenu #menu-button {
+        display: none;
+
+    }
+
+#cssmenu {
+    font-family: Montserrat, sans-serif;
+    background: #333333;
+    
+}
+
+    #cssmenu > ul > li {
+        float: left;
+    }
+
+    #cssmenu.align-center > ul {
+        font-size: 0;
+        text-align: center;
+    }
+
+        #cssmenu.align-center > ul > li {
+            display: inline-block;
+            float: none;
+        }
+
+    #cssmenu.align-center ul ul {
+        text-align: left;
+    }
+
+    #cssmenu.align-right > ul > li {
+        float: right;
+    }
+
+    #cssmenu > ul > li > a {
+        padding: 17px;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-decoration: none;
+        color: #dddddd;
+        font-weight: 700;
+        text-transform: uppercase;
+         background: black !important;
+         cursor:initial !important;
+    }
+
+    #cssmenu > ul > li:hover > a {
+        background: black !important;
+    }
+
+    #cssmenu > ul > li.has-sub > a {
+        padding-right: 30px;
+    }
+
+        #cssmenu > ul > li.has-sub > a:after {
+            position: absolute;
+            top: 22px;
+            right: 11px;
+            width: 8px;
+            height: 2px;
+            display: block;
+            background: black!important;
+            content: '';
+        }
+
+        #cssmenu > ul > li.has-sub > a:before {
+            position: absolute;
+            top: 19px;
+            right: 14px;
+            display: block;
+            width: 2px;
+            height: 8px;
+            background: black!important;
+            content: '';
+            -webkit-transition: all .25s ease;
+            -moz-transition: all .25s ease;
+            
+            -o-transition: all .25s ease;
+            transition: all .25s ease;
+        }
+
+    #cssmenu > ul > li.has-sub:hover > a:before {
+        top: 23px;
+        height: 0;
+    }
+
+    #cssmenu ul ul {
+        position: absolute;
+        left: -9999px;
+    }
+
+    #cssmenu.align-right ul ul {
+        text-align: right;
+    }
+
+    #cssmenu ul ul li {
+        height: 0;
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        
+        -o-transition: all .25s ease;
+        transition: all .25s ease;
+    }
+
+    #cssmenu li:hover > ul {
+        left: auto;
+    }
+
+    #cssmenu.align-right li:hover > ul {
+        left: auto;
+        right: 0;
+    }
+
+    #cssmenu li:hover > ul > li {
+        height: 35px;
+    }
+
+    #cssmenu ul ul ul {
+        margin-left: 100%;
+        top: 0;
+    }
+
+    #cssmenu.align-right ul ul ul {
+        margin-left: 0;
+        margin-right: 100%;
+    }
+
+    #cssmenu ul ul li a {
+        border-bottom: 1px solid rgba(150, 150, 150, 0.15);
+        padding: 11px 15px;
+        width: 170px;
+        font-size: 12px;
+        text-decoration: none;
+        color: #dddddd;
+        font-weight: 400;
+        background: black !important;
+        cursor: initial !important;
+    }
+
+
+    #cssmenu ul ul li:last-child > a,
+    #cssmenu ul ul li.last-item > a {
+        border-bottom: 0;
+    }
+
+    #cssmenu ul ul li:hover > a,
+    #cssmenu ul ul li a:hover {
+        color: #ffffff;
+       
+    }
+
+    #cssmenu ul ul li.has-sub > a:after {
+        position: absolute;
+        top: 16px;
+        right: 11px;
+        width: 8px;
+        height: 2px;
+        display: block;
+        background: black !important;
+        content: '';
+    }
+
+    #cssmenu.align-right ul ul li.has-sub > a:after {
+        right: auto;
+        left: 11px;
+    }
+
+    #cssmenu ul ul li.has-sub > a:before {
+        position: absolute;
+        top: 13px;
+        right: 14px;
+        display: block;
+        width: 2px;
+        height: 8px;
+        background: black !important;
+        content: '';
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        transition: all .25s ease;
+    }
+
+    #cssmenu.align-right ul ul li.has-sub > a:before {
+        right: auto;
+        left: 14px;
+    }
+
+    #cssmenu ul ul > li.has-sub:hover > a:before {
+        top: 17px;
+        height: 0;
+    }
+
+@media all and (max-width: 768px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+    #cssmenu {
+        width: 100%;
+    }
+
+        #cssmenu ul {
+            width: 100%;
+            display: none;
+        }
+
+        #cssmenu.align-center > ul {
+            text-align: left;
+        }
+
+        #cssmenu ul li {
+            width: 100%;
+            border-top: 1px solid rgba(120, 120, 120, 0.2);
+        }
+
+        #cssmenu ul ul li,
+        #cssmenu li:hover > ul > li {
+            height: auto;
+        }
+
+            #cssmenu ul li a,
+            #cssmenu ul ul li a {
+                width: 100%;
+                border-bottom: 0;
+                text-align: right;
+                padding-right: 50px!important;
+            }
+
+        #cssmenu > ul > li {
+            float: none;
+        }
+
+        #cssmenu ul ul li a {
+            padding-left: 25px;
+            text-align: right;
+            padding-right:30px;
+        }
+
+        #cssmenu ul ul ul li a {
+            padding-left: 35px;
+            cursor:pointer!important;
+            text-align:right;
+        }
+
+        #cssmenu ul ul li a {
+            color: #dddddd;
+            background: none;
+        }
+
+        #cssmenu ul ul li:hover > a,
+        #cssmenu ul ul li.active > a {
+            color: #ffffff;
+        }
+
+        #cssmenu ul ul,
+        #cssmenu ul ul ul,
+        #cssmenu.align-right ul ul {
+            position: relative;
+            left: 0;
+            width: 100%;
+            margin: 0;
+            text-align: left;
+        }
+
+            #cssmenu > ul > li.has-sub > a:after,
+            #cssmenu > ul > li.has-sub > a:before,
+            #cssmenu ul ul > li.has-sub > a:after,
+            #cssmenu ul ul > li.has-sub > a:before {
+                display: none;
+            }
+
+        #cssmenu #menu-button {
+            display: block;
+            padding: 17px;
+            color: #dddddd;
+            cursor: pointer;
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+            #cssmenu #menu-button:after {
+                position: absolute;
+                top: 22px;
+                right: 17px;
+                display: block;
+                height: 4px;
+                width: 20px;
+                border-top: 2px solid #dddddd;
+                border-bottom: 2px solid #dddddd;
+                content: '';
+            }
+
+            #cssmenu #menu-button:before {
+                position: absolute;
+                top: 16px;
+                right: 17px;
+                display: block;
+                height: 2px;
+                width: 20px;
+                background: #dddddd;
+                content: '';
+            }
+
+            #cssmenu #menu-button.menu-opened:after {
+                top: 23px;
+                border: 0;
+                height: 2px;
+                width: 15px;
+                background: #ffffff;
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+
+            #cssmenu #menu-button.menu-opened:before {
+                top: 23px;
+                background: #ffffff;
+                width: 15px;
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+
+        #cssmenu .submenu-button {
+            position: absolute;
+            z-index: 99;
+            right: 0;
+            top: 0;
+            display: block;
+            border-left: 1px solid rgba(120, 120, 120, 0.2);
+            height: 46px;
+            width: 46px;
+            cursor: pointer;
+        }
+
+            #cssmenu .submenu-button.submenu-opened {
+                background: #262626;
+            }
+
+        #cssmenu ul ul .submenu-button {
+            height: 34px;
+            width: 34px;
+        }
+
+        #cssmenu .submenu-button:after {
+            position: absolute;
+            top: 22px;
+            right: 19px;
+            width: 8px;
+            height: 2px;
+            display: block;
+            background: #dddddd;
+            content: '';
+        }
+
+        #cssmenu ul ul .submenu-button:after {
+            top: 15px;
+            right: 13px;
+        }
+
+        #cssmenu .submenu-button.submenu-opened:after {
+            background: #ffffff;
+        }
+
+        #cssmenu .submenu-button:before {
+            position: absolute;
+            top: 19px;
+            right: 22px;
+            display: block;
+            width: 2px;
+            height: 8px;
+            background: #dddddd;
+            content: '';
+        }
+
+        #cssmenu ul ul .submenu-button:before {
+            top: 12px;
+            right: 16px;
+        }
+
+        #cssmenu .submenu-button.submenu-opened:before {
+            display: none;
+        }
+}
 .c-product-box__discount-badge {
     padding: 5px 10px;
     color: #fff;
@@ -2229,115 +2648,3 @@ span.choose {
         .dropdown .dropdown-menu li:active {
             background-color: #e2e2e2
         }
-
-
-
-
-
-#topmenu {
-    background: #eee;
-    height: 150px;
-    line-height: 80px;
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9998;
-    transition: all 0.5s;
-}
-
-#topmenu.scrollUp {
-    transform: translateY(-150px);
-}
-
-    #topmenu ul.navbar-menu {
-        margin: 0;
-        padding: 0;
-        display: inline-block;
-        float: right;
-    }
-
-        #topmenu ul.navbar-menu li {
-            display: inline-block;
-            margin: 0 10px;
-        }
-
-            #topmenu ul.navbar-menu li a {
-                color: #666;
-                font-size: 14px;
-            }
-
-
-#topmenu #button {
-    background: none;
-    width: 30px;
-    height: 40px;
-    margin-top: 20px;
-    border: none;
-    float: right;
-    display: inline-block;
-    cursor: pointer;
-    display: none;
-}
-
-    #topmenu #button span {
-        width: 30px;
-        height: 40px;
-        height: 2px;
-        background: #333;
-        display: block;
-        margin: 5px 0;
-    }
-
-@media (max-width: 768px) {
-    nav ul.navbar-menu {
-        display: none;
-    }
-
-    #topmenu #button {
-        display: block;
-    }
-}
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    display:none;
-}
-
-    .sidenav a {
-        padding: 3px 3px 3px 3px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-        transition: 0.3s;
-        text-align:right;
-    }
-
-        .sidenav a:hover {
-            color: #f1f1f1;
-        }
-
-    .sidenav .closebtn {
-        position: absolute;
-        top: 0;
-        left: 25px;
-        font-size: 36px;
-        margin-right: 50px;
-    }
-
-#main {
-    transition: margin-left .5s;
-    padding: 16px;
-}
-
