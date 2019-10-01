@@ -4,7 +4,7 @@
 <div class="right-align carousel-container">
     <div class="carousel-container-header">
 
-        <h4 class="carousel-header-f">برند ها</h4>
+        <h3 class="carousel-header-f">برند ها</h3>
 
 
 
@@ -17,7 +17,7 @@
             @foreach (var item in Model)
             {
                 <div class="product-image-wrapper product-image-wrapper-brand">
-                    <div class="">
+                    <div >
                        
                             <a asp-action="index" asp-controller="Home" asp-route-CategoryId="0" asp-route-value="@item.Name">
 
@@ -34,6 +34,7 @@
                                 }
 
                                 <img src="@imgSrc" class="img img-responsive" width="150" height="150"  alt="@item.Name" title="@item.Name"/>
+                                <strong class="black">@item.Name</strong>
                                 </a>
                         </div>
 

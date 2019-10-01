@@ -1,6 +1,6 @@
 ﻿@model MYShop.Web.UI.Models.HomeViewModel
 @{
-    ViewData["Title"] = "فروشگاه اینترنتی جور کده";
+    ViewData["Title"] = "فروشگاه اینترنتی جور کده|تخفیف ویژه";
  ViewData["ShorDescription"] = "فروشگاه اینترنتی جور کده فروش بهترین محصولات و برند ها با قیمت مناسب و ارسال رایگان در سرتاسر کشور همراه با گارانتی اصل شرکتی";
     ViewData["KeyWords"] = "جور کده،فروشگاه اینترنتی جور کرده،فروش تشک،تشک رویا،تشک،خرید تشک،خرید تشک رویا،خرید محصول";
 }
@@ -10,36 +10,36 @@
         <div class="row">
           
             <div class="col-md-11 content">
-                <h2 class="subject">لیست محصولات</h2>
+                <h1 class="subject">لیست محصولات</h1>
                 <div class="features_items">
                     @foreach (var item in Model.Result.Items)
                     {
-
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo">
-                                    <a asp-action="Product" asp-controller="Home" asp-route-productId="@item.ProductID">
-
-                                        <div>
-                                            <span class="pbrand del">برند : @item.Brand.Name</span>
-                                            @if (item.discount > 0)
-                                            {
-                                                <span class="c-product-box__discount-badge">@item.discount%</span>
-                                            }
-                                        </div>
-
-
-
-                                        @{
-
                                             var base64 = Convert.ToBase64String(@item.Image);
                                             var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
-                                        }
+                              
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo">
+                                <a asp-action="Product" asp-controller="Home" asp-route-productId="@item.ProductID">
 
-                                        <img src="@imgSrc" class="img img-responsive" width="210" height="130" alt="@item.Name" title="@item.Name" />
-                                        <h2 class="black">@item.Name</h2>
-                                        <div>
-                                            @if (@item.newvalue > 0)
+                                    <div>
+                                        <span class="pbrand del">برند : @item.Brand.Name</span>
+                                        @if (item.discount > 0)
+                                            {
+                                        <span class="c-product-box__discount-badge">@item.discount%</span>
+                                            }
+                                    </div>
+
+
+
+                                    
+
+                                                
+
+                                    <img src="@imgSrc" class="img img-responsive" width="210" height="130" alt="@item.Name" title="@item.Name" />
+                                    <h2 class="black">@item.Name</h2>
+                                    <div>
+                                        @if (@item.newvalue > 0)
                                             {<del class="font-y del">@item.Price.ToString("#,###")</del>
 
                                             <h2 class="font-y">
@@ -48,32 +48,76 @@
                                             </h2>}
                                         else if (@item.Price > 0)
                                      {
-                                        <h2 class="font-y">
+                                            <h2 class="font-y">
 
-                                            @item.Price.ToString("#,###") <span>ریال</span>
-                                        </h2>
+                                                @item.Price.ToString("#,###") <span>ریال</span>
+                                            </h2>
                                     }
 
-                                        </div>
+                                    </div>
 
 
 
-                                    </a>
-                                    
-                                    @if (Model.Category != 0)
+                                </a>
+
+                                @if (Model.Category != 0)
                                     {
-                                        <div class="choose">
-                                            <ul>
+                                <div class="choose">
+                                    <ul>
 
-                                                <li><a asp-action="Compare" asp-controller="Home" asp-route-ProductID="@item.ProductID"><i class="fa fa-plus-square"></i>مقایسه</a></li>
-                                            </ul>
+                                        <li><a asp-action="Compare" asp-controller="Home" asp-route-ProductID="@item.ProductID"><i class="fa fa-plus-square"></i>مقایسه</a></li>
+                                    </ul>
 
-                                        </div>
-                                    }
                                 </div>
-
+                                    }
                             </div>
+
                         </div>
+                    </div>
+                    <div class="hreview" itemscope itemtype="http://schema.org/Product">
+                        <h1 itemprop="name">@item.Name</h1>
+                        <span itemprop="brand">@item.Brand.Name</span>
+                        <img src="@imgSrc" class="img-responsive-s" alt="@item.Name" title="@item.Name" itemprop="image" />
+                        
+                        <p itemprop="description">
+                            @item.Description
+                            <span itemprop="sku">1234567890</span>
+                        </p>
+                        <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                            <span itemprop="ratingValue">5</span> ستاره, بر اساس
+                            <span itemprop="reviewCount">42</span> نظر
+                        </div>
+                        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <meta itemprop="priceCurrency" content="IRR" />
+                            <span itemprop="price" content="1000.00"> قیمت وابسته به عرض تشک</span>
+                            <time itemprop="priceValidUntil" datetime="2021-11-05">
+                                فروش تا تاریخ 1399/12/29
+                            </time>|
+                            <span itemprop="seller" itemscope itemtype="http://schema.org/Organization">
+                                <span itemprop="name">فروشنده: فروشگاه اینترنتی جورکده<br></span>
+                            </span>
+                            <span itemprop="availability" href="http://schema.org/InStock">موجود در انبار</span>
+                        </div>
+                    </div>
+                    <div class="hreview" id="hreview-best">
+                        <h2 class="summary">عالی</h2><abbr class="dtreviewed" title="2021-10-02T00:59">1399/12/29</abbr>   <span class="reviewer vcard"><span class="fn"></span></span><span class="type" style="display: none;">@item.Name</span><img alt="@item.Name" src="photourl" class="photo"><div class="item"><a class="fn url" href="url">@item.Name</a></div><blockquote class="description">
+                            <p>
+                                <abbr title="5" class="rating">
+                                    function rating_stars(rating){
+                                    var stars  = [];
+                                    for(i = 0; i &lt; 5; i++){
+                                    if(i &lt; rating) {
+                                    stars += String.fromCharCode(parseInt('2605', 16));
+                                    } else {
+                                    stars += String.fromCharCode(parseInt('2606', 16));
+                                    }
+                                    }
+                                    return stars
+                                    }
+                                </abbr>
+                            </p>
+                        </blockquote><span class="version" style="display: none;">0.3</span><p> <a href="http://microformats.org/wiki/hreview">بازدید</a> جورکده <a href="http://microformats.org/code/hreview/creator">سازنده</a>.</p>
+                    </div>
 
                     }
 
