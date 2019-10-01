@@ -1,17 +1,14 @@
 ﻿@model MYShop.Web.UI.Models.HomeViewModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "فروشگاه اینترنتی جور کده";
+ ViewData["ShorDescription"] = "فروشگاه اینترنتی جور کده فروش بهترین محصولات و برند ها با قیمت مناسب و ارسال رایگان در سرتاسر کشور همراه با گارانتی اصل شرکتی";
+    ViewData["KeyWords"] = "جور کده،فروشگاه اینترنتی جور کرده،فروش تشک،تشک رویا،تشک،خرید تشک،خرید تشک رویا،خرید محصول";
 }
 <div class="clear"></div>
 <section id="product">
     <div class="container-fluid">
         <div class="row">
-            @*<div class="col-md-2 sidebar">
-                    <h2 class="subject">دسته بندی محصولات</h2>
-                    <div class="category-products">
-                        @await Component.InvokeAsync("Category")
-                    </div>
-                </div>*@
+          
             <div class="col-md-11 content">
                 <h2 class="subject">لیست محصولات</h2>
                 <div class="features_items">
@@ -39,7 +36,7 @@
                                             var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
                                         }
 
-                                        <img src="@imgSrc" class="img img-responsive" width="210" height="130" />
+                                        <img src="@imgSrc" class="img img-responsive" width="210" height="130" alt="@item.Name" title="@item.Name" />
                                         <p>@item.Name</p>
                                         <div>
                                             @if (@item.newvalue > 0)
@@ -62,7 +59,7 @@
 
 
                                     </a>
-                                    <a asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@item.ProductID" class="btn  add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبد</a>
+                                    
                                     @if (Model.Category != 0)
                                     {
                                         <div class="choose">
