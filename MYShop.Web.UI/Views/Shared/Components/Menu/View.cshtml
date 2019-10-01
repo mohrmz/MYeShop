@@ -1,7 +1,7 @@
 ﻿@model List<Category>
 
 
-    <div id="megamenu" class="menubar">
+    @*<div id="megamenu" class="menubar">
         <div class="menu-wrapper">
 
 
@@ -171,4 +171,169 @@
             });
         })(jQuery);
 
-    </script>
+    </script>*@
+    <nav id="topmenu">
+
+        <div class="row">
+
+            <div style="width:30%">
+                <div class="logo">
+                    <a href="/">
+                        <img src="../images/JOOR.gif" class="img-responsive" height="50" alt="logo">
+                    </a>
+                </div>
+            </div>
+            <div style="width:60%;">
+                <div class="row">
+                    <div class="" style="width:70%">
+                        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                        {
+                            <div class=" search_box search">
+                                <input name="value" type="text" placeholder="نام کالا،برندو یا دسته مورد نظر خود را جستجو کنید ...">
+                                <button class="fa fa-search" type="submit"></button>
+                            </div>
+                        }
+                    </div>
+                    <div class="shop-menu" style="width:20%">
+                        <ul>
+
+                            <li>
+                                <a asp-action="Index" asp-controller="Cart">
+                                    @await Component.InvokeAsync("Cart")
+
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="megamenu" class="menubar">
+
+
+            <div class="menu-wrapper">
+
+
+
+                <ul class="nav">
+                    @foreach (var hitem in Model.Where(c => c.Clevel == 0))
+                    {
+
+
+                        var base641 = Convert.ToBase64String(hitem.Image);
+                        var imgSrc1 = String.Format("data:image/jpg;base64,{0}", base641);
+                        <li>
+
+                            <a class="nav-h" href="#">@hitem.Name</a>
+                            <div class="menu-con" style="background-image:url(@imgSrc1);  background-repeat: no-repeat;background-size: 300px 200px;background-position:left bottom;">
+                                <div class="nav-column border">
+
+                                    @foreach (var cat in ViewBag.brand)
+                                    {
+
+
+                                        <span class="head"><span class="fa fa-angle-left "></span>  برند ها</span>
+
+
+                                        <ul id="col">
+                                            <li>
+                                                <a href="@Url.Action("index", "Home")"> @cat.Name</a>
+                                            </li>
+                                        </ul>
+                                    }
+
+                                </div>
+
+
+                                @foreach (var item in Model.Where(d => d.Clevel == 1 && d.ParentId == hitem.CategoryID))
+                                {
+                                    <div class="nav-column border">
+                                        <span class="head"><span class="fa fa-angle-left "></span>  @item.Name</span>
+
+                                        @foreach (var itemm in Model.Where(g => g.Clevel == 2 && g.ParentId == item.CategoryID))
+                                        {
+                                            <ul>
+                                                <li>
+                                                    <a href="@Url.Action("index", "Home", new { CategoryId = itemm.CategoryID })"> @itemm.Name</a>
+                                                </li>
+                                            </ul>
+
+
+                                        }
+                                    </div>
+                                }
+
+
+                            </div>
+                        </li>
+                    }
+                </ul>
+
+
+            </div>
+        </div>
+        <div class="opennavv" onclick="openNav()"> &#9776;</div>
+
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+
+            @foreach (var ccc in ViewBag.products)
+            {
+                <a href="#">@ccc.Name</a>
+            }
+
+
+        </div>
+
+
+
+
+
+
+
+    </nav>
+
+
+        <script>$(document).ready(function () {
+
+          'use strict';
+
+           var c, currentScrollTop = 0,
+               navbar = $('#topmenu');
+
+           $(window).scroll(function () {
+              var a = $(window).scrollTop();
+              var b = navbar.height();
+
+              currentScrollTop = a;
+
+              if (c < currentScrollTop && a > b + b) {
+                navbar.addClass("scrollUp");
+              } else if (c > currentScrollTop && !(a <= b)) {
+                navbar.removeClass("scrollUp");
+              }
+              c = currentScrollTop;
+          });
+
+        });</script>
+
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginRight = "250px";
+                document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+                document.body.style.display = Node;
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginRight = "0";
+                document.body.style.backgroundColor = "white";
+                document.body.style.display = 'block';
+            }
+        </script>

@@ -2,8 +2,11 @@
 using MYShop.Domain.Contract.Repositories;
 using MYShop.Domain.Entities;
 using MYShop.Web.UI.Models;
-
+using System.IO;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace MYShop.Web.UI.Controllers
 {
@@ -23,7 +26,13 @@ namespace MYShop.Web.UI.Controllers
             _repo3 = repo3;
             CompareProduct = compareProduct;
         }
+        //[Route("/sitemap.xml")]
+        //public IActionResult Sitemap()
+        //{
 
+        //    string data = System.IO.File.ReadAllText("~/sitemap.xml", Encoding.UTF8);
+        //    return Content(data, "text/xml");
+        //}
         public IActionResult Index(int CategoryId, string value, int page =1)
         {
 

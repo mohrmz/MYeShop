@@ -74,7 +74,13 @@ namespace MYShop.Web.UI
                 routes.MapRoute(
                 name: "default",
                 template: "{controller=home}/{action=index}/{id?}");
+                routes.MapRoute(
+            "Sitemap",
+            "sitemap.xml",
+            new { controller = "Home", action = "SiteMap" }
+            );
             });
+
         }
     }
 }
