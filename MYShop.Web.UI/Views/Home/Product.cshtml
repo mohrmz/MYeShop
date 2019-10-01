@@ -21,9 +21,9 @@
                     <input type="radio" name="slide_switch" id="'id1" checked="checked" />
 
                     <label for="id1">
-                        <img src="@imgSrc1" width="100" />
+                        <img src="@imgSrc1" width="100"  alt="@Model.Name" title="@Model.Name"/>
                     </label>
-                    <img src="@imgSrc1"  class="img-responsive-s"/>
+                    <img src="@imgSrc1"  class="img-responsive-s"  alt="@Model.Name" title="@Model.Name"/>
 
 
 
@@ -36,9 +36,9 @@
                             <input type="radio" name="slide_switch" id="'id'@o.ID" />
 
                             <label for="'id'@o.ID">
-                                <img src="@imgSrc" width="100" />
+                                <img src="@imgSrc" width="100"  alt="@Model.Name" title="@Model.Name"/>
                             </label>
-                            <img src="@imgSrc" class="img-responsive-s"/>
+                            <img src="@imgSrc" class="img-responsive-s"  alt="@Model.Name" title="@Model.Name"/>
 
 
 
@@ -51,7 +51,7 @@
             <div class="col-md-7">
                 <div class="row">
                     <div class="col-md-7 right-align bottom-border-hr">
-                        <h4>@Model.Name</h4>
+                        <h1>@Model.Name</h1>
                     </div>
                     <div class="col-md-5">
                         <div class="row right-align">
@@ -153,23 +153,7 @@
                                     </button>
 
                                 </form>
-                                @*@if (Model.newvalue > 0)
-            {<del class="font-y del">@Model.Price.ToString("#,###")</del>
-
-            <h2 class="font-y">
-
-                @Model.newvalue.ToString("#,###") <span>ریال</span>
-            </h2>}
-        else if (Model.Price > 0)
-        {
-            <h2 class="font-y">
-
-                @Model.Price.ToString("#,###") <span>ریال</span>
-            </h2>
-        }
-        else if (Model.Prices.Count > 0)
-        {*@
-                              
+                             
 
                         </div>
                     </div>
@@ -195,9 +179,9 @@
                 <div id="home" class="tab-pane active">
                     <br>
                     <h3>نقد و بررسی اجمالی</h3>
-                    <p>@Model.Name</p>
+                    <h2>@Model.Name</h2>
                     <div class="c-content-expert__summary row">
-                        <div class="col-md-2"><img class="c-content-expert__summary-ico" /> </div>
+                        <div class="col-md-2"><img class="c-content-expert__summary-ico"  alt="@Model.Name" title="@Model.Name"/> </div>
                
                         <div class="col-md-10">@Model.Description</div>  
                     </div>
@@ -205,7 +189,7 @@
                 <div id="menu1" class="tab-pane fade">
                     <br>
                     <h3>مشخصات فنی :</h3>
-                    <p>@Model.Name</p>
+                    <h2>@Model.Name</h2>
 
                     <hr />
                     <ul class="pbase">
@@ -215,7 +199,7 @@
                 <div id="menu2" class="tab-pane fade">
                     <br>
                     <h3>نظرات کاربران به:</h3>
-                    <p>@Model.Name</p>
+                    <h2>@Model.Name</h2>
                     <div class="c-comments__summary-note">
                         <div>شما هم می‌توانید در مورد این کالا نظر بدهید.</div>
                         <div class="add-comment">
@@ -304,7 +288,7 @@
 
             </div>
         </div>
-
+            </div>
         <script>
 
             $('input:radio').change(

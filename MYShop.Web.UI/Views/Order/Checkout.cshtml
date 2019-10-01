@@ -1,11 +1,16 @@
 ﻿@model Order
+@{
+    ViewData["Title"] = "فروشگاه اینترنتی جور کده|ورود اطلاعات";
+ ViewData["ShorDescription"] = "فروشگاه اینترنتی جور کده فروش بهترین محصولات و برند ها با قیمت مناسب و ارسال رایگان در سرتاسر کشور همراه با گارانتی اصل شرکتی";
+    ViewData["KeyWords"] = "جور کده،فروشگاه اینترنتی جور کرده،فروش تشک،تشک رویا،تشک،خرید تشک،خرید تشک رویا،خرید محصول";
 
+}
 <section id="cart_items">
     <div class="container">
         <div class="cart_info">
             <div class="description">
-                <h2>تکمیل فرایند خرید</h2>
-                <p>لطفا مشخصات کامل خود به همراه آدرس دقیق پستی را ثبت نمایید</p>
+                <h1>تکمیل فرایند خرید</h1>
+                <h2>لطفا مشخصات کامل خود به همراه آدرس دقیق پستی را ثبت نمایید</h2>
             </div>
             <div asp-validation-summary="All" class="text-danger"></div>
             <form asp-action="Checkout" method="post">
@@ -29,7 +34,7 @@
                 <div class="form-group">
                     <label>کد پستی</label><input asp-for="PostalCode" class="form-control" />
                 </div>
-               
+
                 <div class=" form-group text-center">
                     <input class="btn-c btn-p" type="submit" value="تکمیل سفارش" />
                 </div>

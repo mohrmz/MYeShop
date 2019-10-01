@@ -1,15 +1,18 @@
 ﻿@model Order
 
 @{
-    ViewData["Title"] = "Completed";
+      ViewData["Title"] = "فروشگاه اینترنتی جور کده|انتقال به درگاه بانک";
+ ViewData["ShorDescription"] = "فروشگاه اینترنتی جور کده فروش بهترین محصولات و برند ها با قیمت مناسب و ارسال رایگان در سرتاسر کشور همراه با گارانتی اصل شرکتی";
+    ViewData["KeyWords"] = "جور کده،فروشگاه اینترنتی جور کرده،فروش تشک،تشک رویا،تشک،خرید تشک،خرید تشک رویا،خرید محصول";
+
 }
 
 <section id="cart_items">
     <div class="container">
         <div class="cart_info">
             <div class="description">
-                <h2>از خرید شما سپاسگزاریم</h2>
-                <p>سفارش شما با شماره @TempData.Peek("OrderId") و مبلغ @TempData.Peek("Price") به ثبت رسید. جهت پرداخت مبلغ روی دکمه پرداخت کلیک نمایید</p>
+                <h1>از خرید شما سپاسگزاریم</h1>
+                <h2>سفارش شما با شماره @TempData.Peek("OrderId") و مبلغ @TempData.Peek("Price") به ثبت رسید. جهت پرداخت مبلغ روی دکمه پرداخت کلیک نمایید</h2>
                 <form asp-action="Pay" asp-controller="Payment" method="post">
                     <input type="hidden" value="@TempData.Peek("OrderId")" name="orderId" />
                     <input type="hidden" value="@TempData.Peek("Price")" name="price" />

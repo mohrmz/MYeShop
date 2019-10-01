@@ -1,6 +1,9 @@
 ﻿@model  CompareProduct
 @{
-    ViewData["Title"] = "Product";
+      ViewData["Title"] = "فروشگاه اینترنتی جور کده|مقابسه محصول";
+ ViewData["ShorDescription"] = "فروشگاه اینترنتی جور کده فروش بهترین محصولات و برند ها با قیمت مناسب و ارسال رایگان در سرتاسر کشور همراه با گارانتی اصل شرکتی";
+    ViewData["KeyWords"] = "جور کده،فروشگاه اینترنتی جور کرده،فروش تشک،تشک رویا،تشک،خرید تشک،خرید تشک رویا،خرید محصول";
+
 }
     <div >
         <div class="row navbar">
@@ -19,8 +22,10 @@
                                 <a class="cart_quantity_delete" asp-action="RemoveCompare" asp-controller="Home" asp-route-ProductID="@i.ProductID"><i class="fa fa-times"></i></a>
                             </div>
                             <div>
-                                
+                                @if(@i.discount>0)
+                                {
                                 <span class="c-product-box__discount-badge">@i.discount%</span>
+                                 }
                             </div>
 
 

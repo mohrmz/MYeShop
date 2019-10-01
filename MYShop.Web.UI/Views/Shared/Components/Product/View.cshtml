@@ -5,7 +5,7 @@
 <div class="right-align carousel-container">
     <div class="carousel-container-header">
 
-            <h4 class="carousel-header-f">@ViewBag.pname</h4>
+            <h1 class="carousel-header-f">@ViewBag.pname</h1>
 
 
 
@@ -38,8 +38,8 @@
                                         var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
                                     }
 
-                                    <img src="@imgSrc" class="img img-responsive" width="210" height="130" />
-                                    <p>@item.Name</p>
+                                    <img src="@imgSrc" class="img img-responsive" width="210" height="130"  alt="@item.Name" title="@item.Name"/>
+                                    <h2 class="black">@item.Name</h2>
                                     <div>
                                         @if (@item.newvalue > 0)
                                         {<del class="font-y del">@item.Price.ToString("#,###")</del>
@@ -59,7 +59,7 @@
                                     </div>
 
                                 </a>
-                                <a asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@item.ProductID" class="btn  add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبد</a>
+                              
 
                             </div>
 

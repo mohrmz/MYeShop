@@ -26,13 +26,20 @@ namespace MYShop.Web.UI.Controllers
             _repo3 = repo3;
             CompareProduct = compareProduct;
         }
-        //[Route("/sitemap.xml")]
-        //public IActionResult Sitemap()
-        //{
+        [Route("/sitemap.xml")]
+        public IActionResult Sitemap()
+        {
 
-        //    string data = System.IO.File.ReadAllText("~/sitemap.xml", Encoding.UTF8);
-        //    return Content(data, "text/xml");
-        //}
+            string data = System.IO.File.ReadAllText("/wwwroot/sitemap.xml", Encoding.UTF8);
+            return Content(data, "text/xml");
+        }
+        [Route("/Robots.txt")]
+        public IActionResult Robot()
+        {
+
+            string data = System.IO.File.ReadAllText("/wwwroot/robots.txt", Encoding.UTF8);
+            return Content(data, "text/plain");
+        }
         public IActionResult Index(int CategoryId, string value, int page =1)
         {
 

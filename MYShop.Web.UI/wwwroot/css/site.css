@@ -62,7 +62,7 @@ a {
     -moz-transition: 300ms;
     -o-transition: 300ms;
     transition: 300ms;
-    color: #696763;
+   
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -731,7 +731,7 @@ a#scrollUp {
 
 
 h2.title {
-    color: #FE980F;
+    
     font-family: IRANSans;
     font-size: 18px;
     font-weight: 700;
@@ -788,7 +788,7 @@ h2.title {
 
 
 .productinfo h2 {
-    color: #FE980F;
+    
     text-align:center;
 
 }
@@ -2341,3 +2341,7 @@ span.choose {
     padding: 16px;
 }
 
+.black
+{
+    color:black;
+}

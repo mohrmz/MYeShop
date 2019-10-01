@@ -5,7 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Fluent.Infrastructure" Version="2.0.0-beta-01" />
+    <None Remove="C:\Users\moham\.nuget\packages\microsoft.net.compilers\1.0.0\build\..\tools\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
@@ -20,7 +23,6 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Views\NewFolder\" />
   </ItemGroup>
 
 </Project>
