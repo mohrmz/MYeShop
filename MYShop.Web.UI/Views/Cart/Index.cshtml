@@ -101,14 +101,14 @@
                                     <div class="col-md-1">
                                         <div class="right-align font-y">تعداد</div>
                                         <div class="cart_quantity_button" style="float:right">
-                                            <a class="cart_quantity_up" asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@line.Product.ProductID"> + </a>
+                                            <a class="cart_quantity_up" asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@line.Product.ProductID" title="@line.Product.Name"> + </a>
                                             <input class="cart_quantity_input" type="text" name="quantity" value="@line.Quantity" autocomplete="off" size="2">
-                                            <a class="cart_quantity_down" asp-action="misfromCart" asp-controller="Cart" asp-route-productId="@line.Product.ProductID"> - </a>
+                                            <a class="cart_quantity_down" asp-action="misfromCart" asp-controller="Cart" asp-route-productId="@line.Product.ProductID" title="@line.Product.Name"> - </a>
                                         </div>
                                     </div>
                                     <div class="col-md-1">
                                         <div class="cart_delete">
-                                            <a class="cart_quantity_delete" asp-action="RemoveFromCart" asp-controller="Cart" asp-route-ProductID="@line.Product.ProductID"><i class="fa fa-times"></i></a>
+                                            <a class="cart_quantity_delete" asp-action="RemoveFromCart" asp-controller="Cart" asp-route-ProductID="@line.Product.ProductID" title="@line.Product.Name"><i class="fa fa-times"></i></a>
                                         </div>
                                     </div>
                                     
@@ -122,7 +122,7 @@
             </div>
         </div>
 
-        <a class="btn-ppay" asp-action="Checkout" asp-controller="Order">
+        <a class="btn-ppay" asp-action="Checkout" asp-controller="Order" title="تکمیل فرایند خرید">
             تکمیل فرایند خرید
         </a>
     </div>

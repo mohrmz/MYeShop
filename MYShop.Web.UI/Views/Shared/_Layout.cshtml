@@ -69,10 +69,10 @@
             <div class="container-fluid">
                 <div id="top" class="contactinfo">
                     <ul>
-                        <li><a href="tel:+989189660086"><i class="fa fa-phone"></i> +989189660086</a></li>
-                        <li><a href="tel:+982537185340"><i class="fa fa-phone"></i> +982537185340</a></li>
+                        <li><a href="tel:+989189660086" title="phone"><i class="fa fa-phone"></i> +989189660086</a></li>
+                        <li><a href="tel:+982537185340" tile="phone home"><i class="fa fa-phone"></i> +982537185340</a></li>
 
-                        <li><a href="mailto:mohammad0ramezani@gmail.com"><i class="fa fa-envelope"></i> mohammad0ramezani@gmail.com</a></li>
+                        <li><a href="mailto:mohammad0ramezani@gmail.com" title="email"><i class="fa fa-envelope"></i> joorkadeh@gmail.com</a></li>
                     </ul>
                 </div>
 
@@ -100,7 +100,7 @@
     <footer id="footer">
         <hr />
         <div class="c-footer__jumpup">
-            <a href="#top">
+            <a href="#top" title="top">
                 <span id="js-jump-to-top" class="c-footer__jumpup-container">
                     <span class="fa fa-angle-up c-footer__jumpup-angle"></span>
                     برگشت به بالا
@@ -135,20 +135,20 @@
 
                 <div class="row">
                     <div class="col-md-4 single-widget">
-                        <h2>فروشگاه</h2>
+                        <h3>فروشگاه</h3>
                         @await Component.InvokeAsync("Category")
                     </div>
                     <div class="col-md-4 single-widget">
                         <div class="row">
                             <div class="">
-                                <h2>قوانین و خدمات</h2>
+                                <h3>قوانین و خدمات</h3>
                                 <ul>
-                                    <li><a asp-action="Harim" asp-controller="Other">حریم شخصی</a></li>
-                                    <li><a asp-action="Sefaresh" asp-controller="Other">ثبت سفارش</a></li>
-                                    <li><a asp-action="HelpPay" asp-controller="Other">نحوه پرداخت</a></li>
-                                    <li><a asp-action="US" asp-controller="Other">تماس باماus</a></li>
-                                    <li><a asp-action="About" asp-controller="Other">درباره شرکت</a></li>
-                                    <li><a asp-action="Address" asp-controller="Other">آدرس ما</a></li>
+                                    <li><a asp-action="Harim" asp-controller="Other" title="حریم شخصی">حریم شخصی</a></li>
+                                    <li><a asp-action="Sefaresh" asp-controller="Other" title="ثبت سفارش">ثبت سفارش</a></li>
+                                    <li><a asp-action="HelpPay" asp-controller="Other" title="نحوه پرداخت">نحوه پرداخت</a></li>
+                                    <li><a asp-action="US" asp-controller="Other" title="us">تماس باماus</a></li>
+                                    <li><a asp-action="About" asp-controller="Other" title="درباره شرکت">درباره شرکت</a></li>
+                                    <li><a asp-action="Address" asp-controller="Other" title="آدرس ما">آدرس ما</a></li>
                                 </ul>
                             </div>
                            
@@ -171,10 +171,10 @@
                         <div class="col-md-3 social-icons">
                             <ul>
                                 @*<li><a href="#"><i class="fa fa-facebook"></i></a></li>*@
-                                <li><a href="https://twitter.com/joorkadeh"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/in/joor-kadeh-756029192/"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="https://www.instagram.com/joorkadeh/"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="https://fa.wikipedia.org/wiki/%D9%81%D8%B1%D9%88%D8%B4%DA%AF%D8%A7%D9%87_%D8%A7%DB%8C%D9%86%D8%AA%D8%B1%D9%86%D8%AA%DB%8C_%D8%AC%D9%88%D8%B1_%DA%A9%D8%AF%D9%87"><i class="fa fa-pencil"></i></a></li>
+                                <li><a href="https://twitter.com/joorkadeh" title="twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/joor-kadeh-756029192/" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://www.instagram.com/joorkadeh/" title="instagram"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://fa.wikipedia.org/wiki/%D9%81%D8%B1%D9%88%D8%B4%DA%AF%D8%A7%D9%87_%D8%A7%DB%8C%D9%86%D8%AA%D8%B1%D9%86%D8%AA%DB%8C_%D8%AC%D9%88%D8%B1_%DA%A9%D8%AF%D9%87" title="wikipedia"><i class="fa fa-pencil"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -187,18 +187,18 @@
 
                     <div class="row">
                         <div>
-                            <h2>هفت روز هفته ، ۲۴ ساعت شبانه‌روز پاسخگوی شما هستیم</h2>
+                            <h3>هفت روز هفته ، ۲۴ ساعت شبانه‌روز پاسخگوی شما هستیم</h3>
                         </div>
                         <div>
-                            <h2> | شماره تماس : <a href="tel:+989189660086">+989189660086</a> </h2>
+                            <h3> | شماره تماس : <a href="tel:+989189660086" title="phone">+989189660086</a> </h3>
                         </div>
                         <div>
-                            <h2> | شماره تماس : <a href="tel:+982537185340">+982537185340</a> </h2>
+                            <h3> | شماره تماس : <a href="tel:+982537185340" title="phone home">+982537185340</a> </h3>
                         </div>
                     </div>
                     <div class="row">
                         <div>
-                            <h2>آدرس ایمیل : <a href="mailto:mohammad0ramezani@gmail.com">mohammad0ramezani@gmail.com</a></h2>
+                            <h3>آدرس ایمیل : <a href="mailto:mohammad0ramezani@gmail.com" title="email">mohammad0ramezani@gmail.com</a></h3>
                         </div>
                     </div>
                 </div>
@@ -209,7 +209,7 @@
 
         <div class="footer-bottom">
             <div class="container">
-                <p>کلیه حقوق این سایت متعلق به <a href="https://farjadpooyeshfarham.com" class="farjad"> شرکت فرجادپویش فرهام </a>  می باشد.</p>
+                <p>کلیه حقوق این سایت متعلق به <a href="https://farjadpooyeshfarham.com" title="generator" class="farjad"> شرکت فرجادپویش فرهام </a>  می باشد.</p>
             </div>
         </div>
 

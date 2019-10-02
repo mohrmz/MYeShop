@@ -7,7 +7,7 @@
 
             <div style="width:30%">
                 <div class="logo">
-                    <a href="/">
+                    <a href="/" title="home">
                         <img src="../images/JOOR.gif" class="img-responsive" height="50" alt="logo" title="logo">
                     </a>
                 </div>
@@ -27,7 +27,7 @@
                         <ul>
 
                             <li>
-                                <a asp-action="Index" asp-controller="Cart">
+                                <a asp-action="Index" asp-controller="Cart" title="home">
                                     @await Component.InvokeAsync("Cart")
 
                                 </a>
@@ -57,7 +57,7 @@
                         var imgSrc1 = String.Format("data:image/jpg;base64,{0}", base641);
                         <li>
 
-                            <a class="nav-h" href="#">@hitem.Name</a>
+                            <a class="nav-h" href="#" title="@hitem.Name">@hitem.Name</a>
                             <div class="menu-con" style="background-image:url(@imgSrc1);  background-repeat: no-repeat;background-size: 300px 200px;background-position:left bottom;">
                                 <div class="nav-column border">
 
@@ -70,7 +70,7 @@
 
                                         <ul id="col">
                                             <li>
-                                                <a href="@Url.Action("index", "Home")"> @cat.Name</a>
+                                                <a href="@Url.Action("index", "Home")" title="@cat.Name"> @cat.Name</a>
                                             </li>
                                         </ul>
                                     }
@@ -87,7 +87,7 @@
                                         {
                                             <ul>
                                                 <li>
-                                                    <a href="@Url.Action("index", "Home", new { CategoryId = itemm.CategoryID })"> @itemm.Name</a>
+                                                    <a href="@Url.Action("index", "Home", new { CategoryId = itemm.CategoryID })" title="@itemm.Name"> @itemm.Name</a>
                                                 </li>
                                             </ul>
 
@@ -108,12 +108,12 @@
         <div class="opennavv" onclick="openNav()"> &#9776;</div>
 
         <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" title="open">&times;</a>
 
 
             @foreach (var ccc in ViewBag.products)
             {
-                <a href="#">@ccc.Name</a>
+                <a href="#" title="home">@ccc.Name</a>
             }
 
 

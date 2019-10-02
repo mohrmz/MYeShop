@@ -6,6 +6,8 @@
 
 }
     <div >
+        <h1>مقابسه محصول</h1>
+        <h2> با کاملترین مرجع مشخصات فنی در فروشگاه اینترنتی جور کده به راحتی محصولات را قیاس کنید</h2>
         <div class="row navbar">
 
             @{int b = 0;
@@ -19,7 +21,7 @@
                     <div id="@i.ProductID" class="col-md-3 ">
                         <div class="compimg font-y center-align">
                             <div class="cart_delete">
-                                <a class="cart_quantity_delete" asp-action="RemoveCompare" asp-controller="Home" asp-route-ProductID="@i.ProductID"><i class="fa fa-times"></i></a>
+                                <a class="cart_quantity_delete" asp-action="RemoveCompare" asp-controller="Home" asp-route-ProductID="@i.ProductID" title="@i.Name"><i class="fa fa-times"></i></a>
                             </div>
                             <div>
                                 @if(@i.discount>0)
@@ -42,16 +44,16 @@
                                 @if (@i.newvalue > 0)
                                 {<del class="font-y del">@i.Price.ToString("#,###")</del>
 
-                                <h2 class="font-y">
+                                <h3 class="font-y">
 
                                     @i.newvalue.ToString("#,###") <span>ریال</span>
-                                </h2>}
+                                </h3>}
                             else
                             {
-                                <h2 class="font-y">
+                                <h3 class="font-y">
 
                                     @i.Price.ToString("#,###") <span>ریال</span>
-                                </h2>
+                                </h3>
                             }
 
                             </div>

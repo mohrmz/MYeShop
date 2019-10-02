@@ -39,21 +39,21 @@
                                     }
 
                                     <img src="@imgSrc" class="img img-responsive" width="210" height="130"  alt="@item.Name" title="@item.Name"/>
-                                    <h2 class="black">@item.Name</h2>
+                                    <h3 class="black">@item.Name</h3>
                                     <div>
                                         @if (@item.newvalue > 0)
                                         {<del class="font-y del">@item.Price.ToString("#,###")</del>
 
-                                        <h2 class="font-y">
+                                        <h3 class="font-y">
 
                                             @item.newvalue.ToString("#,###") <span>ریال</span>
-                                        </h2>}
+                                        </h3>}
                                     else if (@item.Price > 0)
                                     {
-                                        <h2 class="font-y">
+                                        <h3 class="font-y">
 
                                             @item.Price.ToString("#,###") <span>ریال</span>
-                                        </h2>
+                                        </h3>
                                     }
 
                                     </div>

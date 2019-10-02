@@ -11,7 +11,7 @@
 
             <div class="col-md-5">
                 <div class="row">
-                    <a asp-action="Compare" asp-controller="Home" asp-route-ProductID="@Model.ProductID" class="btn-add-to-compare"><span class="fa fa-compress"> </span>افزودن به مقایسه کالا</a>
+                    <a asp-action="Compare" asp-controller="Home" asp-route-ProductID="@Model.ProductID" class="btn-add-to-compare" title="@Model.Name"><span class="fa fa-compress"> </span>افزودن به مقایسه کالا</a>
                 </div>
                 @{
                     var base641 = Convert.ToBase64String(Model.Image);
@@ -68,10 +68,10 @@
                     <div class="col-md-6">
                         <div class="row">
                             <div class="col-md-5 right-align">
-                                <p>برند :<a class="btn-link-spoiler" asp-action="index" asp-controller="home" name="value"> @Model.Brand.Name</a></p>
+                                <p>برند :<a class="btn-link-spoiler" asp-action="index" asp-controller="home" name="value" title="@Model.Brand.Name"> @Model.Brand.Name</a></p>
                             </div>
                             <div class="col-md-7 right-align">
-                                <p>دسته بندی :<a class="btn-link-spoiler" asp-action="index" asp-controller="home" name="value"> @Model.Category.Name</a> </p>
+                                <p>دسته بندی :<a class="btn-link-spoiler" asp-action="index" asp-controller="home" name="value" title="@Model.Category.Name"> @Model.Category.Name</a> </p>
                             </div>
                         </div>
                         <div class="right-align font-y">
@@ -165,13 +165,13 @@
             <div class="box desc">
                 <ul class="nav nav-pills" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" data-toggle="pill" href="#home"><span class="fa fa-book"></span>نقد و بررسی</a>
+                        <a class="nav-link active" data-toggle="pill" href="#home" title="home"><span class="fa fa-book"></span>نقد و بررسی</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="#menu1"><span class="fa fa-building-o"></span>مشخصات</a>
+                        <a class="nav-link" data-toggle="pill" href="#menu1" title="جور کده"><span class="fa fa-building-o"></span>مشخصات</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="#menu2"><span class="fa fa-eye"></span>نظرات کاربران</a>
+                        <a class="nav-link" data-toggle="pill" href="#menu2" title="فروشگاه اینترنتی جور کده"><span class="fa fa-eye"></span>نظرات کاربران</a>
                     </li>
 
                 </ul>
@@ -219,7 +219,7 @@
                                 </div>
                             </div>
                             <div class="hreview" id="hreview-best">
-                                <h2 class="summary">عالی</h2><abbr class="dtreviewed" title="2021-10-02T00:59">1399/12/29</abbr>   <span class="reviewer vcard"><span class="fn"></span></span><span class="type" style="display: none;">@Model.Name</span><img alt="@Model.Name" src="photourl" class="photo"><div class="item"><a class="fn url" href="url">@Model.Name</a></div><blockquote class="description">
+                                <h2 class="summary">عالی</h2><abbr class="dtreviewed" title="2021-10-02T00:59">1399/12/29</abbr>   <span class="reviewer vcard"><span class="fn"></span></span><span class="type" style="display: none;">@Model.Name</span><img alt="@Model.Name" src="photourl" class="photo"><div class="item"><a class="fn url" href="url" title="@Model.Name">@Model.Name</a></div><blockquote class="description">
                                     <p>
                                         <abbr title="5" class="rating">
                                             function rating_stars(rating){
@@ -235,7 +235,7 @@
                                             }
                                         </abbr> 
                                     </p>
-                                </blockquote><span class="version" style="display: none;">0.3</span><p> <a href="http://microformats.org/wiki/hreview">بازدید</a> جورکده <a href="http://microformats.org/code/hreview/creator">سازنده</a>.</p>
+                                </blockquote><span class="version" style="display: none;">0.3</span><p> <a href="http://microformats.org/wiki/hreview" title="@Model.Name">بازدید</a> جورکده <a href="http://microformats.org/code/hreview/creator">سازنده</a>.</p>
                             </div>
                         </div>
                     </div>

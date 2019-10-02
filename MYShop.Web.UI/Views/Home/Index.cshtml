@@ -1,8 +1,8 @@
 ﻿@model MYShop.Web.UI.Models.HomeViewModel
 @{
-    ViewData["Title"] = "فروشگاه اینترنتی جور کده|تخفیف ویژه";
+    ViewData["Title"] = "فروشگاه اینترنتی جور کده حراج محصولات|تخفیف ویژه";
  ViewData["ShorDescription"] = "فروشگاه اینترنتی جور کده فروش بهترین محصولات و برند ها با قیمت مناسب و ارسال رایگان در سرتاسر کشور همراه با گارانتی اصل شرکتی";
-    ViewData["KeyWords"] = "جور کده،فروشگاه اینترنتی جور کرده،فروش تشک،تشک رویا،تشک،خرید تشک،خرید تشک رویا،خرید محصول";
+    ViewData["KeyWords"] = "جور کده،فروشگاه اینترنتی جورکده،فروش تشک،تشک رویا،تشک،خرید تشک،خرید تشک رویا،خرید محصول";
 }
 <div class="clear"></div>
 <section id="product">
@@ -10,7 +10,7 @@
         <div class="row">
           
             <div class="col-md-11 content">
-                <h1 class="subject">لیست محصولات</h1>
+                <h1 class="subject">فروشگاه اینترنتی جورکده</h1>
                 <div class="features_items">
                     @foreach (var item in Model.Result.Items)
                     {
@@ -20,7 +20,7 @@
                     <div class="product-image-wrapper">
                         <div class="single-products">
                             <div class="productinfo">
-                                <a asp-action="Product" asp-controller="Home" asp-route-productId="@item.ProductID">
+                                <a asp-action="Product" asp-controller="Home" asp-route-productId="@item.ProductID" title="@item.Name" >
 
                                     <div>
                                         <span class="pbrand del">برند : @item.Brand.Name</span>
@@ -37,21 +37,21 @@
                                                 
 
                                     <img src="@imgSrc" class="img img-responsive" width="210" height="130" alt="@item.Name" title="@item.Name" />
-                                    <h2 class="black">@item.Name</h2>
+                                    <h3 class="black">@item.Name</h3>
                                     <div>
                                         @if (@item.newvalue > 0)
                                             {<del class="font-y del">@item.Price.ToString("#,###")</del>
 
-                                            <h2 class="font-y">
+                                            <h3 class="font-y">
 
                                                 @item.newvalue.ToString("#,###") <span>ریال</span>
-                                            </h2>}
+                                            </h3>}
                                         else if (@item.Price > 0)
                                      {
-                                            <h2 class="font-y">
+                                            <h3 class="font-y">
 
                                                 @item.Price.ToString("#,###") <span>ریال</span>
-                                            </h2>
+                                            </h3>
                                     }
 
                                     </div>
@@ -65,7 +65,7 @@
                                 <div class="choose">
                                     <ul>
 
-                                        <li><a asp-action="Compare" asp-controller="Home" asp-route-ProductID="@item.ProductID"><i class="fa fa-plus-square"></i>مقایسه</a></li>
+                                        <li><a asp-action="Compare" asp-controller="Home" asp-route-ProductID="@item.ProductID" title="@item.Name"><i class="fa fa-plus-square"></i>مقایسه</a></li>
                                     </ul>
 
                                 </div>
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <div class="hreview" itemscope itemtype="http://schema.org/Product">
-                        <h1 itemprop="name">@item.Name</h1>
+                        <h3 itemprop="name">@item.Name</h3>
                         <span itemprop="brand">@item.Brand.Name</span>
                         <img src="@imgSrc" class="img-responsive-s" alt="@item.Name" title="@item.Name" itemprop="image" />
                         
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                     <div class="hreview" id="hreview-best">
-                        <h2 class="summary">عالی</h2><abbr class="dtreviewed" title="2021-10-02T00:59">1399/12/29</abbr>   <span class="reviewer vcard"><span class="fn"></span></span><span class="type" style="display: none;">@item.Name</span><img alt="@item.Name" src="photourl" class="photo"><div class="item"><a class="fn url" href="url">@item.Name</a></div><blockquote class="description">
+                        <h3 class="summary">عالی</h3><abbr class="dtreviewed" title="2021-10-02T00:59">1399/12/29</abbr>   <span class="reviewer vcard"><span class="fn"></span></span><span class="type" style="display: none;">@item.Name</span><img alt="@item.Name" src="photourl" class="photo"><div class="item"><a class="fn url" href="url" title="@item.Name">@item.Name</a></div><blockquote class="description">
                             <p>
                                 <abbr title="5" class="rating">
                                     function rating_stars(rating){
@@ -116,7 +116,7 @@
                                     }
                                 </abbr>
                             </p>
-                        </blockquote><span class="version" style="display: none;">0.3</span><p> <a href="http://microformats.org/wiki/hreview">بازدید</a> جورکده <a href="http://microformats.org/code/hreview/creator">سازنده</a>.</p>
+                        </blockquote><span class="version" style="display: none;">0.3</span><p> <a href="http://microformats.org/wiki/hreview" title="فروشگاه اینترنتی جورکده">بازدید</a> جورکده <a href="http://microformats.org/code/hreview/creator" title="سازنده">سازنده</a>.</p>
                     </div>
 
                     }

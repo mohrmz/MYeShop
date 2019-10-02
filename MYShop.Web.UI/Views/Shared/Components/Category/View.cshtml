@@ -1,7 +1,7 @@
 ﻿@model List<Category>
     <ul>
         <li>
-            <a href="@Url.Action("index","Home",new { CategoryId=0})">
+            <a href="@Url.Action("index","Home",new { CategoryId=0})" title="all">
                 همه
             </a>
         </li>
@@ -12,7 +12,7 @@
                 @foreach (var itemmm in Model.Where(c => c.Clevel == 2 && c.ParentId == itemm.CategoryID))
                 {
                     <li>
-                        <a href="@Url.Action("index", "Home", new { CategoryId = itemmm.CategoryID })">
+                        <a href="@Url.Action("index", "Home", new { CategoryId = itemmm.CategoryID })" title="@itemmm.Name">
                             @item.Name>@itemm.Name>@itemmm.Name
                         </a>
                     </li>
