@@ -1,32 +1,34 @@
 ﻿<!DOCTYPE html>
-<html>
+<html dir="rtl" lang="fa">
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="content-language" content="fa" />
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Cache-control" content="max-age=300, public" />
     <!-- Primary Meta Tags -->
     <title>@ViewData["Title"]</title>
     <meta name="title" content="@ViewData["Title"]">
     <meta name="description" content="@ViewData["ShorDescription"]">
+    <link rel="canonical" href="https://@ViewData["url"]" />
+    <link rel="home" href="https://joorkadeh.com/" />
+    <link rel="alternate" href="@ViewData["url"]" hreflang="fa-ir" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://joorkadeh.ir/images/JOOR.jpg">
+    <meta property="og:url" content="@ViewData["url"]">
     <meta property="og:title" content="@ViewData["Title"]">
     <meta property="og:description" content="@ViewData["ShorDescription"]">
-    <meta property="og:image" content="../">
+    <meta property="og:image" content="@ViewData["image"]">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://joorkadeh.ir/">
+    <meta property="twitter:url" content="@ViewData["url"]">
     <meta property="twitter:title" content="@ViewData["Title"]">
     <meta property="twitter:description" content="@ViewData["ShorDescription"]">
-    <meta property="twitter:image" content="https://joorkadeh.ir/images/JOOR.jpg">
+    <meta property="twitter:image" content="@ViewData["image"]">
     <meta name="keywords" content="@ViewData["KeyWords"]">
-    <meta http-equiv="Cache-control" content="private" />
+
     <meta name="robots" content="index, follow" />
     <meta name="expires" content="never" />
     <meta name="author" content="farjadpooyeshfarham.ir" />
@@ -34,22 +36,18 @@
     <meta name="theme-color" content="#FE980F">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="~/css/site.css" />
-
+    <link href="~/css/site.min.css" rel="stylesheet" />
+    <script src="~/js/prefixfree.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <!-- JavaScript -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-    <script type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "b9352d81-5194-4467-b9b2-49231821855b"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
+    <script>window.$crisp = []; window.CRISP_WEBSITE_ID = "b9352d81-5194-4467-b9b2-49231821855b"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
     <meta name="google-site-verification" content="G7UXAUm1CAatxSeltAwsZzcrMbKbdI5LHzOK8Q5bdHM" />
-    <link rel="canonical" href="https://joorkadeh.com/" />
-    <link rel="home" href="https://joorkadeh.com/" />
-    <link rel="alternate" href="https://joorkadeh.com/" hreflang="fa-ir" />
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149268323-1"></script>
     <script>
@@ -63,16 +61,15 @@
 </head>
 <body>
     <header id="header">
-        <!--header-->
-        <div class="header_top" style="margin-top:160px;">
+        <div class="header_top" >
             <!--header_top-->
             <div class="container-fluid">
-                <div id="top" class="contactinfo">
+                <div id="top" class="contactinfo" itemscope itemtype="http://schema.org/LocalBusiness">
                     <ul>
-                        <li><a href="tel:+989189660086" title="phone"><i class="fa fa-phone"></i> +989189660086</a></li>
-                        <li><a href="tel:+982537185340" tile="phone home"><i class="fa fa-phone"></i> +982537185340</a></li>
+                        <li><a href="tel:+989189660086" title="phone"><i class="fa fa-phone" ></i><span itemprop="telephone">09189660086</span> </a></li>
+                        <li><a href="tel:+982537185340" title="phone home"><i class="fa fa-phone" ></i><span itemprop="telephone">02537185340</span> </a></li>
 
-                        <li><a href="mailto:mohammad0ramezani@gmail.com" title="email"><i class="fa fa-envelope"></i> joorkadeh@gmail.com</a></li>
+                        <li><a href="mailto:joorkadeh@gmail.com" title="email" ><i class="fa fa-envelope"></i><span itemprop="email">joorkadeh@gmail.com</span> </a></li>
                     </ul>
                 </div>
 
@@ -80,13 +77,7 @@
             </div>
         </div><!--/header_top-->
 
-        <div class="header-middle">
-            <!--header-middle-->
-            <div class="container-fluid">
-               
-
-            </div>
-        </div><!--/header-middle-->
+      
 
 
 
@@ -135,13 +126,13 @@
 
                 <div class="row">
                     <div class="col-md-4 single-widget">
-                        <h3>فروشگاه</h3>
+                        <h3 class="right-align">فروشگاه</h3>
                         @await Component.InvokeAsync("Category")
                     </div>
                     <div class="col-md-4 single-widget">
-                        <div class="row">
-                            <div class="">
-                                <h3>قوانین و خدمات</h3>
+                       
+                                <h3 class="right-align">قوانین و خدمات</h3>
+                           
                                 <ul>
                                     <li><a asp-action="Harim" asp-controller="Other" title="حریم شخصی">حریم شخصی</a></li>
                                     <li><a asp-action="Sefaresh" asp-controller="Other" title="ثبت سفارش">ثبت سفارش</a></li>
@@ -150,16 +141,14 @@
                                     <li><a asp-action="About" asp-controller="Other" title="درباره شرکت">درباره شرکت</a></li>
                                     <li><a asp-action="Address" asp-controller="Other" title="آدرس ما">آدرس ما</a></li>
                                 </ul>
-                            </div>
-                           
-                        </div>
+                            
 
                     </div>
 
 
 
                     <div class="col-md-4 single-widget">
-                        <h2>خبرنامه جورکده</h2>
+                        <h2 class="right-align">خبرنامه جورکده</h2>
                         <P>از تخفیف‌ها و جدیدترین‌های جورکده باخبر شوید:</P>
                         <form asp-action="newsuser" asp-controller="Home" class="news">
                             <input name="email" type="text" placeholder="آدرس ایمیل شما">
@@ -170,7 +159,7 @@
 
                         <div class="col-md-3 social-icons">
                             <ul>
-                                @*<li><a href="#"><i class="fa fa-facebook"></i></a></li>*@
+                                <li><a href="https://facebook.com/joor0kadeh" title="twitter"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="https://twitter.com/joorkadeh" title="twitter"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="https://www.linkedin.com/in/joor-kadeh-756029192/" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
                                 <li><a href="https://www.instagram.com/joorkadeh/" title="instagram"><i class="fa fa-instagram"></i></a></li>
@@ -183,22 +172,22 @@
             </div>
             <hr />
             <nav class="phonenav">
-                <div class="container-fluid">
+                <div class="container-fluid" itemscope itemtype="http://schema.org/LocalBusiness">
 
                     <div class="row">
                         <div>
-                            <h3>هفت روز هفته ، ۲۴ ساعت شبانه‌روز پاسخگوی شما هستیم</h3>
+                            <h3 class="right-align">هفت روز هفته ، ۲۴ ساعت شبانه‌روز پاسخگوی شما هستیم</h3>
                         </div>
                         <div>
-                            <h3> | شماره تماس : <a href="tel:+989189660086" title="phone">+989189660086</a> </h3>
+                            <p> | شماره تماس : <a href="tel:+989189660086" title="phone" ><span itemprop="telephone">09189660086</span></a> </p>
                         </div>
                         <div>
-                            <h3> | شماره تماس : <a href="tel:+982537185340" title="phone home">+982537185340</a> </h3>
+                            <p> | شماره تماس : <a href="tel:+982537185340" title="phone home" ><span itemprop="telephone">02537185340</span></a> </p>
                         </div>
                     </div>
                     <div class="row">
                         <div>
-                            <h3>آدرس ایمیل : <a href="mailto:mohammad0ramezani@gmail.com" title="email">mohammad0ramezani@gmail.com</a></h3>
+                            <p>آدرس ایمیل : <a href="mailto:joorkadeh@gmail.com" title="email" ><span itemprop="email">joorkadeh@gmail.com</span></a></p>
                         </div>
                     </div>
                 </div>

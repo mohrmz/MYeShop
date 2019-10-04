@@ -145,6 +145,7 @@ a#scrollUp {
 
 .header_top {
     background: none repeat scroll 0 0 #F0F0E9;
+    margin-top: 160px;
 }
 
 
@@ -595,7 +596,7 @@ a#scrollUp {
     color: #FE980F;
 }
 .orange-o {
-    color: #FE980F;
+    color: #FE980F!important;
 }
 .carousel-inner .item {
     display: none;

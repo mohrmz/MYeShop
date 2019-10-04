@@ -1,8 +1,10 @@
 ﻿@{
-    ViewData["Title"] = "فروشگاه اینترنتی جور کده|عدم موفقیت در پرداخت";
+    ViewData["Title"] = "فروشگاه اینترنتی جور کده|عدم موفقیت در پرداخت جور کده";
     ViewData["ShorDescription"] = "فروشگاه اینترنتی جور کده فروش بهترین محصولات و برند ها با قیمت مناسب و ارسال رایگان در سرتاسر کشور همراه با گارانتی اصل شرکتی";
     ViewData["KeyWords"] = "جور کده،فروشگاه اینترنتی جور کرده،فروش تشک،تشک رویا،تشک،خرید تشک،خرید تشک رویا،خرید محصول";
-
+    @using Microsoft.AspNetCore.Http.Extensions
+    ViewData["url"] = Context.Request.Host + Context.Request.GetEncodedPathAndQuery();
+    ViewData["image"] = "https://joorkadeh.com/images/joor.jpg";
 }
 <div class="container">
     <h1>عدم موفقیت در پرداخت</h1>

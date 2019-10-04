@@ -1,8 +1,10 @@
 ﻿@{
     ViewData["Title"] = "فروشگاه اینترنتی جور کده|تماس با ما";
-    ViewData["ShorDescription"] = "فروشگاه اینترنتی جور کده فروش بهترین محصولات و برند ها با قیمت مناسب و ارسال رایگان در سرتاسر کشور همراه با گارانتی اصل شرکتی";
+    ViewData["ShorDescription"] = "فروشگاه اینترنتی جور کده فروش بهترین محصولات و برند ها با قیمت مناسب و ارسال رایگان در سرتاسر کشور همراه با گارانتی اصل شرکتی تماس با ما";
     ViewData["KeyWords"] = "جور کده،فروشگاه اینترنتی جور کرده،فروش تشک،تشک رویا،تشک،خرید تشک،خرید تشک رویا،خرید محصول";
-
+    @using Microsoft.AspNetCore.Http.Extensions
+    ViewData["url"] = Context.Request.Host + Context.Request.GetEncodedPathAndQuery();
+    ViewData["image"] = "https://joorkadeh.com/images/joor.jpg";
 }
 <h1>تماس با ما</h1>
 <nav class="phonenav">

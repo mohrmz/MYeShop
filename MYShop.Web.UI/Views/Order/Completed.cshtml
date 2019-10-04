@@ -1,10 +1,12 @@
 ﻿@model Order
 
 @{
-      ViewData["Title"] = "فروشگاه اینترنتی جور کده|انتقال به درگاه بانک";
- ViewData["ShorDescription"] = "فروشگاه اینترنتی جور کده فروش بهترین محصولات و برند ها با قیمت مناسب و ارسال رایگان در سرتاسر کشور همراه با گارانتی اصل شرکتی";
+    ViewData["Title"] = "فروشگاه اینترنتی جور کده|انتقال به درگاه بانک";
+    ViewData["ShorDescription"] = "فروشگاه اینترنتی جور کده فروش بهترین محصولات و برند ها با قیمت مناسب و ارسال رایگان در سرتاسر کشور همراه با گارانتی اصل شرکتی انتقال به درگاه بانک";
     ViewData["KeyWords"] = "جور کده،فروشگاه اینترنتی جور کرده،فروش تشک،تشک رویا،تشک،خرید تشک،خرید تشک رویا،خرید محصول";
-
+    @using Microsoft.AspNetCore.Http.Extensions
+    ViewData["url"] = Context.Request.Host + Context.Request.GetEncodedPathAndQuery();
+    ViewData["image"] = "https://joorkadeh.com/images/joor.jpg";
 }
 
 <section id="cart_items">
@@ -16,7 +18,7 @@
                 <form asp-action="Pay" asp-controller="Payment" method="post">
                     <input type="hidden" value="@TempData.Peek("OrderId")" name="orderId" />
                     <input type="hidden" value="@TempData.Peek("Price")" name="price" />
-                    <input type="submit" class="btn-pay btn-c btn-p"  value="پرداخت" />
+                    <input type="submit" class="btn-pay btn-c btn-p" value="پرداخت" />
                 </form>
             </div>
         </div>

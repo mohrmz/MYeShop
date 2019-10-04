@@ -1,10 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "فروشگاه اینترنتی جور کده|آدرس";
-    ViewData["ShorDescription"] = "فروشگاه اینترنتی جور کده فروش بهترین محصولات و برند ها با قیمت مناسب و ارسال رایگان در سرتاسر کشور همراه با گارانتی اصل شرکتی";
+    ViewData["Title"] = " فروشگاه اینترنتی جور کده|آدرس جور کده";
+    ViewData["ShorDescription"] = "فروشگاه اینترنتی جور کده فروش بهترین محصولات و برند ها با قیمت مناسب و ارسال رایگان در سرتاسر کشور همراه با گارانتی اصل شرکتی آدرس جور کده";
     ViewData["KeyWords"] = "جور کده،فروشگاه اینترنتی جور کرده،فروش تشک،تشک رویا،تشک،خرید تشک،خرید تشک رویا،خرید محصول";
-
+    @using Microsoft.AspNetCore.Http.Extensions
+    ViewData["url"] = Context.Request.Host + Context.Request.GetEncodedPathAndQuery();
+    ViewData["image"] = "https://joorkadeh.com/images/joor.jpg";
 }
-    <h1 class="right-align">آدرس</h1>
-<h2 class="right-align">قم خیابان امام کوچه عابدی 12  بن بست بهرامی پلاک 8.1 طبقه زیر زمین(فروشگاه اینترنتی جور کده)</h2>
+    <h1 class="right-align">آدرس جور کده</h1>
+<h2 class="right-align" itemprop="address">قم خیابان امام کوچه عابدی 12  بن بست بهرامی پلاک 8.1 طبقه زیر زمین(فروشگاه اینترنتی جور کده)</h2>
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1640.6176342652939!2d50.87455765800804!3d34.67401120096634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDQwJzI2LjQiTiA1MMKwNTInMzIuNCJF!5e0!3m2!1sen!2s!4v1569093501898!5m2!1sen!2s" height="450" style="border:0;width:100%;"></iframe>

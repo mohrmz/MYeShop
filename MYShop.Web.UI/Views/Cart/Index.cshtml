@@ -3,11 +3,11 @@
     ViewData["Title"] = "فروشگاه اینترنتی جور کده|سبد خرید";
  ViewData["ShorDescription"] = "فروشگاه اینترنتی جور کده فروش بهترین محصولات و برند ها با قیمت مناسب و ارسال رایگان در سرتاسر کشور همراه با گارانتی اصل شرکتی";
     ViewData["KeyWords"] = "جور کده،فروشگاه اینترنتی جور کرده،فروش تشک،تشک رویا،تشک،خرید تشک،خرید تشک رویا،خرید محصول";
-
-}
-  
-@{
     
+}
+
+@{
+
                 long a = 0;
                 long b = 0;
                 long c = 0;
@@ -45,13 +45,13 @@
                 <p class="right-align font-y">کالا های موجود در سبد خرید شما هنوز رزرو نشده است.برای ثبت سفارش مراحل بعدی را تکمیل کنید</p>
 
 
-                
+
 
 
 
             </div>
         </div>
-        
+
         <div class="row">
             <div class="paybox">
                 <i class="fa fa-truck orange-o right-align" style="float:right" aria-hidden="true"></i>
@@ -62,30 +62,30 @@
                     {
                         var base64 = Convert.ToBase64String(line.Product.Image);
                         var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
-                                <div class="row">
+                    <div class="row">
 
 
-                                    <div class="col-md-2">
-                                        <img src="@imgSrc" style="float:left" height="80" width="80" />
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p class="right-align font-y">@line.Product.Name (@line.Quantity عدد) </p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p class="right-align font-y">فروشنده : جورکده</p>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p class="right-align font-y">گارانتی اصالت و سلامت فیزیکی کالا</p>
-                                    </div>
+                        <div class="col-md-2">
+                            <img src="@imgSrc" style="float:left" height="80" width="80" />
+                        </div>
+                        <div class="col-md-2">
+                            <p class="right-align font-y">@line.Product.Name (@line.Quantity عدد) </p>
+                        </div>
+                        <div class="col-md-2">
+                            <p class="right-align font-y">فروشنده : جورکده</p>
+                        </div>
+                        <div class="col-md-2">
+                            <p class="right-align font-y">گارانتی اصالت و سلامت فیزیکی کالا</p>
+                        </div>
 
-                                    <div class="col-md-2">
-                                        @{ long lastprice = 0;
+                        <div class="col-md-2">
+                            @{ long lastprice = 0;
                                             if (line.Product.newvalue > 0)
                                             {
                                                 long aa = 0;
                                                 lastprice = line.Product.newvalue * line.Quantity;
                                                 aa = (line.Product.Price - line.Product.newvalue) * line.Quantity;
-                                                <p class="right-align font-y" style="color:#00cfe6;">تخفیف شگفت انگیز : @aa.ToString("#,###") ریال</p>
+                                <p class="right-align font-y" style="color:#00cfe6;">تخفیف شگفت انگیز : @aa.ToString("#,###") ریال</p>
 
                                             }
                                             else
@@ -93,27 +93,27 @@
                                                 lastprice = line.Product.Price;
                                             }
 
-                                        }
-                                        <p class="font-y right-align orange-o">@lastprice.ToString("#,###") ریال</p>
-                                    </div>
+                            }
+                            <p class="font-y right-align orange-o">@lastprice.ToString("#,###") ریال</p>
+                        </div>
 
 
-                                    <div class="col-md-1">
-                                        <div class="right-align font-y">تعداد</div>
-                                        <div class="cart_quantity_button" style="float:right">
-                                            <a class="cart_quantity_up" asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@line.Product.ProductID" title="@line.Product.Name"> + </a>
-                                            <input class="cart_quantity_input" type="text" name="quantity" value="@line.Quantity" autocomplete="off" size="2">
-                                            <a class="cart_quantity_down" asp-action="misfromCart" asp-controller="Cart" asp-route-productId="@line.Product.ProductID" title="@line.Product.Name"> - </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-1">
-                                        <div class="cart_delete">
-                                            <a class="cart_quantity_delete" asp-action="RemoveFromCart" asp-controller="Cart" asp-route-ProductID="@line.Product.ProductID" title="@line.Product.Name"><i class="fa fa-times"></i></a>
-                                        </div>
-                                    </div>
-                                    
-                                   
-                                </div>
+                        <div class="col-md-1">
+                            <div class="right-align font-y">تعداد</div>
+                            <div class="cart_quantity_button" style="float:right">
+                                <a class="cart_quantity_up" asp-action="AddToCart" asp-controller="Cart" asp-route-productId="@line.Product.ProductID" title="@line.Product.Name"> + </a>
+                                <input class="cart_quantity_input" type="text" name="quantity" value="@line.Quantity" autocomplete="off" size="2">
+                                <a class="cart_quantity_down" asp-action="misfromCart" asp-controller="Cart" asp-route-productId="@line.Product.ProductID" title="@line.Product.Name"> - </a>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="cart_delete">
+                                <a class="cart_quantity_delete" asp-action="RemoveFromCart" asp-controller="Cart" asp-route-ProductID="@line.Product.ProductID" title="@line.Product.Name"><i class="fa fa-times"></i></a>
+                            </div>
+                        </div>
+
+
+                    </div>
                     }
                 }
 
@@ -127,4 +127,4 @@
         </a>
     </div>
 
-    }
+}

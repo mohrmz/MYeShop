@@ -36,6 +36,11 @@ namespace MYShop.Web.UI.Components
                 products = _repo.GetDiscount();
                 ViewBag.pname = "تخفیف";
             }
+            else if (type == 4)
+            {
+                products = _repo.GetNews();
+                ViewBag.pname = "مناسب برای شما";
+            }
             return View("View", products);
         }
     }
