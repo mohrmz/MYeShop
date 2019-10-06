@@ -1,18 +1,18 @@
 ﻿@model Product
 @{
-                    var base641 = Convert.ToBase64String(Model.Image);
-                    var imgSrc1 = String.Format("data:image/jpg;base64,{0}", base641);
+    var base641 = Convert.ToBase64String(Model.Image);
+    var imgSrc1 = String.Format("data:image/jpg;base64,{0}", base641);
 
 @using Microsoft.AspNetCore.Http.Extensions
     ViewData["Title"] = @Model.Title;
     ViewData["ShorDescription"] = @Model.ShortDescription;
     ViewData["KeyWords"] = @Model.Keywords;
-    ViewData["url"]= Context.Request.Host+Context.Request.GetEncodedPathAndQuery();
-    ViewData["image"]=imgSrc1;
+    ViewData["url"] = Context.Request.Host + Context.Request.GetEncodedPathAndQuery();
+    ViewData["image"] = imgSrc1;
 }
 
 @{System.Globalization.CultureInfo enAU = new System.Globalization.CultureInfo("en-AU");
-                                    System.Globalization.CultureInfo fair = new System.Globalization.CultureInfo("fa-IR");
+    System.Globalization.CultureInfo fair = new System.Globalization.CultureInfo("fa-IR");
     <div class="container-fluid">
 
         <div class="row" itemscope itemtype="http://schema.org/Product">
@@ -34,9 +34,9 @@
                 <span class="text-hide" itemprop="gtin13">1234567890123</span>
 
                 @{ foreach (var o in Model.ProductImages)
-                        {
-                            var base64 = Convert.ToBase64String(o.Image);
-                            var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
+                    {
+                        var base64 = Convert.ToBase64String(o.Image);
+                        var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
 
 
                     <input type="radio" name="slide_switch" id="'id'@o.ID" />
@@ -48,7 +48,7 @@
 
 
 
-                        }
+                    }
                 }
             </div>
 
@@ -72,8 +72,19 @@
                                     <span class="fa fa-star product-garantee orange-i"></span>
                                 </div>
 
+                                @{ int reviewCount;
+                                    if (Model.Comments.Count() > 0)
+                                    {
+                                        reviewCount=  Model.Comments.Count();
+                                    }
+                                    else
+                                    {
+                                        reviewCount = 20;
+                                    }
 
-                                <P class="right-align">بیش از  <span itemprop="reviewCount">@Model.Comments.Count()</span> نفر از خریداران این محصول  <span itemprop="ratingValue">5</span> ستاره را پیشنهاد داده‌اند</P>
+
+                          <P class="right-align">بیش از  <span itemprop="reviewCount">@reviewCount</span> نفر از خریداران این محصول  <span itemprop="ratingValue">5</span> ستاره را پیشنهاد داده‌اند</P>
+                            }
                             </div>
                         </div>
                     </div>

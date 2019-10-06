@@ -1,0 +1,28 @@
+﻿{
+  "icons": [
+    {
+      "src": "/images/favicon.jpg",
+      "type": "image/jpg",
+      "sizes": "192x192"
+    }
+  ],
+  "display": "standalone",
+  "name": "JoorKadeh",
+  "short_name": "JoorKadeh",
+  "lang": "fa",
+  "dir": "rtl",
+  "description": "JoorKadeh Web App",
+  "scope": "/",
+  "start_url": "/",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FE980F",
+  "version": "0.9",
+  "manifest_version": "0.2",
+  "orientation": "portrait",
+  "permissions": [
+    "notifications",
+    "webRequest",
+    "background"
+  ],
+  "author": "FarjadPooyeshFarham Co."
+}

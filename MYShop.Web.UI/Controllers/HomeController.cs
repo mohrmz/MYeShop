@@ -40,6 +40,13 @@ namespace MYShop.Web.UI.Controllers
             string data = System.IO.File.ReadAllText("/wwwroot/robots.txt", Encoding.UTF8);
             return Content(data, "text/plain");
         }
+        [Route("/manifest.json")]
+        public IActionResult manifest()
+        {
+
+            string data = System.IO.File.ReadAllText("/wwwroot/manifest.json", Encoding.UTF8);
+            return Content(data, "text/json");
+        }
         public IActionResult Index(int CategoryId, string value, int page =1)
         {
 

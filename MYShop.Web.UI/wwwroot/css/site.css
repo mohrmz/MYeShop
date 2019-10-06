@@ -225,6 +225,12 @@ a#scrollUp {
 .fa-instagram:hover {
     background: #e4405f;
 }
+.fa-wikipedia-w:hover {
+    background: black;
+}
+.fa-pinterest:hover {
+    background: red;
+}
 
 .header-middle b {
     color: #696763;
