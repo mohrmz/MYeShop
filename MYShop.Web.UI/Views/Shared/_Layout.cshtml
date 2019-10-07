@@ -17,18 +17,18 @@
     <meta name="description" content="@ViewData["ShorDescription"]">
     <link rel="canonical" href="https://@ViewData["url"]" />
     <link rel="home" href="https://joorkadeh.com/" />
-    <link rel="alternate" href="@ViewData["url"]" hreflang="fa-ir" />
+    <link rel="alternate" href="https://@ViewData["url"]" hreflang="fa-ir" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="@ViewData["url"]">
+    <meta property="og:url" content="https://@ViewData["url"]">
     <meta property="og:title" content="@ViewData["Title"]">
     <meta property="og:description" content="@ViewData["ShorDescription"]">
     <meta property="og:image" content="@ViewData["image"]">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="@ViewData["url"]">
+    <meta property="twitter:url" content="https://@ViewData["url"]">
     <meta property="twitter:title" content="@ViewData["Title"]">
     <meta property="twitter:description" content="@ViewData["ShorDescription"]">
     <meta property="twitter:image" content="@ViewData["image"]">
@@ -66,15 +66,18 @@
 </head>
 <body>
     <header id="header">
-        <div class="header_top" >
+        <div class="header_top">
             <!--header_top-->
             <div class="container-fluid">
                 <div id="top" class="contactinfo" itemscope itemtype="http://schema.org/LocalBusiness">
                     <ul>
-                        <li><a href="tel:+989189660086" title="phone"><i class="fa fa-phone" ></i><span itemprop="telephone">09189660086</span> </a></li>
-                        <li><a href="tel:+982537185340" title="phone home"><i class="fa fa-phone" ></i><span itemprop="telephone">02537185340</span> </a></li>
-
-                        <li><a href="mailto:joorkadeh@gmail.com" title="email" ><i class="fa fa-envelope"></i><span itemprop="email">joorkadeh@gmail.com</span> </a></li>
+                        <li class="hidden"><img class="hidden" itemprop="image" src="~/images/joor.jpg" alt="joorkadeh" title="جور کده" width="20" height="20" /></li>
+                        <li><a asp-action="US" asp-controller="Other" title="تماس ب ما"><i class="fa fa-globe"></i><span itemprop="name">تماس با ما جورکده</span> </a></li>
+                        <li><a href="tel:+989189660086" title="تلفن همراه"><i class="fa fa-phone"></i><span itemprop="telephone">09189660086</span> </a></li>
+                        <li><a href="tel:+982537185340" title="تلفن شرکت "><i class="fa fa-phone"></i><span itemprop="telephone">02537185340</span> </a></li>
+                        <li><a href="mailto:joorkadeh@gmail.com" title="ایمیل"><i class="fa fa-envelope"></i><span itemprop="email">joorkadeh@gmail.com</span> </a></li>
+                        <li itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="font-y">آدرس :<span itemprop="addressRegion">قم </span><span itemprop="addressLocality">خیابان امام کوچه </span><span itemprop="streetAddress">عابدی 12  بن بست بهرامی پلاک 8.1 طبقه زیر زمین</span></li>
+                        <li><span class="text-hide" itemprop="priceRange">$$</span></li>
                     </ul>
                 </div>
 
@@ -82,13 +85,13 @@
             </div>
         </div><!--/header_top-->
 
-      
+
 
 
 
         @await Component.InvokeAsync("Menu")
     </header>
-    
+
 
     @RenderBody()
 
@@ -135,18 +138,19 @@
                         @await Component.InvokeAsync("Category")
                     </div>
                     <div class="col-md-4 single-widget">
-                       
-                        <h3 class="right-align">قوانین و مقررات</h3>
-                           
-                                <ul>
-                                    <li><a asp-action="Harim" asp-controller="Other" title="قوانین و مقررات">قوانین و مقررات</a></li>
-                                    <li><a asp-action="Sefaresh" asp-controller="Other" title="ثبت سفارش">ثبت سفارش</a></li>
-                                    <li><a asp-action="HelpPay" asp-controller="Other" title="نحوه پرداخت">نحوه پرداخت</a></li>
-                                    <li><a asp-action="US" asp-controller="Other" title="us">تماس باماus</a></li>
-                                    <li><a asp-action="About" asp-controller="Other" title="درباره شرکت">درباره شرکت</a></li>
-                                    <li><a asp-action="Address" asp-controller="Other" title="آدرس ما">آدرس ما</a></li>
-                                </ul>
-                            
+
+                        <h3 class="right-align">قوانین و خدمات</h3>
+
+                        <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+                            <li itemprop="name"><a itemprop="url" asp-action="home" asp-controller="index" title="سفارش کالا">سفارش کالا</a></li>
+                            <li itemprop="name"><a itemprop="url" asp-action="Harim" asp-controller="Other" title="قوانین و مقررات">قوانین و مقررات</a></li>
+                            <li itemprop="name"><a itemprop="url" asp-action="Sefaresh" asp-controller="Other" title="ثبت سفارش">ثبت سفارش</a></li>
+                            <li itemprop="name"><a itemprop="url" asp-action="HelpPay" asp-controller="Other" title="نحوه پرداخت">نحوه پرداخت</a></li>
+                            <li itemprop="name"><a itemprop="url" asp-action="US" asp-controller="Other" title="us">تماس باماus</a></li>
+                            <li itemprop="name"><a itemprop="url" asp-action="About" asp-controller="Other" title="درباره شرکت">درباره شرکت</a></li>
+                            <li itemprop="name"><a itemprop="url" asp-action="Address" asp-controller="Other" title="آدرس ما">آدرس ما</a></li>
+                        </ul>
+
 
                     </div>
 
@@ -164,13 +168,15 @@
 
                         <div class="col-md-3 social-icons">
                             <ul>
-                                <li><a href="https://facebook.com/joor0kadeh" title="twitter" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="https://twitter.com/joorkadeh" title="twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="https://www.linkedin.com/in/joor-kadeh-756029192/" title="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="https://www.instagram.com/j00rkadeh/" title="instagram" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://facebook.com/joorkadehcom" title="twitter" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/joorkadehcom" title="twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/joorkadeh/" title="linkedin" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://www.instagram.com/joorkadehcom/" title="instagram" target="_blank"><i class="fa fa-instagram"></i></a></li>
                                 <li><a href="https://fa.wikipedia.org/wiki/%D9%81%D8%B1%D9%88%D8%B4%DA%AF%D8%A7%D9%87_%D8%A7%DB%8C%D9%86%D8%AA%D8%B1%D9%86%D8%AA%DB%8C_%D8%AC%D9%88%D8%B1_%DA%A9%D8%AF%D9%87" title="wikipedia" target="_blank"><i class="fa fa-wikipedia-w"></i></a></li>
+                                <li><a href="https://en.wikipedia.org/wiki/User:Joorkadeh/sandbox" title="wikipediasandbox" target="_blank"><i class="fa fa-wikipedia-w"></i></a></li>
                                 <li><a href="https://www.pinterest.com/joorkadeh/" title="pinteret" target="_blank"><i class="fa fa-pinterest"></i></a></li>
-
+                                <li><a href="https://www.yelp.com/user_details?userid=JM9GJb1ej5Y0QNxhrgFRGg" title="yelp" target="_blank"><i class="fa fa-yelp"></i></a></li>
+                                <li><a href="https://joorkadeh.tumblr.com/" title="tumblr" target="_blank"><i class="fa fa-tumblr"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -179,22 +185,22 @@
             </div>
             <hr />
             <nav class="phonenav">
-                <div class="container-fluid" itemscope itemtype="http://schema.org/LocalBusiness">
+                <div class="container-fluid">
 
                     <div class="row">
                         <div>
                             <h3 class="right-align">هفت روز هفته ، ۲۴ ساعت شبانه‌روز پاسخگوی شما هستیم</h3>
                         </div>
                         <div>
-                            <p> | شماره تماس : <a href="tel:+989189660086" title="phone" ><span itemprop="telephone">09189660086</span></a> </p>
+                            <p> | شماره تماس : <a href="tel:+989189660086" title="phone"><span>09189660086</span></a> </p>
                         </div>
                         <div>
-                            <p> | شماره تماس : <a href="tel:+982537185340" title="phone home" ><span itemprop="telephone">02537185340</span></a> </p>
+                            <p> | شماره تماس : <a href="tel:+982537185340" title="phone home"><span>02537185340</span></a> </p>
                         </div>
                     </div>
                     <div class="row">
                         <div>
-                            <p>آدرس ایمیل : <a href="mailto:joorkadeh@gmail.com" title="email" ><span itemprop="email">joorkadeh@gmail.com</span></a></p>
+                            <p>آدرس ایمیل : <a href="mailto:joorkadeh@gmail.com" title="email"><span>joorkadeh@gmail.com</span></a></p>
                         </div>
                     </div>
                 </div>
@@ -210,7 +216,43 @@
         </div>
 
     </footer>
-    
+
     @RenderSection("Scripts", required: false)
+<script type="application/ld+json">
+    {
+    "@@context" : "http://schema.org",
+    "@@type" : "Organization",
+    "legalName" : "joorkadeh",
+    "url" : "https://joorkadeh.com/",
+    "contactPoint" : [{
+    "@@type" : "ContactPoint",
+    "telephone" : "+989189660086",
+    "contactType" : "customer service"
+    }],
+    "logo" : "https://joorkadeh.com/images/joor.jpg",
+    "sameAs" : [
+    "https://www.facebook.com/joorkadehcom",
+    "https://www.pinterest.com/joorkadeh/",
+    "https://twitter.com/joorkadehcom",
+    "https://www.yelp.com/user_details?userid=JM9GJb1ej5Y0QNxhrgFRGg",
+    "https://www.instagram.com/joorkadehcom/",
+    "https://www.linkedin.com/in/joorkadeh/"
+    ]
+    }
+</script>
+    <script type="application/ld+json">
+        {
+        "@@context" : "http://schema.org",
+        "@@type" : "WebSite",
+        "name" : "joorkadeh",
+        "url" : "http://joorkadeh.com/",
+        "potentialAction" : {
+        "@@type" : "SearchAction",
+        "target" : "http://joorkadeh.com/home/index?value={search_term}",
+        "query-input" : "required name=search_term"
+        }
+        }
+    </script>
 </body>
 </html>
+

@@ -173,13 +173,13 @@
 
                                             <h3 class="font-y orange-o">
 
-                                                @Model.newvalue.ToString("#,###") <span>ریال</span>
+                                                <span itemprop="price" content="@Model.newvalue">@Model.newvalue.ToString("#,###")</span>  @Model.newvalue.ToString("#,###") <span>ریال</span>
                                             </h3>}
                                         else if (Model.Price > 0)
                                         {
                                             <h3 class="font-y orange-o">
 
-                                                @Model.Price.ToString("#,###") <span>ریال</span>
+                                                <span itemprop="price" content="@Model.Price" class="choose right-align">@Model.Price.ToString("#,###")</span>    <span>ریال</span>
                                             </h3>
                                         }
                                         else
