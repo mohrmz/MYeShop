@@ -3,7 +3,7 @@
     var base641 = Convert.ToBase64String(Model.Image);
     var imgSrc1 = String.Format("data:image/jpg;base64,{0}", base641);
 
-@using Microsoft.AspNetCore.Http.Extensions
+    @using Microsoft.AspNetCore.Http.Extensions
     ViewData["Title"] = @Model.Title;
     ViewData["ShorDescription"] = @Model.ShortDescription;
     ViewData["KeyWords"] = @Model.Keywords;
@@ -21,36 +21,36 @@
                 <div class="row">
                     <a asp-action="Compare" asp-controller="Home" asp-route-ProductID="@Model.ProductID" class="btn-add-to-compare" title="@Model.Name"><span class="fa fa-compress"> </span>افزودن به مقایسه کالا</a>
                 </div>
-              
-            <div class="slider">
 
-                <input type="radio" name="slide_switch" id="id1" checked="checked" />
+                <div class="slider">
 
-                <label for="id1">
-                    <img src="@imgSrc1" width="100" alt="@Model.Name" title="@Model.Name" />
-                </label>
-                <img  src="@imgSrc1" class="img-responsive-s" alt="@Model.Name" title="@Model.Name" />
-                <img class="hide" itemprop="image" src="~/images/medical.jpg" alt="@Model.Name" title="@Model.Name" />
-                <span class="text-hide" itemprop="gtin13">1234567890123</span>
+                    <input type="radio" name="slide_switch" id="id1" checked="checked" />
 
-                @{ foreach (var o in Model.ProductImages)
+                    <label for="id1">
+                        <img src="@imgSrc1" width="100" alt="@Model.Name" title="@Model.Name" />
+                    </label>
+                    <img src="@imgSrc1" class="img-responsive-s" alt="@Model.Name" title="@Model.Name" />
+                    <img class="hide" itemprop="image" src="~/images/medical.jpg" alt="@Model.Name" title="@Model.Name" />
+                    <span class="text-hide" itemprop="gtin13">1234567890123</span>
+
+                    @{ foreach (var o in Model.ProductImages)
                     {
                         var base64 = Convert.ToBase64String(o.Image);
                         var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
 
 
-                    <input type="radio" name="slide_switch" id="'id'@o.ID" />
+                        <input type="radio" name="slide_switch" id="'id'@o.ID" />
 
-                    <label for="'id'@o.ID">
-                        <img src="@imgSrc" width="100" alt="@Model.Name" title="@Model.Name" />
-                    </label>
-                    <img src="@imgSrc" class="img-responsive-s" alt="@Model.Name" title="@Model.Name" />
+                        <label for="'id'@o.ID">
+                            <img src="@imgSrc" width="100" alt="@Model.Name" title="@Model.Name" />
+                        </label>
+                        <img src="@imgSrc" class="img-responsive-s" alt="@Model.Name" title="@Model.Name" />
 
 
 
                     }
-                }
-            </div>
+                    }
+                </div>
 
 
             </div>
@@ -83,18 +83,18 @@
                                     }
 
 
-                          <P class="right-align">بیش از  <span itemprop="reviewCount">@reviewCount</span> نفر از خریداران این محصول  <span itemprop="ratingValue">5</span> ستاره را پیشنهاد داده‌اند</P>
-                            }
+                                    <P class="right-align">بیش از  <span itemprop="reviewCount">@reviewCount</span> نفر از خریداران این محصول  <span itemprop="ratingValue">5</span> ستاره را پیشنهاد داده‌اند</P>
+                                }
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6" >
+                    <div class="col-md-6">
 
                         <div class="row">
                             <div class="col-md-5 right-align">
-                               
+
                                 <div class="row">
                                     <p>برند :<a class="btn-link-spoiler" asp-action="index" asp-controller="home" title="@Model.Brand.Name"> <span itemprop="brand">@Model.Brand.Name</span></a></p>
                                 </div>
@@ -167,13 +167,13 @@
                                             <p class="right-align"> آخرین بروز رسانی : <span class="orange-o">@DateTime.Today.ToString("yyyy/MM/dd",fair)</span></p>
 
                                         </div>
-@{
+                                        @{
                                         if (Model.newvalue > 0)
                                             {<del class="font-y del">@Model.Price.ToString("#,###")</del>
 
                                             <h3 class="font-y orange-o">
 
-                                                <span itemprop="price" content="@Model.newvalue">@Model.newvalue.ToString("#,###")</span>  @Model.newvalue.ToString("#,###") <span>ریال</span>
+                                                <span itemprop="price" content="@Model.newvalue">@Model.newvalue.ToString("#,###")</span> <span>ریال</span>
                                             </h3>}
                                         else if (Model.Price > 0)
                                         {
@@ -185,39 +185,39 @@
                                         else
                                         {
 
-                                        <span itemprop="price" content="100000" class="choose right-align">سایز مورد نظر را انتخاب کنید</span>
+                                            <span itemprop="price" content="100000" class="choose right-align">سایز مورد نظر را انتخاب کنید</span>
 
-                                        <div class="dropdown">
-                                            <div class="select">
-                                                <span>سایز</span>
-                                                <i class="fa fa-chevron-left"></i>
-                                            </div>
-                                            <input type="hidden" id="price" name="price">
-                                            <input type="hidden" id="priceid" name="priceid">
+                                            <div class="dropdown">
+                                                <div class="select">
+                                                    <span>سایز</span>
+                                                    <i class="fa fa-chevron-left"></i>
+                                                </div>
+                                                <input type="hidden" id="price" name="price">
+                                                <input type="hidden" id="priceid" name="priceid">
 
-                                            <ul class="dropdown-menu">
-                                                @foreach (var catt in ViewBag.categoryprice)
+                                                <ul class="dropdown-menu">
+                                                    @foreach (var catt in ViewBag.categoryprice)
                                                 {
-                                                @foreach (var rr in Model.Prices.Where(r => r.CategoryPriceID == catt.CategoryPriceID))
+                                                    @foreach (var rr in Model.Prices.Where(r => r.CategoryPriceID == catt.CategoryPriceID))
                                                     {
-                                                <li data-priceid="@rr.PriceID" data-value="@rr.Value">@catt.Value</li>
+                                                    <li data-priceid="@rr.PriceID" data-value="@rr.Value">@catt.Value</li>
                                                     }
 
                                                 }
 
-                                            </ul>
+                                                </ul>
 
-                                        </div>
+                                            </div>
 
-                                        <h3 class="font-y">
+                                            <h3 class="font-y">
 
-                                            <span class="msg">  </span>
-                                        </h3>
+                                                <span class="msg">  </span>
+                                            </h3>
 
                                         }
 
 
-}
+                                        }
 
                                     </div>
 
@@ -276,15 +276,7 @@
                             }
 
 
-                            <div class="hreview" id="hreview-best">
-                                <h2 class="summary">عالی</h2><abbr class="dtreviewed" title="2021-10-02T00:59">1399/12/29</abbr>   <span class="reviewer vcard"><span class="fn"></span></span><span class="type" style="display: none;">@Model.Name</span><img alt="@Model.Name" src="@imgSrc4" class="photo"><div class="item"><a class="fn url" href="#" title="@Model.Name">@Model.Name</a></div><blockquote class="description">
-                                    <p>
-                                        <abbr title="5" class="rating">
-                                            @Model.Name
-                                        </abbr>
-                                    </p>
-                                </blockquote><span class="version" style="display: none;">0.3</span><p> <a href="http://microformats.org/wiki/hreview" title="@Model.Name">@Model.Name</a> جورکده <a href="http://microformats.org/code/hreview/creator">@Model.Brand.Name</a>.</p>
-                            </div>
+
                         </div>
                     </div>
                     <div id="menu1" class="tab-pane fade">
@@ -349,7 +341,7 @@
                             <div class="c-faq__list row" itemprop="review" itemscope itemtype="http://schema.org/Review">
 
                                 <div class="col-md-2 header">
-                                    
+
                                     <p class="h5">
 
                                         <span itemprop="author">@l.Name&zwnj;@l.Lastname</span>
@@ -382,7 +374,7 @@
                                         <span itemprop="description">
                                             @l.Text
                                         </span>
-                                        
+
                                     </p>
                                 </div>
 
@@ -440,4 +432,3 @@
 
     });
 </script>
-

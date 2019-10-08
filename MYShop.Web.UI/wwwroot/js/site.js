@@ -20,3 +20,5 @@ $('.dropdown-menu li').click(function () {
         msg = '<span class="msg">Hidden input value: ';
     $('.msg').html(msg + input + '</span>');
 });
+
+

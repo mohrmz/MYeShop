@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYShop.Domain.Entities", "M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYShop.Domain.Contract", "MYShop.Domain.Contract\MYShop.Domain.Contract.csproj", "{9F55459B-BA2C-4D76-89EC-0E86F12D5E58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYShop.Web.UI", "MYShop.Web.UI\MYShop.Web.UI.csproj", "{6F68EF53-7758-401E-9D67-9B72932D1CAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYShop.Web.UI", "MYShop.Web.UI\MYShop.Web.UI.csproj", "{6F68EF53-7758-401E-9D67-9B72932D1CAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYShop.DAL.EF", "MYShop.DAL.EF\MYShop.DAL.EF.csproj", "{B6ACC8F1-5450-4671-BB10-3DABFDAA4646}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYShop.DAL.EF", "MYShop.DAL.EF\MYShop.DAL.EF.csproj", "{B6ACC8F1-5450-4671-BB10-3DABFDAA4646}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

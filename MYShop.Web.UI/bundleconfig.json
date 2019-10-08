@@ -17,5 +17,32 @@
     "minify": {
       "enabled": true
     }
+  },
+  {
+    "outputFileName": "wwwroot/js/flickity.pkgd.min.js",
+    "inputFiles": [
+      "wwwroot/js/flickity.pkgd.js"
+    ],
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/css/flickity.min.css",
+    "inputFiles": [
+      "wwwroot/css/flickity.css"
+    ],
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/markup.min.js",
+    "inputFiles": [
+      "wwwroot/js/markup.js"
+    ],
+    "minify": {
+      "enabled": true
+    }
   }
 ]
