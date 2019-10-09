@@ -32,10 +32,10 @@ namespace MYShop.Web.UI
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<AppIdentityDbContext>(options =>
-            //  options.UseSqlServer(Configuration.GetConnectionString("IdentityCnn")));
-            //services.AddIdentity<IdentityUser, IdentityRole>()
-            //.AddEntityFrameworkStores<AppIdentityDbContext>();
+            services.AddDbContext<AppIdentityDbContext>(options =>
+              options.UseSqlServer(Configuration.GetConnectionString("MYShop")));
+            services.AddIdentity<IdentityUser, IdentityRole>()
+            .AddEntityFrameworkStores<AppIdentityDbContext>();
 
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(
                Configuration.GetConnectionString("MYShop")));
@@ -64,7 +64,7 @@ namespace MYShop.Web.UI
             app.UseStaticFiles();
             app.UseSession();
             app.UseHttpsRedirection();
-            //app.UseAuthentication();
+            app.UseAuthentication();
             if (!env.IsDevelopment())
             {
                 app.UseExceptionHandler("/error/500");

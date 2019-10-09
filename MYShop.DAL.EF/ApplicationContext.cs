@@ -32,6 +32,7 @@ namespace MYShop.DAL.EF
             modelBuilder.Entity<Brand>().HasQueryFilter(c => !c.IsDeleted);
             modelBuilder.Entity<Category>().HasQueryFilter(c => !c.IsDeleted);
             modelBuilder.Entity<Product>().HasQueryFilter(c => !c.IsDeleted);
+            modelBuilder.Entity<Comment>().HasQueryFilter(c => c.IsPublish);
 
             modelBuilder.ApplyConfiguration(new ProductConfig());
            

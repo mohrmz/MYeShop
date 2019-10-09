@@ -19,7 +19,15 @@ namespace MYShop.Web.UI.Controllers
         }
         public IActionResult Checkout()
         {
-            return View(new Order());
+            if (cart.Lines.Count() == 0)
+            {
+                return RedirectToAction("index", "Home");
+            }
+            else
+            {
+                return View(new Order());
+            }
+                
         }
         [HttpPost]
         public IActionResult Checkout(Order order)

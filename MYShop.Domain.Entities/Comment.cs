@@ -15,11 +15,11 @@ namespace MYShop.Domain.Entities
 
         public string Phone { get; set; }
         public string Text { get; set; }
-
         public DateTime Date { get; set; }
         public int Vote { get; set; }
         public int ProductId { get; set; }
         public bool IsDeleted { get; set; }
+        public bool IsPublish { get; set; }
         public Product Product { get; set; }
     }
 }

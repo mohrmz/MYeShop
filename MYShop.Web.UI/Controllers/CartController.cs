@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MYShop.Domain.Contract.Repositories;
 using MYShop.Domain.Entities;
+using System.Linq;
 
 namespace MYShop.Web.UI.Controllers
 {
@@ -15,10 +16,17 @@ namespace MYShop.Web.UI.Controllers
             _cart = cart;
 
         }
-        public ViewResult Index()
+        public IActionResult Index()
         {
+           if (_cart.Lines.Count() == 0)
+            {
+                return RedirectToAction("index", "Home");
+            }
+           else
+            {
+                return View(_cart);
+            }
            
-            return View(_cart);
         }
         public IActionResult AddToCart(int productId,int priceid ,int price)
         {

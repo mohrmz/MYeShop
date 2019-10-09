@@ -325,6 +325,7 @@
 
                                     <button class="btn-add-comment" title="افزودن نظر جدید" id="add-comment-button" type="submit">
                                         <span class="btn-add-comment__txt">افزودن نظر جدید</span>
+                                        <p class="right-align" id="result"></p>
                                     </button>
 
                                 </form>
@@ -365,7 +366,7 @@
                                             }
                                         <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
                                             <meta itemprop="worstRating" content="1" />
-                                            <span itemprop="ratingValue">@l.Vote</span> ستاره
+                                            <span itemprop="ratingValue">5</span> ستاره
                                             از <span itemprop="bestRating">5</span>  ستاره
                                         </div>
 
@@ -405,7 +406,10 @@
             $('#vote').val(userRating);
         });
 
-
+    $('#add-comment-button').click(function () {
+        $('#result').attr('value','نظر شما با موفقیت ثبت شد پس از تایید منتشر خواهد شد');
+     
+    });
     /*Dropdown Menu*/
     $('.dropdown').click(function () {
         $(this).attr('tabindex', 1).focus();

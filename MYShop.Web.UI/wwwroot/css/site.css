@@ -1976,7 +1976,7 @@ width:100%;
 #megamenu .nav .nav-column {
     float: right;
     width: 19%;
-    padding: 2.5%;
+    padding-right: 2.5%;
     text-align: right;
     height: 300px;
 }

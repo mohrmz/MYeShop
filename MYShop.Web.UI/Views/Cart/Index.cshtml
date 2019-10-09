@@ -13,25 +13,16 @@
                 long c = 0;
     <div id="check">
 
-        <h1 class="right-align">سبد خرید شما</h1>
-        <h2 class="right-align">محصولات خود را جهت انتقال به درگاه بانک تایید کنید</h2>
+        <h1 class="center-align box"> سبد خرید شما در فروشگاه جورکده</h1>
+        <h2 class="center-align">جهت انتقال به درگاه بانک  بر روی دکمه تکمیل فرایند خرید کلیک کنید</h2>
         <div class="row">
             <div class="paybox">
 
 
                 @foreach (var line in Model.Lines)
                 {
-                a += (line.Quantity * line.Product.Price);
+                a += (line.Quantity * line.Price);
                 b += line.Quantity;
-                if (line.Product.newvalue > 0)
-                {
-                c += (line.Quantity * line.Product.newvalue);
-                }
-                else
-                {
-                c += (line.Quantity * line.Product.Price);
-                }
-
                 }
                 <div class="row">
                     <p class="pright">مبلغ کل (@b  کالا)</p>
@@ -39,7 +30,7 @@
                 </div>
                 <div class="row">
                     <p class="pright">مبلغ قابل پرداخت (@b  کالا)</p>
-                    <p class="orange-o pleft font-y">@string.Format("{0} ریال", c.ToString("#,###"))</p>
+                    <p class="orange-o pleft font-y">@string.Format("{0} ریال", a.ToString("#,###"))</p>
                 </div>
                 <hr />
                 <p class="right-align font-y">کالا های موجود در سبد خرید شما هنوز رزرو نشده است.برای ثبت سفارش مراحل بعدی را تکمیل کنید</p>
@@ -87,11 +78,11 @@
                                                 aa = (line.Product.Price - line.Product.newvalue) * line.Quantity;
                                 <p class="right-align font-y" style="color:#00cfe6;">تخفیف شگفت انگیز : @aa.ToString("#,###") ریال</p>
 
-                                            }
-                                            else
-                                            {
-                                                lastprice = line.Product.Price;
-                                            }
+                                }
+                                else
+                                {
+                                    lastprice = line.Price * line.Quantity;
+                                }
 
                             }
                             <p class="font-y right-align orange-o">@lastprice.ToString("#,###") ریال</p>
