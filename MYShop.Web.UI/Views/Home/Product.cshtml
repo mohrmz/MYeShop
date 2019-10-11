@@ -2,8 +2,10 @@
 @{
     var base641 = Convert.ToBase64String(Model.Image);
     var imgSrc1 = String.Format("data:image/jpg;base64,{0}", base641);
+   
 
     @using Microsoft.AspNetCore.Http.Extensions
+
     ViewData["Title"] = @Model.Title;
     ViewData["ShorDescription"] = @Model.ShortDescription;
     ViewData["KeyWords"] = @Model.Keywords;
@@ -13,27 +15,27 @@
 
 @{System.Globalization.CultureInfo enAU = new System.Globalization.CultureInfo("en-AU");
     System.Globalization.CultureInfo fair = new System.Globalization.CultureInfo("fa-IR");
-    <div class="container-fluid">
+<div class="container-fluid">
 
-        <div class="row" itemscope itemtype="http://schema.org/Product">
+    <div class="row" itemscope itemtype="http://schema.org/Product">
 
-            <div class="col-md-5">
-                <div class="row">
-                    <a asp-action="Compare" asp-controller="Home" asp-route-ProductID="@Model.ProductID" class="btn-add-to-compare" title="@Model.Name"><span class="fa fa-compress"> </span>افزودن به مقایسه کالا</a>
-                </div>
+        <div class="col-md-5">
+            <div class="row">
+                <a asp-action="Compare" asp-controller="Home" asp-route-ProductID="@Model.ProductID" class="btn-add-to-compare" title="@Model.Name"><span class="fa fa-compress"> </span>افزودن به مقایسه کالا</a>
+            </div>
 
-                <div class="slider">
+            <div class="slider">
 
-                    <input type="radio" name="slide_switch" id="id1" checked="checked" />
+                <input type="radio" name="slide_switch" id="id1" checked="checked" />
 
-                    <label for="id1">
-                        <img src="@imgSrc1" width="100" alt="@Model.Name" title="@Model.Name" />
-                    </label>
-                    <img src="@imgSrc1" class="img-responsive-s" alt="@Model.Name" title="@Model.Name" />
-                    <img class="hide" itemprop="image" src="~/images/medical.jpg" alt="@Model.Name" title="@Model.Name" />
-                    <span class="text-hide" itemprop="gtin13">1234567890123</span>
+                <label for="id1">
+                    <img src="@imgSrc1" width="100" alt="@Model.Name" title="@Model.Name" />
+                </label>
+                <img src="@imgSrc1" class="img-responsive-s" alt="@Model.Name" title="@Model.Name" />
+                <img class="hide" itemprop="image" src="~/images/medical.jpg" alt="@Model.Name" title="@Model.Name" />
+                <span class="text-hide" itemprop="gtin13">1234567890123</span>
 
-                    @{ foreach (var o in Model.ProductImages)
+                @{ foreach (var o in Model.ProductImages)
                     {
                         var base64 = Convert.ToBase64String(o.Image);
                         var imgSrc = String.Format("data:image/jpg;base64,{0}", base64);
@@ -49,296 +51,321 @@
 
 
                     }
-                    }
-                </div>
-
-
+                }
             </div>
-            <div class="col-md-7">
-                <div class="row">
 
-                    <div class="col-md-7 right-align bottom-border-hr">
-                        <h1 itemprop="name">@Model.Name</h1>
+
+        </div>
+        <div class="col-md-7">
+            <div class="row">
+
+                <div class="col-md-7 right-align bottom-border-hr">
+                    <h1 itemprop="name">@Model.Name</h1>
+                </div>
+                <div class="col-md-5">
+                    <div class="row right-align">
+
+                        <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                            <div>
+                                <span class="fa fa-star product-garantee orange-i"></span>
+                                <span class="fa fa-star product-garantee orange-i"></span>
+                                <span class="fa fa-star product-garantee orange-i"></span>
+                                <span class="fa fa-star product-garantee orange-i"></span>
+                                <span class="fa fa-star product-garantee orange-i"></span>
+                            </div>
+
+                            @{ int reviewCount;
+                                if (Model.Comments.Count() > 0)
+                                {
+                                    reviewCount = Model.Comments.Count();
+                                }
+                                else
+                                {
+                                    reviewCount = 20;
+                                }
+
+
+                                <P class="right-align">بیش از  <span itemprop="reviewCount">@reviewCount</span> نفر از خریداران این محصول  <span itemprop="ratingValue">5</span> ستاره را پیشنهاد داده‌اند</P>
+                            }
+                        </div>
                     </div>
-                    <div class="col-md-5">
-                        <div class="row right-align">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
 
-                            <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-                                <div>
-                                    <span class="fa fa-star product-garantee orange-i"></span>
-                                    <span class="fa fa-star product-garantee orange-i"></span>
-                                    <span class="fa fa-star product-garantee orange-i"></span>
-                                    <span class="fa fa-star product-garantee orange-i"></span>
-                                    <span class="fa fa-star product-garantee orange-i"></span>
-                                </div>
+                    <div class="row">
+                        <div class="col-md-5 right-align">
 
-                                @{ int reviewCount;
-                                    if (Model.Comments.Count() > 0)
+                            <div class="row">
+                                <p>برند :<a class="btn-link-spoiler" asp-action="index" asp-controller="home" title="@Model.Brand.Name"> <span itemprop="brand">@Model.Brand.Name</span></a></p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-7 right-align">
+                            <p>دسته بندی :<a class="btn-link-spoiler" asp-action="index" asp-controller="home" title="@Model.Category.Name"> @Model.Category.Name</a> </p>
+                        </div>
+
+
+                    </div>
+
+                    <div class="right-align font-y">
+                        <h6>ویژگی های محصول</h6>
+                        <div class="pdetail right-align">
+                            @await Component.InvokeAsync("Property", new { propductid = Model.ProductID, CategoryId = Model.CategoryID, isshort = true })
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    <div class="box right-align">
+                        <div class="padding-top-5">
+                            <div class="row">
+                                <p>نام :<a class="btn-link-spoiler" itemprop="url" href="@Context.Request.GetEncodedPathAndQuery()" title="@Model.Category.Name"> @Model.Name</a> </p>
+                            </div>
+                            <p>
+                                <span itemprop="seller" itemscope itemtype="http://schema.org/Organization">
+                                    <span itemprop="name"><span class="fa fa-paperclip product-garantee orange-o"></span>فروشنده: فروشگاه اینترنتی جورکده<br></span>
+                                </span>
+
+                            </p>
+                            @{
+                                var a = 0;
+                                int c = 1;
+                                foreach (var l in Model.Comments)
+                                {
+                                    a += l.Vote;
+                                }
+                                if (Model.Comments.Count > 0)
+                                {
+                                    c = Model.Comments.Count;
+                                }
+                                decimal b = a / c;
+                            }
+                            <p class="pvote">امتیاز :  @b از 5</p>
+
+                        </div>
+                        <hr />
+                        <div>
+                            <p><span class="fa fa-certificate product-garantee orange-o"></span> @Model.Guarantee</p>
+                        </div>
+                        <hr />
+                        <div>
+                            <p><span class="fa fa-paper-plane product-garantee orange-o "></span>ارسال رایگان ۲۴ ساعته</p>
+                            <link itemprop="availability" href="http://schema.org/InStock" /><p><span class="fa fa-check orange-o "></span> موجود در انبار</p>
+                        </div>
+                        <hr />
+                        <div class="left-align  left-padding">
+                            <form asp-action="AddToCart" asp-controller="Cart" asp-route-ProductID="@Model.ProductID">
+                                <div class="form-group">
+
+                                    <meta itemprop="priceCurrency" content="IRR" />
+
+                                    <time itemprop="priceValidUntil" datetime="@DateTime.Today.AddDays(365).ToString("yyyy-MM-dd",enAU)">
+                                    </time>
+                                    <div itemscope itemtype="http://schema.org/CreativeWork">
+                                        <meta itemprop="dateModified" content="@DateTime.Today.ToString("yyyy/MM/dd",enAU)">
+
+                                        <p class="right-align"> آخرین بروز رسانی : <span class="orange-o">@DateTime.Today.ToString("yyyy/MM/dd", fair)</span></p>
+
+                                    </div>
+                                    @{
+                                        if (Model.newvalue > 0)
+                                        {<del class="font-y del">@Model.Price.ToString("#,###")</del>
+
+                                        <h3 class="font-y orange-o">
+
+                                            <span itemprop="price" content="@Model.newvalue">@Model.newvalue.ToString("#,###")</span> <span>ریال</span>
+                                        </h3>}
+                                    else if (Model.Price > 0)
                                     {
-                                        reviewCount=  Model.Comments.Count();
+                                        <h3 class="font-y orange-o">
+
+                                            <span itemprop="price" content="@Model.Price" class="choose right-align">@Model.Price.ToString("#,###")</span>    <span>ریال</span>
+                                        </h3>
                                     }
                                     else
                                     {
-                                        reviewCount = 20;
-                                    }
 
+                                        <span itemprop="price" content="100000" class="choose right-align">سایز مورد نظر را انتخاب کنید</span>
 
-                                    <P class="right-align">بیش از  <span itemprop="reviewCount">@reviewCount</span> نفر از خریداران این محصول  <span itemprop="ratingValue">5</span> ستاره را پیشنهاد داده‌اند</P>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
+                                        <div class="dropdown">
+                                            <div class="select">
+                                                <span>سایز</span>
+                                                <i class="fa fa-chevron-left"></i>
+                                            </div>
+                                            <input type="hidden" id="price" name="price">
+                                            <input type="hidden" id="priceid" name="priceid">
 
-                        <div class="row">
-                            <div class="col-md-5 right-align">
-
-                                <div class="row">
-                                    <p>برند :<a class="btn-link-spoiler" asp-action="index" asp-controller="home" title="@Model.Brand.Name"> <span itemprop="brand">@Model.Brand.Name</span></a></p>
-                                </div>
-
-                            </div>
-                            <div class="col-md-7 right-align">
-                                <p>دسته بندی :<a class="btn-link-spoiler" asp-action="index" asp-controller="home" title="@Model.Category.Name"> @Model.Category.Name</a> </p>
-                            </div>
-
-
-                        </div>
-
-                        <div class="right-align font-y">
-                            <h6>ویژگی های محصول</h6>
-                            <div class="pdetail right-align">
-                                @await Component.InvokeAsync("Property", new { propductid = Model.ProductID, CategoryId = Model.CategoryID, isshort = true })
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                        <div class="box right-align">
-                            <div class="padding-top-5">
-                                <div class="row">
-                                    <p>نام :<a class="btn-link-spoiler" itemprop="url" href="@Context.Request.GetEncodedPathAndQuery()" title="@Model.Category.Name"> @Model.Name</a> </p>
-                                </div>
-                                <p>
-                                    <span itemprop="seller" itemscope itemtype="http://schema.org/Organization">
-                                        <span itemprop="name"><span class="fa fa-paperclip product-garantee orange-o"></span>فروشنده: فروشگاه اینترنتی جورکده<br></span>
-                                    </span>
-
-                                </p>
-                                @{
-                                    var a = 0;
-                                    int c = 1;
-                                    foreach (var l in Model.Comments)
-                                    {
-                                        a += l.Vote;
-                                    }
-                                    if (Model.Comments.Count > 0)
-                                    {
-                                        c = Model.Comments.Count;
-                                    }
-                                    decimal b = a / c;
-                                }
-                                <p class="pvote">امتیاز :  @b از 5</p>
-
-                            </div>
-                            <hr />
-                            <div>
-                                <p><span class="fa fa-certificate product-garantee orange-o"></span> @Model.Guarantee</p>
-                            </div>
-                            <hr />
-                            <div>
-                                <p><span class="fa fa-paper-plane product-garantee orange-o "></span>ارسال رایگان ۲۴ ساعته</p>
-                                <link itemprop="availability" href="http://schema.org/InStock" /><p><span class="fa fa-check orange-o "></span> موجود در انبار</p>
-                            </div>
-                            <hr />
-                            <div class="left-align  left-padding">
-                                <form asp-action="AddToCart" asp-controller="Cart" asp-route-ProductID="@Model.ProductID">
-                                    <div class="form-group">
-
-                                        <meta itemprop="priceCurrency" content="IRR" />
-
-                                        <time itemprop="priceValidUntil" datetime="@DateTime.Today.AddDays(365).ToString("yyyy-MM-dd",enAU)">
-                                        </time>
-                                        <div itemscope itemtype="http://schema.org/CreativeWork">
-                                            <meta itemprop="dateModified" content="@DateTime.Today.ToString("yyyy/MM/dd",enAU)">
-
-                                            <p class="right-align"> آخرین بروز رسانی : <span class="orange-o">@DateTime.Today.ToString("yyyy/MM/dd",fair)</span></p>
-
-                                        </div>
-                                        @{
-                                        if (Model.newvalue > 0)
-                                            {<del class="font-y del">@Model.Price.ToString("#,###")</del>
-
-                                            <h3 class="font-y orange-o">
-
-                                                <span itemprop="price" content="@Model.newvalue">@Model.newvalue.ToString("#,###")</span> <span>ریال</span>
-                                            </h3>}
-                                        else if (Model.Price > 0)
-                                        {
-                                            <h3 class="font-y orange-o">
-
-                                                <span itemprop="price" content="@Model.Price" class="choose right-align">@Model.Price.ToString("#,###")</span>    <span>ریال</span>
-                                            </h3>
-                                        }
-                                        else
-                                        {
-
-                                            <span itemprop="price" content="100000" class="choose right-align">سایز مورد نظر را انتخاب کنید</span>
-
-                                            <div class="dropdown">
-                                                <div class="select">
-                                                    <span>سایز</span>
-                                                    <i class="fa fa-chevron-left"></i>
-                                                </div>
-                                                <input type="hidden" id="price" name="price">
-                                                <input type="hidden" id="priceid" name="priceid">
-
-                                                <ul class="dropdown-menu">
-                                                    @foreach (var catt in ViewBag.categoryprice)
+                                            <ul class="dropdown-menu">
+                                                @foreach (var catt in ViewBag.categoryprice)
                                                 {
                                                     @foreach (var rr in Model.Prices.Where(r => r.CategoryPriceID == catt.CategoryPriceID))
                                                     {
-                                                    <li data-priceid="@rr.PriceID" data-value="@rr.Value">@catt.Value</li>
+                                                        <li data-priceid="@rr.PriceID" data-value="@rr.Value">@catt.Value</li>
                                                     }
 
                                                 }
 
-                                                </ul>
+                                            </ul>
 
-                                            </div>
+                                        </div>
 
-                                            <h3 class="font-y">
+                                        <h3 class="font-y">
 
-                                                <span class="msg">  </span>
-                                            </h3>
+                                            <span class="msg">  </span>
+                                        </h3>
 
-                                        }
-
-
-                                        }
-
-                                    </div>
+                                    }
 
 
+                                    }
+
+                                </div>
 
 
 
-                                    <button class="c-product__seller-row btn-add-to-cart" title="افزودن به سبد خرید" id="add-basket-button" type="submit">
-                                        <span class="fa fa-shopping-cart"></span> افزودن به سبد خرید
-                                    </button>
-
-                                </form>
 
 
-                            </div>
+                                <button class="c-product__seller-row btn-add-to-cart" title="افزودن به سبد خرید" id="add-basket-button" type="submit">
+                                    <span class="fa fa-shopping-cart"></span> افزودن به سبد خرید
+                                </button>
+
+                            </form>
+
+
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="box desc">
-                <ul class="nav nav-pills" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-toggle="pill" href="#home" title="home"><span class="fa fa-book"></span>نقد و بررسی</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="#menu1" title="جور کده"><span class="fa fa-building-o"></span>مشخصات</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="pill" href="#menu2" title="فروشگاه اینترنتی جور کده"><span class="fa fa-eye"></span>نظرات کاربران</a>
-                    </li>
-
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content right-align">
-                    <div id="home" class="tab-pane active">
-                        <br>
-                        <h3>نقد و بررسی اجمالی</h3>
-                        <h2>@Model.Name</h2>
-                        <div class="c-content-expert__summary row">
-                            <div class="col-md-2"><img class="c-content-expert__summary-ico" src="~/images/7.svg" alt="@Model.Name" title="@Model.Name" /> </div>
-
-                            <div class="col-md-10">
-                                <p itemprop="description">
-                                    کد کالا  <span itemprop="sku">@Model.ProductID</span>-
-                                    @Model.Description
-
-                                </p>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="row" style="margin:auto!important">
-                            @{
-                                var base644 = Convert.ToBase64String(Model.Image);
-                                var imgSrc4 = String.Format("data:image/jpg;base64,{0}", base644);
-                            }
+        </div>
+        @{
 
 
+            if (Model.Audio.Length > 0)
+            {
+                var abase64 = Convert.ToBase64String(Model.Audio);
+                var oSrc = String.Format("data:audio/ogg;base64,{0}", abase64);
+                System.IO.File.WriteAllBytes("yourfilepath.wav", Model.Audio);
+        <div class="row">
+            <audio controls>
+               
+                <source src="~/images/ultra-1.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
 
+            }
+            if (Model.Video.Length > 0)
+            {
+                <div class="row">
+
+                </div>
+            }
+
+        }
+        <div class="box desc">
+            <ul class="nav nav-pills" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="pill" href="#home" title="home"><span class="fa fa-book"></span>نقد و بررسی</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#menu1" title="جور کده"><span class="fa fa-building-o"></span>مشخصات</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#menu2" title="فروشگاه اینترنتی جور کده"><span class="fa fa-eye"></span>نظرات کاربران</a>
+                </li>
+
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content right-align">
+                <div id="home" class="tab-pane active">
+                    <br>
+                    <h3>نقد و بررسی اجمالی</h3>
+                    <h2>@Model.Name</h2>
+                    <div class="c-content-expert__summary row">
+                        <div class="col-md-2"><img class="c-content-expert__summary-ico" src="~/images/7.svg" alt="@Model.Name" title="@Model.Name" /> </div>
+
+                        <div class="col-md-10">
+                            <p itemprop="description">
+                                کد کالا  <span itemprop="sku">@Model.ProductID</span>-
+                                @Model.Description
+
+                            </p>
                         </div>
                     </div>
-                    <div id="menu1" class="tab-pane fade">
-                        <br>
-                        <h3>مشخصات فنی :</h3>
-                        <h3>@Model.Name</h3>
+                    <hr />
+                    <div class="row" style="margin:auto!important">
+                        @{
+                            var base644 = Convert.ToBase64String(Model.Image);
+                            var imgSrc4 = String.Format("data:image/jpg;base64,{0}", base644);
+                        }
 
-                        <hr />
-                        <div class="pbase">
-                            @await Component.InvokeAsync("Property", new { propductid = Model.ProductID, CategoryId = Model.CategoryID, isshort = false })
-                        </div>
+
+
                     </div>
-                    <div id="menu2" class="tab-pane fade">
-                        <br>
-                        <h3>نظرات کاربران به:</h3>
-                        <h3>@Model.Name</h3>
-                        <div class="c-comments__summary-note">
-                            <div>شما هم می‌توانید در مورد این کالا نظر بدهید.</div>
-                            <div class="add-comment">
-                                <form asp-action="AddComment" asp-controller="Home" asp-route-ProductID="@Model.ProductID">
-                                    <div class="form-group">
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                    <br>
+                    <h3>مشخصات فنی :</h3>
+                    <h3>@Model.Name</h3>
 
-                                        <label>نام :</label>
+                    <hr />
+                    <div class="pbase">
+                        @await Component.InvokeAsync("Property", new { propductid = Model.ProductID, CategoryId = Model.CategoryID, isshort = false })
+                    </div>
+                </div>
+                <div id="menu2" class="tab-pane fade">
+                    <br>
+                    <h3>نظرات کاربران به:</h3>
+                    <h3>@Model.Name</h3>
+                    <div class="c-comments__summary-note">
+                        <div>شما هم می‌توانید در مورد این کالا نظر بدهید.</div>
+                        <div class="add-comment">
+                            <form asp-action="AddComment" asp-controller="Home" asp-route-ProductID="@Model.ProductID">
+                                <div class="form-group">
 
-                                        <input name="Name" class="form-control" />
-                                        <label>نام خانوادگی :</label>
+                                    <label>نام :</label>
 
-                                        <input name="Lastname" class="form-control" />
-                                        <label>شماره تماس :</label>
+                                    <input name="Name" class="form-control" />
+                                    <label>نام خانوادگی :</label>
 
-                                        <input name="Phone" class="form-control" />
+                                    <input name="Lastname" class="form-control" />
+                                    <label>شماره تماس :</label>
 
-                                        <label>نظر :</label>
+                                    <input name="Phone" class="form-control" />
 
-                                        <textarea name="Text" class="form-control"></textarea>
-                                        <input id="vote" type="hidden" name="Vote" />
-                                        <fieldset class="rating">
-                                            <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5" title="5 stars"></label>
-                                            <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4" title="4 stars"></label>
-                                            <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3" title="3 stars"></label>
-                                            <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2" title=" 2 stars"></label>
-                                            <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1" title="1 star"></label>
-                                        </fieldset>
-                                    </div>
+                                    <label>نظر :</label>
+
+                                    <textarea name="Text" class="form-control"></textarea>
+                                    <input id="vote" type="hidden" name="Vote" />
+                                    <fieldset class="rating">
+                                        <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5" title="5 stars"></label>
+                                        <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4" title="4 stars"></label>
+                                        <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3" title="3 stars"></label>
+                                        <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2" title=" 2 stars"></label>
+                                        <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1" title="1 star"></label>
+                                    </fieldset>
+                                </div>
 
 
-                                    <button class="btn-add-comment" title="افزودن نظر جدید" id="add-comment-button" type="submit">
-                                        <span class="btn-add-comment__txt">افزودن نظر جدید</span>
-                                        <p class="right-align" id="result"></p>
-                                    </button>
+                                <button class="btn-add-comment" title="افزودن نظر جدید" id="add-comment-button" type="submit">
+                                    <span class="btn-add-comment__txt">افزودن نظر جدید</span>
+                                    <p class="right-align" id="result"></p>
+                                </button>
 
-                                </form>
-
-                            </div>
-
+                            </form>
 
                         </div>
-                        <hr />
 
-                        <div>
-                            @foreach (var l in @Model.Comments)
-                            {
+
+                    </div>
+                    <hr />
+
+                    <div>
+                        @foreach (var l in @Model.Comments)
+                        {
                             <div class="c-faq__list row" itemprop="review" itemscope itemtype="http://schema.org/Review">
 
                                 <div class="col-md-2 header">
@@ -353,17 +380,17 @@
                                 <div class="section is-question col-md-6">
 
                                     <div class="footer">
-                                        <em>@l.Date.ToString("yyyy/MM/dd hh:mm:ss",fair)</em>
+                                        <em>@l.Date.ToString("yyyy/MM/dd hh:mm:ss", fair)</em>
                                         <meta itemprop="datePublished" content="@l.Date">
 
                                         @for (int o = 0; o < l.Vote; o++)
-                                            {
-                                        <span class="fa fa-star checked"></span>
-                                            }
+                                        {
+                                            <span class="fa fa-star checked"></span>
+                                        }
                                         @for (int y = 0; y < 5 - l.Vote; y++)
-                                            {
-                                        <span class="fa fa-star"></span>
-                                            }
+                                        {
+                                            <span class="fa fa-star"></span>
+                                        }
                                         <div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
                                             <meta itemprop="worstRating" content="1" />
                                             <span itemprop="ratingValue">5</span> ستاره
@@ -383,19 +410,32 @@
 
 
 
-                            }
-                        </div>
+                        }
                     </div>
-
                 </div>
 
             </div>
 
         </div>
 
-
-
     </div>
+    <div class="row">
+        <div class="col-md-3">
+            @Html.Raw(Model.Facebook)
+        </div>
+        <div class="col-md-3">
+            @Html.Raw(Model.Twitter)
+        </div>
+        <div class="col-md-3">
+            @Html.Raw(Model.Instagram)
+        </div>
+        <div class="col-md-3">
+            @Html.Raw(Model.Pinteret)
+        </div>
+   
+    </div>
+
+</div>
 
 }
 <script>
@@ -407,8 +447,8 @@
         });
 
     $('#add-comment-button').click(function () {
-        $('#result').attr('value','نظر شما با موفقیت ثبت شد پس از تایید منتشر خواهد شد');
-     
+        $('#result').attr('value', 'نظر شما با موفقیت ثبت شد پس از تایید منتشر خواهد شد');
+
     });
     /*Dropdown Menu*/
     $('.dropdown').click(function () {

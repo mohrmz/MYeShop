@@ -20,11 +20,15 @@
     <link rel="alternate" href="https://@ViewData["url"]" hreflang="fa-ir" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="product">
     <meta property="og:url" content="https://@ViewData["url"]">
     <meta property="og:title" content="@ViewData["Title"]">
     <meta property="og:description" content="@ViewData["ShorDescription"]">
     <meta property="og:image" content="@ViewData["image"]">
+    <meta property="og:site_name" content="جورکده" />
+    <meta property="product:price:amount" content="1000.00" />
+    <meta property="product:price:currency" content="IRR" />
+    <meta property="og:availability" content="instock" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -68,7 +72,7 @@
 </head>
 <body>
     <div id="fb-root"></div>
-    @*<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0"></script>*@
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0"></script>
 
     <div id="fb-root"></div>
     <header id="header">
@@ -126,12 +130,7 @@
 
     <footer id="footer">
 
-        @*<div class="fb-like" data-href="https://www.facebook.com/ultra1roya/?modal=admin_todo_tour" data-width="" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
-        <a href="https://twitter.com/joorkadehcom?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false"></a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
-        <script type="IN/FollowCompany" data-id="1337" data-counter="bottom">
-        </script>*@
+
         <ol class="hidden" itemscope itemtype="http://schema.org/BreadcrumbList">
             <li class="list-unstyled hidden" itemprop="itemListElement" itemscope
                 itemtype="http://schema.org/ListItem">
@@ -140,7 +139,7 @@
                 </a>
                 <meta itemprop="position" content="1" />
             </li>
-            
+
             <li class="list-unstyled hidden" itemprop="itemListElement" itemscope
                 itemtype="http://schema.org/ListItem">
                 <a itemprop="item" href="https://joorkadeh.com/Product/">
@@ -148,13 +147,13 @@
                 </a>
                 <meta itemprop="position" content="2" />
             </li>
-            
+
             <li class="list-unstyled hidden" itemprop="itemListElement" itemscope
                 itemtype="http://schema.org/ListItem">
                 <a itemprop="item" href="https://joorkadeh.com/Product/Sale">
                     <span itemprop="name" class="text-hide">Sale</span>
                 </a>
-                <meta itemprop="position" content="3" class="hide"/>
+                <meta itemprop="position" content="3" class="hide" />
             </li>
         </ol>
         <script async src="//www.instagram.com/embed.js"></script>
@@ -202,14 +201,15 @@
 
                         <h3 class="right-align">قوانین و خدمات</h3>
 
-                        <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
-                            <li itemprop="name"><a itemprop="url" asp-action="home" asp-controller="index" title="سفارش کالا">سفارش کالا</a></li>
-                            <li itemprop="name"><a itemprop="url" asp-action="Harim" asp-controller="Other" title="قوانین و مقررات">قوانین و مقررات</a></li>
-                            <li itemprop="name"><a itemprop="url" asp-action="Sefaresh" asp-controller="Other" title="ثبت سفارش">ثبت سفارش</a></li>
-                            <li itemprop="name"><a itemprop="url" asp-action="HelpPay" asp-controller="Other" title="نحوه پرداخت">نحوه پرداخت</a></li>
-                            <li itemprop="name"><a itemprop="url" asp-action="US" asp-controller="Other" title="us">تماس باماus</a></li>
-                            <li itemprop="name"><a itemprop="url" asp-action="About" asp-controller="Other" title="درباره شرکت">درباره شرکت</a></li>
-                            <li itemprop="name"><a itemprop="url" asp-action="Address" asp-controller="Other" title="آدرس ما">آدرس ما</a></li>
+                        <ul>
+                            <li><a asp-action="home" asp-controller="index" title="سفارش کالا">سفارش کالا</a></li>
+                            <li><a asp-action="Harim" asp-controller="Other" title="قوانین و مقررات">قوانین و مقررات</a></li>
+                            <li><a asp-action="Sefaresh" asp-controller="Other" title="ثبت سفارش">ثبت سفارش</a></li>
+                            <li><a asp-action="HelpPay" asp-controller="Other" title="نحوه پرداخت">نحوه پرداخت</a></li>
+                            <li><a asp-action="US" asp-controller="Other" title="us">تماس باماus</a></li>
+                            <li><a asp-action="About" asp-controller="Other" title="درباره شرکت">درباره شرکت</a></li>
+                            <li><a asp-action="Address" asp-controller="Other" title="آدرس ما">آدرس ما</a></li>
+                            <li><a asp-action="Index" asp-controller="Article" title="مقالات">مقالات</a></li>
                         </ul>
 
 
@@ -318,6 +318,7 @@
         }
         }
     </script>
+    <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 </body>
 </html>
 

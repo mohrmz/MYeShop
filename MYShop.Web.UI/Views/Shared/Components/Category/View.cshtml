@@ -1,6 +1,6 @@
 ﻿@model List<Category>
-    <ul>
-        <li>
+    <ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+        <li itemprop="name">
             <a href="@Url.Action("index","Home",new { CategoryId=0})" title="all">
                 همه
             </a>
@@ -11,9 +11,9 @@
             {
                 @foreach (var itemmm in Model.Where(c => c.Clevel == 2 && c.ParentId == itemm.CategoryID))
                 {
-                    <li>
-                        <a href="@Url.Action("index", "Home", new { CategoryId = itemmm.CategoryID })" title="@itemmm.Name">
-                            @item.Name>@itemm.Name>@itemmm.Name
+                    <li itemprop="name">
+                        <a itemprop="url" href="@Url.Action("index", "Home", new { CategoryId = itemmm.CategoryID })" title="@itemmm.Name">
+                            @itemmm.Name
                         </a>
                     </li>
                     }

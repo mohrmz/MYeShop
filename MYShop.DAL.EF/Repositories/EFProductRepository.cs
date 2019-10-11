@@ -97,12 +97,19 @@ namespace MYShop.DAL.EF.Repositories
                     dbEntry.Price = product.Price;
                     dbEntry.Name = product.Name;
                     dbEntry.Image= product.Image;
+                    dbEntry.Audio = product.Audio;
+                    dbEntry.Video = product.Video;
                     dbEntry.Title = product.Title;
                     dbEntry.ShortDescription = product.ShortDescription;
                     dbEntry.Keywords = product.Keywords;
                     dbEntry.newvalue = product.newvalue;
                     dbEntry.discount = product.discount;
                     dbEntry.Guarantee = product.Guarantee;
+                    dbEntry.Facebook = product.Facebook;
+                    dbEntry.Twitter = product.Twitter;
+                    dbEntry.Instagram = product.Instagram;
+                    dbEntry.Pinteret = product.Pinteret;
+                    dbEntry.WikiPedia = product.WikiPedia;
                     dbEntry.BrandID = product.BrandID;
                     dbEntry.CategoryID = product.CategoryID;
                 }

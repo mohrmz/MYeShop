@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "فروشگاه اینترنتی جور کده حراج محصولات|مقالات جورکده";
+    ViewData["ShorDescription"] = "فروشگاه اینترنتی جور کده فروش بهترین محصولات و برند ها با قیمت مناسب و ارسال رایگان در سرتاسر کشور همراه با گارانتی اصل شرکتی";
+    ViewData["KeyWords"] = "جور کده،فروشگاه اینترنتی جورکده،فروش تشک،تشک رویا،تشک،خرید تشک،خرید تشک رویا،خرید محصول";
+
+    ViewData["url"] = Context.Request.Host + Context.Request.GetEncodedPathAndQuery();
+    ViewData["image"] = "https://joorkadeh.com/images/joor.jpg";
+}
+
+<h1 class="center-align box" >مقالات</h1>
+
+<div class="container-fluid">
+
+    <article itemscope itemtype="http://schema.org/Article" class="card text-center " style="max-width: 400px;margin:20px;">
+        <a asp-controller="Article" asp-action="toshak" title="انتخاب تشک">
+            <!-- Heading -->
+            <div class="card-body">
+
+                <h4 itemprop="author" class="card-title text-black-50">راهنمای خرید تشک</h4>
+                <h6 itemprop="name" class="card-subtitle text-muted">مهمترین معیار های انتخاب یک تشک مناسب چیست؟</h6>
+            </div>
+
+            <!-- Image -->
+
+
+            <img src="~/images/toshak.jpg" alt="تشک" title="تشک" width="200" class="img-responsive-s" style="margin:auto">
+
+            <!-- Text Content -->
+            <div class="card-body">
+                <p class="card-text text-black-50">جامع‌ترین راهنمای خرید تشک و نکات طلایی یک انتخاب خوب</p>
+                <p class="btn-c btn-p">ادامه</p>
+            </div>
+            <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+                <div itemprop="interactionService" itemscope itemid="http://www.twitter.com" itemtype="http://schema.org/WebSite">
+                    <meta itemprop="name" content="Twitter" />
+                </div>
+                <meta itemprop="interactionType" content="http://schema.org/ShareAction" />
+                <meta itemprop="userInteractionCount" content="1203" />
+            </div>
+            <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+                <meta itemprop="interactionType" content="http://schema.org/CommentAction" />
+                <meta itemprop="userInteractionCount" content="78" />
+            </div>
+        </a>
+    </article>
+    </div>
+
+
+

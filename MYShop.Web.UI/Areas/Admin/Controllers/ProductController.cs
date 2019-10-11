@@ -123,7 +123,7 @@ namespace MYShop.Web.UI.Areas.Admin.Controllers
             return View(result);
         }
         [HttpPost]
-        public IActionResult Edit(Product product, IFormFile files)
+        public IActionResult Edit(Product product, IFormFile files, IFormFile afiles, IFormFile mfiles)
         {
             if (files?.Length > 0)
             {
@@ -134,6 +134,32 @@ namespace MYShop.Web.UI.Areas.Admin.Controllers
                     files.CopyToAsync(ms);
                     var fileBytes = ms.ToArray();
                     product.Image = fileBytes;
+                }
+
+
+            }
+            if (afiles?.Length > 0)
+            {
+
+
+                using (var ams = new MemoryStream())
+                {
+                    afiles.CopyToAsync(ams);
+                    var afileBytes = ams.ToArray();
+                    product.Audio = afileBytes;
+                }
+
+
+            }
+            if (mfiles?.Length > 0)
+            {
+
+
+                using (var mms = new MemoryStream())
+                {
+                    mfiles.CopyToAsync(mms);
+                    var mfileBytes = mms.ToArray();
+                    product.Video = mfileBytes;
                 }
 
 

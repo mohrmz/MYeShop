@@ -20,9 +20,21 @@ namespace MYShop.Domain.Entities
         [Column(TypeName = "nvarchar(MAX)")]
         public string Description { get; set; }
         [Column(TypeName = "nvarchar(MAX)")]
-        public string Keywords { get; set; }      
+        public string Keywords { get; set; }
+        [Column(TypeName = "nvarchar(MAX)")]
+        public string Facebook { get; set; }
+        [Column(TypeName = "nvarchar(MAX)")]
+        public string Twitter { get; set; }
+        [Column(TypeName = "nvarchar(MAX)")]
+        public string Instagram { get; set; }
+        [Column(TypeName = "nvarchar(MAX)")]
+        public string Pinteret { get; set; }
+        [Column(TypeName = "nvarchar(MAX)")]
+        public string WikiPedia { get; set; }
         public string Guarantee { get; set; }
         public byte[] Image { get; set; }
+        public byte[] Audio { get; set; }
+        public byte[] Video { get; set; }
         public Int64 Price { get; set; }
         public bool IsDeleted { get; set; }
         public Category Category { get; set; }

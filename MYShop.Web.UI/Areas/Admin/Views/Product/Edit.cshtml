@@ -3,77 +3,111 @@
     ViewBag.Title = "Edit Product";
 
 }
-    <form asp-action="Edit" method="post" enctype="multipart/form-data">
-        <input type="hidden" asp-for="ProductID" />
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="ProductID" />
 
-        <div class="form-group">
-            <label asp-for="Name"></label>
-            <div><span asp-validation-for="Name" class="text-danger"></span></div>
-            <input asp-for="Name" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label asp-for="Title"></label>
-            <div><span asp-validation-for="Title" class="text-danger"></span></div>
-            <input asp-for="Title" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label asp-for="ShortDescription"></label>
-            <div><span asp-validation-for="ShortDescription" class="text-danger"></span></div>
-            <textarea asp-for="ShortDescription" class="form-control"></textarea>
-        </div>
-        <div class="form-group">
-            <label asp-for="Description"></label>
-            <div><span asp-validation-for="Description" class="text-danger"></span></div>
-            <textarea asp-for="Description" class="form-control"></textarea>
-        </div>
-        <div class="form-group">
-            <label asp-for="Keywords"></label>
-            <div><span asp-validation-for="Keywords" class="text-danger"></span></div>
-            <textarea asp-for="Keywords" class="form-control"></textarea>
-        </div>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <div><span asp-validation-for="Name" class="text-danger"></span></div>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <div><span asp-validation-for="Title" class="text-danger"></span></div>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ShortDescription"></label>
+        <div><span asp-validation-for="ShortDescription" class="text-danger"></span></div>
+        <textarea asp-for="ShortDescription" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <div><span asp-validation-for="Description" class="text-danger"></span></div>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Keywords"></label>
+        <div><span asp-validation-for="Keywords" class="text-danger"></span></div>
+        <textarea asp-for="Keywords" class="form-control"></textarea>
+    </div>
 
-        <div class="form-group">
-            <label asp-for="Guarantee"></label>
-            <div><span asp-validation-for="Guarantee" class="text-danger"></span></div>
-            <textarea asp-for="Guarantee" class="form-control"></textarea>
-        </div>
+    <div class="form-group">
+        <label asp-for="Guarantee"></label>
+        <div><span asp-validation-for="Guarantee" class="text-danger"></span></div>
+        <textarea asp-for="Guarantee" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Facebook"></label>
+        <div><span asp-validation-for="Facebook" class="text-danger"></span></div>
+        <textarea asp-for="Facebook" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Instagram"></label>
+        <div><span asp-validation-for="Instagram" class="text-danger"></span></div>
+        <textarea asp-for="Instagram" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Twitter"></label>
+        <div><span asp-validation-for="Twitter" class="text-danger"></span></div>
+        <textarea asp-for="Twitter" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="WikiPedia"></label>
+        <div><span asp-validation-for="WikiPedia" class="text-danger"></span></div>
+        <textarea asp-for="WikiPedia" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Pinteret"></label>
+        <div><span asp-validation-for="Pinteret" class="text-danger"></span></div>
+        <textarea asp-for="Pinteret" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <div><span asp-validation-for="Price" class="text-danger"></span></div>
+        <input asp-for="Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="newvalue"></label>
+        <div><span asp-validation-for="newvalue" class="text-danger"></span></div>
+        <input asp-for="newvalue" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="discount"></label>
+        <div><span asp-validation-for="discount" class="text-danger"></span></div>
+        <input asp-for="discount" class="form-control" />
+    </div>
 
-        <div class="form-group">
-            <label asp-for="Price"></label>
-            <div><span asp-validation-for="Price" class="text-danger"></span></div>
-            <input asp-for="Price" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label asp-for="newvalue"></label>
-            <div><span asp-validation-for="newvalue" class="text-danger"></span></div>
-            <input asp-for="newvalue" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label asp-for="discount"></label>
-            <div><span asp-validation-for="discount" class="text-danger"></span></div>
-            <input asp-for="discount" class="form-control" />
-        </div>
-
-        <div class="form-group">
-            <label asp-for="BrandID"></label>
-            <select id="selectbrand" class="select2" name="state"></select>
-            <input type="hidden" asp-for="BrandID" />
-        </div>
-        <div class="form-group">
-            <label asp-for="CategoryID"></label>
-            <select id="selectcategory" class="select2" name="state"></select>
-            <input type="hidden" asp-for="CategoryID" />
-        </div>
-        <div class="form-group">
-            <input type="hidden" asp-for="Image" />
-            <label asp-for="Image"></label>
-            <input type="file" name="files" />
-        </div>
-        <div class="text-center">
-            <button class="btn btn-primary" type="submit">ذخیره</button>
-            <a asp-action="Index" class="btn btn-default">انصراف</a>
-        </div>
-    </form>
+    <div class="form-group">
+        <label asp-for="BrandID"></label>
+        <select id="selectbrand" class="select2" name="state"></select>
+        <input type="hidden" asp-for="BrandID" />
+    </div>
+    <div class="form-group">
+        <label asp-for="CategoryID"></label>
+        <select id="selectcategory" class="select2" name="state"></select>
+        <input type="hidden" asp-for="CategoryID" />
+    </div>
+    <div class="form-group">
+        <input type="hidden" asp-for="Image" />
+        <label asp-for="Image"></label>
+        <input type="file" name="files" />
+    </div>
+    <div class="form-group">
+        <input type="hidden" asp-for="Audio" />
+        <label asp-for="Audio"></label>
+        <input type="file" name="afiles" />
+    </div>
+    <div class="form-group">
+        <input type="hidden" asp-for="Video" />
+        <label asp-for="Video"></label>
+        <input type="file" name="mfiles" />
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit">ذخیره</button>
+        <a asp-action="Index" class="btn btn-default">انصراف</a>
+    </div>
+</form>
 @section Scripts
 {
     <script>
