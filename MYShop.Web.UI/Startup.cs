@@ -55,6 +55,31 @@ namespace MYShop.Web.UI
             services.AddMvc();
             services.AddMemoryCache();
             services.AddSession();
+            services.AddResponseCaching();
+
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddResponseCompression();
+            services.AddResponseCompression(options =>
+            {
+                options.EnableForHttps = true;
+            });
+
+            services.AddMvc(options =>
+            {
+                options.CacheProfiles.Add("default", new CacheProfile
+                {
+                    Duration = 1000,
+                    Location = ResponseCacheLocation.Any
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -65,9 +90,16 @@ namespace MYShop.Web.UI
             app.UseSession();
             app.UseHttpsRedirection();
             app.UseAuthentication();
-            if (!env.IsDevelopment())
+            app.UseResponseCompression();
+            app.UseResponseCaching();
+            if (env.IsDevelopment())
             {
-                app.UseExceptionHandler("/error/500");
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
             }
             app.UseMvc(routes => {
                 routes.MapRoute(
@@ -78,25 +110,9 @@ namespace MYShop.Web.UI
                 routes.MapRoute(
                 name: "default",
                 template: "{controller=home}/{action=index}/{id?}");
-                routes.MapRoute(
-            "Sitemap",
-            "sitemap.xml",
-            new { controller = "Home", action = "SiteMap" }
-            );
+               
             });
-            app.Use(async (ctx, next) =>
-            {
-                await next();
-
-                if (ctx.Response.StatusCode == 404 && !ctx.Response.HasStarted)
-                {
-                    //Re-execute the request so the user gets the error page
-                    string originalPath = ctx.Request.Path.Value;
-                    ctx.Items["originalPath"] = originalPath;
-                    ctx.Request.Path = "/error/404";
-                    await next();
-                }
-            });
+          
         }
     }
 }

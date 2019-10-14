@@ -114,6 +114,7 @@
                         <div class="pdetail right-align">
                             @await Component.InvokeAsync("Property", new { propductid = Model.ProductID, CategoryId = Model.CategoryID, isshort = true })
                         </div>
+
                     </div>
 
                 </div>
@@ -240,28 +241,29 @@
             </div>
         </div>
         @{
+           
+            @*var abase64 = Convert.ToBase64String(Model.Audio);
+            var oSrc = String.Format("data:audio/mpeg;base64,{0}", abase64);
 
 
-            if (Model.Audio.Length > 0)
+            if (!string.IsNullOrEmpty(Model.Audio.ToString()))
             {
-                var abase64 = Convert.ToBase64String(Model.Audio);
-                var oSrc = String.Format("data:audio/ogg;base64,{0}", abase64);
-                System.IO.File.WriteAllBytes("yourfilepath.wav", Model.Audio);
-        <div class="row">
-            <audio controls>
-               
-                <source src="~/images/ultra-1.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
 
-            }
-            if (Model.Video.Length > 0)
+                <div class="row">
+                    <audio controls>
+
+                        <source src="@oSrc" type="audio/mpeg" preload="none">
+                       مرورگر شما از فایل صوتی پشتیبانی نمی کند.
+                    </audio>
+                </div>
+
+            }*@
+            @*if (Model.Video.Length > 0)
             {
                 <div class="row">
 
                 </div>
-            }
+            }*@
 
         }
         <div class="box desc">

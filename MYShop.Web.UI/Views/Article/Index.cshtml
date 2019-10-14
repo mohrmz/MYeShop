@@ -13,23 +13,34 @@
 <div class="container-fluid">
 
     <article itemscope itemtype="http://schema.org/Article" class="card text-center " style="max-width: 400px;margin:20px;">
-        <a asp-controller="Article" asp-action="toshak" title="انتخاب تشک">
+        <div title="انتخاب تشک">
             <!-- Heading -->
             <div class="card-body">
 
                 <h4 itemprop="author" class="card-title text-black-50">راهنمای خرید تشک</h4>
-                <h6 itemprop="name" class="card-subtitle text-muted">مهمترین معیار های انتخاب یک تشک مناسب چیست؟</h6>
+                <h6 itemprop="headline name" class="card-subtitle text-muted">مهمترین معیار های انتخاب یک تشک مناسب چیست؟</h6>
+                <p itemprop="publisher" itemtype="http://schema.org/Organization" itemscope="">
+                    <span itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+                        <link itemprop="url" href="~/images/joor.jpg" />
+                    </span>
+                 <span itemprop="name">جورکده</span>
+                </p>
+              
             </div>
 
             <!-- Image -->
+            
+            <meta itemprop="dateModified" content="@DateTime.Today.ToString("yyyy-MM-dd")"> : تاریخ ویرایش @DateTime.Today.ToString("yyyy-MM-dd")
 
+            <meta itemprop="datePublished" content="2019-10-12">تاریخ ایجاد : 1398/07/20
 
-            <img src="~/images/toshak.jpg" alt="تشک" title="تشک" width="200" class="img-responsive-s" style="margin:auto">
+            <img itemprop="image" src="~/images/toshak.jpg" alt="تشک" title="تشک" width="200" class="img-responsive-s" style="margin:auto">
 
             <!-- Text Content -->
             <div class="card-body">
-                <p class="card-text text-black-50">جامع‌ترین راهنمای خرید تشک و نکات طلایی یک انتخاب خوب</p>
-                <p class="btn-c btn-p">ادامه</p>
+                <a itemprop="mainEntityOfPage" asp-controller="Article" asp-action="toshak" title="نکات طلایی انتخاب تشک خوب"><p itemprop="name" class="card-text text-black-50">جامع‌ترین راهنمای خرید تشک و نکات طلایی یک انتخاب خوب</p></a>
+
+                <a asp-controller="Article" asp-action="toshak" title="اصول انتخاب تشک" class="btn-c btn-p">ادامه</a>
             </div>
             <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
                 <div itemprop="interactionService" itemscope itemid="http://www.twitter.com" itemtype="http://schema.org/WebSite">
@@ -42,7 +53,7 @@
                 <meta itemprop="interactionType" content="http://schema.org/CommentAction" />
                 <meta itemprop="userInteractionCount" content="78" />
             </div>
-        </a>
+        </div>
     </article>
     </div>
 

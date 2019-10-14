@@ -2,6 +2,7 @@
 using MYShop.Domain.Contract.Repositories;
 using MYShop.Domain.Entities;
 using MYShop.Web.UI.Models;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -102,6 +103,11 @@ namespace MYShop.Web.UI.Controllers
               return  RedirectToAction("index"); ;
             
 
+        }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
     }
