@@ -21,7 +21,7 @@ namespace MYShop.Domain.Contract.Repositories
         Price GetPriceById(int ProductId);
         ProductColor GetColorById(int ColorId);
         Product FindById(int ProductId);
-        PagedResult<Product> GetPagedData(int category, int pageNumber, string value, int PageSize);
+        PagedResult<Product> GetPagedData(int category,int product, int pageNumber, string value, int PageSize);
         void SaveProduct(Product product);
         void SavePrice(Price Price);
 

@@ -33,7 +33,7 @@ namespace MYShop.DAL.EF.Repositories
 
         public List<Product> GetAll()
         {
-            return _context.Products.ToList();
+            return _context.Products.Include(c=>c.Brand).ToList();
         }
 
         public List<Category> GetAllCategories()
@@ -56,9 +56,9 @@ namespace MYShop.DAL.EF.Repositories
             //return _context.Products.Find(ProductId);
         }
 
-        public PagedResult<Product> GetPagedData(int category, int pageNumber, string value, int PageSize)
+        public PagedResult<Product> GetPagedData(int category,int product, int pageNumber, string value, int PageSize)
         {
-            var query = _context.Products.Include(c => c.Brand).Where(c => (category==0 || c.CategoryID == category) && (string.IsNullOrEmpty(value)||c.Name.StartsWith(value)||c.Brand.Name.StartsWith(value)||c.Category.Name.StartsWith(value)));
+            var query = _context.Products.Include(c => c.Brand).Where(c => (product == 0 || c.ProductID == product) && (category==0 || c.CategoryID == category) && (string.IsNullOrEmpty(value)||c.Name.StartsWith(value)||c.Brand.Name.StartsWith(value)||c.Category.Name.StartsWith(value)));
             PagedResult<Product> result = new PagedResult<Product>();
             result.pagingData.CurrentPage = pageNumber;
             result.pagingData.ItemsPerPage = PageSize;

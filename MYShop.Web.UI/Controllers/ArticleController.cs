@@ -16,5 +16,14 @@ namespace MYShop.Web.UI.Controllers
         {
             return View();
         }
+        public IActionResult balesh()
+        {
+            return View();
+        }
+        public IActionResult harfzadandarkhab()
+        {
+            return View();
+        }
+
     }
 }

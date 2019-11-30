@@ -48,13 +48,13 @@ namespace MYShop.Web.UI.Controllers
             string data = System.IO.File.ReadAllText("/wwwroot/manifest.json", Encoding.UTF8);
             return Content(data, "text/json");
         }
-        public IActionResult Index(int CategoryId, string value, int page =1)
+        public IActionResult Index(int CategoryId,int ProductID, string value, int page =1)
         {
 
             ViewBag.bb = _repo.GetAllCategories();
             HomeViewModel model = new HomeViewModel();
             model.Category = CategoryId;
-            model.Result = _repo.GetPagedData(CategoryId, page, value, pagesize);
+            model.Result = _repo.GetPagedData(CategoryId,ProductID, page, value, pagesize);
             return View(model);
         }
         public IActionResult Product(Product product)

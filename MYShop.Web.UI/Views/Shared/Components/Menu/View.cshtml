@@ -60,22 +60,23 @@
                             <a class="nav-h" href="#" title="@hitem.Name">@hitem.Name</a>
                             <div class="menu-con" style="background-image:url(@imgSrc1);  background-repeat: no-repeat;background-size: 300px 200px;background-position:left bottom;">
                                 <div class="nav-column border">
-
-                                    @foreach (var cat in ViewBag.brand)
-                                    {
-
-
-                                        <span class="head"><span class="fa fa-angle-left "></span>  برند ها</span>
+                                    <span class="head"><span class="fa fa-angle-left "></span>  برند ها</span>
+                                    <ul id="col">
+                                        @foreach (var cat in ViewBag.brand)
+                                        {
 
 
-                                        <ul id="col">
+
+
+
+
                                             <li>
                                                 <a href="@Url.Action("index", "Home")" title="@cat.Name"> @cat.Name</a>
                                             </li>
-                                        </ul>
-                                    }
 
-                                </div>
+                                        }
+                                     </ul>
+                                    </div>
 
 
                                 @foreach (var item in Model.Where(d => d.Clevel == 1 && d.ParentId == hitem.CategoryID))
@@ -113,7 +114,7 @@
 
             @foreach (var ccc in ViewBag.products)
             {
-                <a href="#" title="home">@ccc.Name</a>
+                <a href="@Url.Action("index", "Home", new { ProductID = ccc.ProductID })" title="@ccc.Name">@ccc.Name  @ccc.Brand.Name</a>
             }
 
 

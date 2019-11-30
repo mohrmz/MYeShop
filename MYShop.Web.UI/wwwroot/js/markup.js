@@ -24,7 +24,7 @@
     }
 </script>
     <script type="application/ld+json">
-        {
+    {
             "@@context" : "http://schema.org",
         "@@type" : "WebSite",
         "name" : "joorkadeh",
@@ -33,6 +33,7 @@
             "@@type" : "SearchAction",
     "target" : "http://joorkadeh.com/home/index?value={search_term}",
         "query-input" : "required name=search_term"
-        }
+        
+    }
         }
 </script>
